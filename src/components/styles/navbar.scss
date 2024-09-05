@@ -1,4 +1,5 @@
 @use 'variables' as *;
+@use 'mixins' as *;
 
 .navbar-container {
   width: 100%;
@@ -51,4 +52,39 @@
     }
   }
   
+}
+
+
+@include apply-from(tablet) {
+  .navbar-container {
+
+    .profile-link {
+      display: block;
+    }
+  }
+}
+
+@include apply-from(desktop) {
+  .navbar-container {
+    margin: 0 auto;
+    padding: $w-section-padding;
+
+    .desktop-links {
+      display: flex;
+      column-gap: 35px;
+    }
+
+    .menu {
+      display: none;
+    }
+
+    .logo-search-con {
+      position: relative;
+      left: 35px;
+    }
+
+    .side-links {
+      column-gap: 20px;
+    }
+ } 
 }

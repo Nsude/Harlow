@@ -1,0 +1,76 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+body {
+  background-color: $off-white;
+  color: $black;
+  font-size: $body-copy;
+  padding: $m-body-padding;
+  font-family: "HaasRegular";
+  letter-spacing: 0.02ch;
+  overflow-x: hidden;
+  margin: 0;
+}
+
+h2 {
+  font-size: $header;
+  letter-spacing: -0.02ch;
+}
+
+p {
+  font-size: $body-copy;
+}
+
+body * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body button {
+  background: none;
+  border: none;
+  color: $black;
+}
+
+*.flex {
+  display: flex;
+  align-items: center;
+
+  &.wrap {
+    flex-wrap: wrap;
+  }
+
+  &.jc-c {
+    justify-content: center;
+  }
+
+  &.jc-sb {
+    justify-content: space-between;
+  }
+
+  &.fd-c {
+    flex-direction: column;
+    justify-content: center;
+  } 
+
+  &.cg-5 {
+    column-gap: 5px;
+  }
+
+  &.cg-10 {
+    column-gap: 10px;
+  }
+
+  &.cg-15 {
+    column-gap: 15px;
+  }
+
+}
+
+
+@include apply-from(tablet) {
+  body {
+    padding: 0;
+  }
+}

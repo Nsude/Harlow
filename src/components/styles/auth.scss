@@ -1,0 +1,260 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.form-container {
+  height: 100%;
+  margin-top: 80px;
+  padding-bottom: 50px;
+
+  .side-image {
+    display: none;
+  }
+
+  .wrap-form {
+    width: 100%;
+  }
+}
+
+.auth-form {
+  width: 100%;
+  font-family: "HaasMedium";
+  font-size: $title;
+
+
+  .form-intro {
+    margin-bottom: 25px;
+
+    h2 { 
+      margin-bottom: 5px;
+    }
+
+    p {
+      opacity: .5;
+    }
+  }
+
+  .google-button {
+    font-family: "HaasRegular";
+    font-size: $body-copy;
+    margin-bottom: 35px;
+    background: none;
+    border: $border;
+    color: $black;
+  }
+
+  .line-con {
+    position: relative;
+    width: 25%;
+    margin-bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    .line {
+      width: 100%;
+      border-bottom: $border;
+    }
+
+    p {
+      position: absolute;
+      top: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: $off-white;
+      padding: 0 10px;
+    }
+  }
+
+
+  label p {
+    margin-bottom: 10px;
+    font-size: $title;
+  }
+
+  input {
+    margin-bottom: 25px;
+    border: $border;
+    background: none;
+    height: $m-input;
+    padding: $input-padding;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  input.invalid-input {
+    margin-bottom: 5px;
+    border-color: $accent;
+  }
+
+  input.valid-input {
+    border: $valid-input-border;
+  }
+
+  input, 
+  button {
+    border-radius: $border-radius;
+    width: 100%;
+  }
+
+  .password-con {
+    position: relative;
+    margin-bottom: 25px;
+
+    input {
+      margin-bottom: 0;
+    }
+  }
+
+  button.hide-view-icon {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 10px;
+    background: none;
+    padding: 0;
+    height: 20px;
+    width: fit-content;
+    transition: transform $td $ttf;
+
+    &:active {
+      transform: translateY(-30%);
+    } 
+  }
+
+  .error-message {
+    background-color: rgba($color: $accent, $alpha: 0.2);
+    padding: $m-con-padding;
+    width: 100%;
+    color: $accent;
+    margin-bottom: 25px;
+    border-radius: $border-radius;
+
+    p {
+      margin-bottom: 0;
+      font-size: $body-copy;
+    }
+
+    ul {
+      padding: 0 20px 0;
+    }
+
+  }
+
+  button {
+    border: none;
+    height: $m-input;
+    background: $black;
+    color: $off-white;
+    cursor: pointer;
+    transition: transform 200ms linear;
+
+    .arrow {
+      padding: 4px 0 0;
+    }
+
+    &:active {
+      transform: translateY(3px);
+    }
+  }
+
+  button.submit-form {
+    border: 1.25px solid $black;
+    overflow: hidden;
+    margin-bottom: 15px;
+  }
+
+  button[data-disable="false"] {
+    // opacity: .7;
+    pointer-events: none;
+  }
+
+  .login-prompt {
+    font-size: $body-copy;
+    color: $black;
+    text-align: center;
+
+    a {
+      color: $black;
+    }
+  }
+  
+}
+
+/* Min-Width: 768px */
+@include apply-from(tablet) {
+
+  .form-container {
+    margin-top: 0;
+    padding-bottom: 0;
+    height: 100vh;
+    padding: $w-section-padding;
+
+    .wrap-form {
+      width: 55%;
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+
+  .auth-form {
+
+    label {
+      width: 100%;
+    }
+
+    input, button {
+      height: $w-input;
+    }
+
+    input {
+      padding-inline: $w-padding;
+    }
+
+    .name, .password {
+      display: flex;
+      align-items: center;
+      column-gap: 10px;
+    }
+
+  }
+}
+
+/* Min-Width: 1200px */
+@include apply-from(desktop) {
+  .form-container {
+    padding: 0;
+
+    .side-image {
+      display: block;
+      height: 100vh;
+      width: 130%;
+      background-color: $black;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .side-image :first-child {
+      position: absolute;
+      left: 35px;
+      top: 35px;
+    }
+
+    .side-image video {
+      height: 100%;
+    }
+
+    .wrap-form {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+
+    .auth-form {
+      width: 70%;
+    }
+  }
+  
+}

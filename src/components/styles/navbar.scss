@@ -1,12 +1,12 @@
-@use 'variables' as *;
-@use 'mixins' as *;
+@use "variables" as *;
+@use "mixins" as *;
 
 .navbar-container {
   width: 100%;
   flex-wrap: wrap;
   padding: 15px 0;
   position: relative;
- 
+
   a {
     color: $black;
     text-decoration: none;
@@ -51,9 +51,7 @@
       margin-bottom: 5px;
     }
   }
-  
 }
-
 
 @include apply-from(tablet) {
   .navbar-container {
@@ -67,7 +65,6 @@
 
 @include apply-from(desktop) {
   .navbar-container {
-
     .desktop-links {
       display: flex;
       column-gap: 25px;
@@ -80,6 +77,7 @@
       }
 
       a:hover {
+        transition-delay: $td2;
         color: $off-white;
       }
 
@@ -96,7 +94,7 @@
       }
 
       a:hover::before {
-        transition: none;
+        // transition: none;
         width: calc(100% + 9px);
       }
     }
@@ -123,7 +121,7 @@
       left: 0;
       transform: none;
       justify-content: space-between;
-      width: 22%;
+      width: 27%;
     }
 
     .search-box {
@@ -136,5 +134,5 @@
         padding: 0;
       }
     }
- } 
+  }
 }

@@ -7,7 +7,7 @@ $breakpoints: (
 /* Media Querry */
 @mixin apply-from($breakpoint) {
   @if map-has-key($breakpoints, $breakpoint) {
-    @media only screen and (min-width: map-get($breakpoints, $breakpoint)){
+    @media only screen and (min-width: map-get($breakpoints, $breakpoint)) {
       @content;
     }
   } @else {

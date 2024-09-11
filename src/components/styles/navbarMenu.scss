@@ -1,0 +1,91 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.navmenu-container {
+  width: 100%;
+  height: 100vh;
+  background-color: $black;
+  position: fixed;
+  left: 0;
+  top: 0;
+  padding: $m-section-padding;
+  z-index: 100;
+  overflow-y: scroll;
+  padding-bottom: 120px;
+
+  button {
+    color: $off-white;
+  }
+
+  .close-button {
+    font-size: $title;
+    margin-bottom: 65px;
+  }
+
+  .nav-option {
+    padding: $w-padding 0;
+    width: 100%;
+    height: 60px;
+    font-family: "HaasBold";
+
+    &:not(:last-child) {
+      border-bottom: $light-border;
+    }
+  }
+
+  .login {
+    position: absolute;
+    bottom: 17dvh;
+  }
+}
+
+/* Navbar Option */
+.nav-option-container {
+  color: $off-white;
+
+  .previous p {
+    opacity: 0.65;
+  }
+
+  .previous div {
+    transform: rotate(180deg);
+  }
+
+  .previous {
+    width: 100%;
+    height: 60px;
+    padding-block: $m-padding;
+    border-bottom: $light-border;
+  }
+}
+
+/* Accordion */
+.accordion-container {
+  padding: 22.5px 0;
+  border-bottom: $light-border;
+  width: 100%;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  .title-con {
+    width: 100%;
+    font-family: "HaasBold";
+
+    &[data-open="true"] {
+      margin-bottom: 15px;
+    }
+  }
+
+  .children-con {
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .children-con a {
+    color: $off-white;
+    padding: $m-padding;
+    opacity: 0.6;
+  }
+}

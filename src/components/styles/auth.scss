@@ -1,5 +1,5 @@
-@use 'variables' as *;
-@use 'mixins' as *;
+@use "variables" as *;
+@use "mixins" as *;
 
 .form-container {
   height: 100%;
@@ -20,16 +20,15 @@
   font-family: "HaasMedium";
   font-size: $title;
 
-
   .form-intro {
     margin-bottom: 25px;
 
-    h2 { 
+    h2 {
       margin-bottom: 5px;
     }
 
     p {
-      opacity: .5;
+      opacity: 0.5;
     }
   }
 
@@ -64,7 +63,6 @@
     }
   }
 
-
   label p {
     margin-bottom: 10px;
     font-size: $title;
@@ -91,7 +89,7 @@
     border: $valid-input-border;
   }
 
-  input, 
+  input,
   button {
     border-radius: $border-radius;
     width: 100%;
@@ -120,12 +118,12 @@
 
     &:active {
       transform: translateY(-30%);
-    } 
+    }
   }
 
   .error-message {
     background-color: rgba($color: $accent, $alpha: 0.2);
-    padding: $m-con-padding;
+    padding: 10px;
     width: 100%;
     color: $accent;
     margin-bottom: 25px;
@@ -139,7 +137,6 @@
     ul {
       padding: 0 20px 0;
     }
-
   }
 
   button {
@@ -179,12 +176,10 @@
       color: $black;
     }
   }
-  
 }
 
 /* Min-Width: 768px */
 @include apply-from(tablet) {
-
   .form-container {
     margin-top: 0;
     padding-bottom: 0;
@@ -198,14 +193,13 @@
     }
   }
 
-
   .auth-form {
-
     label {
       width: 100%;
     }
 
-    input, button {
+    input,
+    button {
       height: $w-input;
     }
 
@@ -213,12 +207,12 @@
       padding-inline: $w-padding;
     }
 
-    .name, .password {
+    .name,
+    .password {
       display: flex;
       align-items: center;
       column-gap: 10px;
     }
-
   }
 }
 
@@ -256,5 +250,4 @@
       width: 70%;
     }
   }
-  
 }

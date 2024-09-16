@@ -1,14 +1,15 @@
 /* Colors */
-$off-white: #FAF9F6;
+$off-white: #faf9f6;
 $black: #171717;
-$accent: #F060E2;
+$accent: #f060e2;
 $error: #d33232;
 
 /* Padding */
-$m-con-padding: 10px;
-$m-body-padding: 0px 25px;
+$m-body-padding: 0px 20px;
+$m-section-padding: 15px 20px;
+$m-padding: 15px;
 $w-padding: 15px;
-$w-section-padding: 0px 35px;
+$w-section-padding: 15px 35px;
 $input-padding: 0px 10px;
 
 /* Font Sizes */
@@ -17,32 +18,42 @@ $title: 20px;
 $header: 30px;
 
 /* border */
-$border: 1.25px solid rgba($color: $black, $alpha: 0.3);
+$border: 1.25px solid
+  rgba(
+    $color: $black,
+    $alpha: 0.3
+  );
 $valid-input-border: 2.25px solid $black;
+$light-border: 1.25px solid
+  rgba(
+    $color: $off-white,
+    $alpha: 0.6
+  );
 $border-radius: 8px;
 
 /* Size */
 $m-input: 40px;
-$w-input: 50px; 
+$w-input: 50px;
 
 /* Transition */
 $td: 400ms; // transition duration
+$td2: 300ms;
 $ttf: linear; //transition timing function
 
 @font-face {
   font-family: "HaasRegular";
-  src: url('../../assets/fonts/NHG-reg.TTF');
+  src: url("../../assets/fonts/NHG-reg.TTF");
   font-weight: 400;
 }
 
 @font-face {
   font-family: "HaasMedium";
-  src: url('../../assets/fonts/NHG-medium.TTF');
+  src: url("../../assets/fonts/NHG-medium.TTF");
   font-weight: 500;
 }
 
 @font-face {
   font-family: "HaasBold";
-  src: url('../../assets/fonts/NHG-bold.TTF');
+  src: url("../../assets/fonts/NHG-bold.TTF");
   font-weight: 700;
 }

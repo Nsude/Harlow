@@ -1,12 +1,15 @@
-import React, { PropsWithChildren } from 'react'
-import Navbar from '../Navbar';
+import React, { PropsWithChildren } from "react";
+import Navbar from "../Navbar/Navbar";
+import { NavbarContextProvider } from "../contexts/NavbarContext";
 
 const Homepage = () => {
   return (
     <div className="homepage-container">
-      <Navbar />
+      <NavbarContextProvider>
+        <Navbar />
+      </NavbarContextProvider>
     </div>
-  )
-}
+  );
+};
 
 export default Homepage;

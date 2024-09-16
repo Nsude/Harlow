@@ -1,11 +1,12 @@
-@use 'variables' as *;
+@use "variables" as *;
+@use "mixins" as *;
 
 .navbar-container {
   width: 100%;
   flex-wrap: wrap;
   padding: 15px 0;
   position: relative;
- 
+
   a {
     color: $black;
     text-decoration: none;
@@ -50,5 +51,88 @@
       margin-bottom: 5px;
     }
   }
-  
+}
+
+@include apply-from(tablet) {
+  .navbar-container {
+    padding: $w-section-padding;
+
+    .profile-link {
+      display: block;
+    }
+  }
+}
+
+@include apply-from(desktop) {
+  .navbar-container {
+    .desktop-links {
+      display: flex;
+      column-gap: 25px;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+
+      a {
+        position: relative;
+      }
+
+      a:hover {
+        transition-delay: $td2;
+        color: $off-white;
+      }
+
+      a::before {
+        content: "";
+        position: absolute;
+        left: -5px;
+        top: 0;
+        height: 100%;
+        width: 0;
+        background-color: $black;
+        z-index: -1;
+        transition: width $td2 ease-out;
+      }
+
+      a:hover::before {
+        // transition: none;
+        width: calc(100% + 9px);
+      }
+    }
+
+    .menu {
+      display: none;
+    }
+
+    .logo-search-con {
+      position: relative;
+      left: 35px;
+    }
+
+    .side-links {
+      column-gap: 20px;
+    }
+
+    .m-search-button {
+      display: none;
+    }
+
+    .logo-search-con {
+      position: relative;
+      left: 0;
+      transform: none;
+      justify-content: space-between;
+      width: 27%;
+    }
+
+    .search-box {
+      display: block;
+
+      input {
+        background: none;
+        border: none;
+        font-size: $title;
+        padding: 0;
+      }
+    }
+  }
 }

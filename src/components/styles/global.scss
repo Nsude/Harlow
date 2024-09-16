@@ -1,5 +1,5 @@
-@use 'variables' as *;
-@use 'mixins' as *;
+@use "variables" as *;
+@use "mixins" as *;
 
 body {
   background-color: $off-white;
@@ -25,12 +25,25 @@ body * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  line-height: 1;
 }
 
 body button {
+  cursor: pointer;
   background: none;
   border: none;
   color: $black;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body input:focus {
+  outline: none;
+}
+
+body a {
+  color: $black;
+  text-decoration: none;
+  font-size: $body-copy;
 }
 
 *.flex {
@@ -52,7 +65,7 @@ body button {
   &.fd-c {
     flex-direction: column;
     justify-content: center;
-  } 
+  }
 
   &.cg-5 {
     column-gap: 5px;
@@ -65,9 +78,7 @@ body button {
   &.cg-15 {
     column-gap: 15px;
   }
-
 }
-
 
 @include apply-from(tablet) {
   body {

@@ -3,7 +3,7 @@
 
 .navmenu-container {
   width: 100%;
-  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
   background-color: $black;
   position: fixed;
   left: 0;
@@ -12,6 +12,7 @@
   z-index: 100;
   overflow-y: scroll;
   padding-bottom: 120px;
+  transform: translateX(-110%);
 
   button {
     color: $off-white;
@@ -35,7 +36,7 @@
 
   .login {
     position: absolute;
-    bottom: 17dvh;
+    bottom: 30px;
   }
 }
 
@@ -56,36 +57,36 @@
     height: 60px;
     padding-block: $m-padding;
     border-bottom: $light-border;
+    opacity: 0;
   }
 }
 
 /* Accordion */
 .accordion-container {
-  padding: 22.5px 0;
   border-bottom: $light-border;
   width: 100%;
+  display: grid;
+  grid-template-rows: 60px 0fr;
 
   &:last-child {
     border-bottom: none;
   }
 
-  .title-con {
+  button {
+    padding: 22.5px 0;
     width: 100%;
     font-family: "HaasBold";
-
-    &[data-open="true"] {
-      margin-bottom: 15px;
-    }
   }
 
   .children-con {
     align-items: flex-start;
     width: 100%;
+    overflow: hidden;
+    opacity: 0;
   }
 
   .children-con a {
     color: $off-white;
     padding: $m-padding;
-    opacity: 0.6;
   }
 }

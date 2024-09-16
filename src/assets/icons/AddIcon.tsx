@@ -2,7 +2,7 @@ import React from "react";
 import { IconProps } from "../../models";
 import { useGlobalContext } from "../../components/contexts/GlobalContex";
 
-const AddIcon: React.FC<IconProps> = ({ size, color }) => {
+const AddIcon: React.FC<IconProps> = ({ size, color, active }) => {
   const { colors } = useGlobalContext();
   return (
     <svg width={size || 20} height={size || 20} viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -8,7 +8,6 @@ interface MenuItem {
 export interface MenuList {
   name: string;
   items?: MenuItem[];
-  single?: boolean;
 }
 
 interface NavbarProps {
@@ -46,7 +45,7 @@ const menuItems: MenuItem[] = [
     children: ["All", "Infants", "Juniors", "Little Kids"]
   },
   {
-    title: "Accssories",
+    title: "Accessories",
     children: ["All Accessories", "Bags", "Caps", "Socks"]
   },
   {
@@ -62,8 +61,8 @@ const NavbarContextProvider: React.FC<{ children: ReactNode }> = ({ children }) 
     { name: "Men", items: menuItems },
     { name: "Women", items: menuItems },
     { name: "Kids", items: menuItems },
-    { name: "Sale", items: menuItems },
-    { name: "Explore", single: true }
+    { name: "Sale" },
+    { name: "Explore" }
   ];
 
   return <NavbarContext.Provider value={{ menuOpen, setMenuOpen, menuLists }}>{children}</NavbarContext.Provider>;

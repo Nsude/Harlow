@@ -65,6 +65,19 @@
 
 @include apply-from(desktop) {
   .navbar-container {
+    color: $black;
+    pointer-events: none;
+
+    &.menu-open {
+      color: $off-white !important;
+    }
+
+    .desktop-links,
+    .logo-search-con,
+    .side-links {
+      pointer-events: all;
+    }
+
     .desktop-links {
       display: flex;
       column-gap: 25px;
@@ -74,11 +87,24 @@
 
       a {
         position: relative;
+        color: inherit;
       }
 
       a:hover {
         transition-delay: $td2;
         color: $off-white;
+      }
+
+      a.active-nav-menu {
+        color: $black;
+      }
+
+      a.active-nav-menu::before {
+        width: calc(100% + 9px);
+      }
+
+      a.menu-open:hover {
+        color: $black;
       }
 
       a::before {
@@ -94,18 +120,17 @@
       }
 
       a:hover::before {
-        // transition: none;
         width: calc(100% + 9px);
+      }
+
+      /* Nenu Open */
+      a.menu-open::before {
+        background-color: $off-white;
       }
     }
 
     .menu {
       display: none;
-    }
-
-    .logo-search-con {
-      position: relative;
-      left: 35px;
     }
 
     .side-links {
@@ -124,6 +149,10 @@
       width: 27%;
     }
 
+    .logo-search-con :first-child {
+      cursor: pointer;
+    }
+
     .search-box {
       display: block;
 
@@ -132,6 +161,7 @@
         border: none;
         font-size: $title;
         padding: 0;
+        color: inherit;
       }
     }
   }

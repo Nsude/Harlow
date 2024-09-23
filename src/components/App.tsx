@@ -1,9 +1,13 @@
+import { NavbarContextProvider } from "./contexts/NavbarContext";
 import Homepage from "./HomePage/Homepage";
+import Navbar from "./Navbar/Navbar";
 
 function App() {
   return (
     <div className="App">
-      <Homepage />
+      <NavbarContextProvider>
+        <Navbar />
+      </NavbarContextProvider>
     </div>
   );
 }

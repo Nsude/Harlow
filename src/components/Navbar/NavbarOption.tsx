@@ -4,7 +4,7 @@ import { useGlobalContext } from "../contexts/GlobalContex";
 import Accordion from "./Accordion";
 import { useNavContext } from "../contexts/NavbarContext";
 import { gsap } from "gsap";
-import { menuOpenAnim } from "./NavbarMenu";
+import { menuOpenAnim } from "./MobileNavbarMenu";
 
 interface Props {
   option: string;

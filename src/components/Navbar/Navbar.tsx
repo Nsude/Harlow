@@ -3,24 +3,48 @@ import { Link } from "react-router-dom";
 import ProfileIcon from "../../assets/icons/ProfileIcon";
 import CartIcon from "../../assets/icons/CartIcon";
 import SearchIcon from "../../assets/icons/SearchIcon";
-import NavbarMenu from "./NavbarMenu";
-import { useNavContext } from "../contexts/NavbarContext";
+import { MenuList, useNavContext } from "../contexts/NavbarContext";
+import MobileNavbarMenu from "./MobileNavbarMenu";
+import DesktopNavbarMenu, { closeNavMenuTimeout } from "./DesktopNavbarMenu";
+import { useGlobalContext } from "../contexts/GlobalContex";
+import { addClass, removeClass } from "../utils";
 
 const Navbar = () => {
-  const { menuOpen, setMenuOpen } = useNavContext();
+  const { setMenuOpen, selectedOption, setSelectedOption, menuLists } = useNavContext();
+  const { colors } = useGlobalContext();
+
+  const menuOptionHover = (menu: MenuList) => {
+    if (!menu.items) return;
+    setSelectedOption(menu.name);
+  };
+
+  const setActiveMenu = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    removeClass("active-nav-menu");
+    addClass(e.target as HTMLAnchorElement, "active-nav-menu");
+  };
+
+  const keepMenuOpen = () => {
+    if (!selectedOption) return;
+    clearTimeout(closeNavMenuTimeout);
+  };
 
   return (
     <>
-      <NavbarMenu />
+      <MobileNavbarMenu />
+      <DesktopNavbarMenu />
 
-      <nav className="navbar-container flex jc-sb">
+      <nav
+        onMouseEnter={() => keepMenuOpen()}
+        className={`navbar-container flex jc-sb ${selectedOption ? "menu-open" : ""}`}
+      >
         <button className="menu" onClick={() => setMenuOpen(true)}>
           Menu
         </button>
 
         {/* logo */}
         <div className="logo-search-con flex">
-          <Logo />
+          <Logo color={selectedOption ? colors.offWhite : ""} />
           <div className="search-box">
             <input type="text" placeholder="Search" />
           </div>
@@ -28,10 +52,20 @@ const Navbar = () => {
 
         {/* Destop Links */}
         <div className="desktop-links">
-          <Link to={"/men"}>Men</Link>
-          <Link to={"/women"}>Women</Link>
-          <Link to={"/kids"}>Kids</Link>
-          <Link to={"/sale"}>Sale</Link>
+          {menuLists &&
+            menuLists.map((item) => (
+              <Link
+                key={item.name}
+                to={`/${item.name.toLocaleLowerCase()}`}
+                className={`${selectedOption ? "menu-open" : ""}`}
+                onMouseEnter={() => {
+                  menuOptionHover(item);
+                }}
+                onClick={(e) => setActiveMenu(e)}
+              >
+                {item.name}
+              </Link>
+            ))}
         </div>
 
         <div className="side-links flex cg-15">
@@ -39,10 +73,10 @@ const Navbar = () => {
             <SearchIcon />
           </button>
           <Link to={"/profile"} className="profile-link">
-            <ProfileIcon />{" "}
+            <ProfileIcon color={selectedOption ? colors.offWhite : ""} />
           </Link>
           <Link to={"/cart"}>
-            <CartIcon />
+            <CartIcon color={selectedOption ? colors.offWhite : ""} />
           </Link>
         </div>
       </nav>

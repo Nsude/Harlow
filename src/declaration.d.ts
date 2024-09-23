@@ -6,3 +6,18 @@ declare module "*.mp4" {
 declare interface ImportMeta {
   readonly env: any;
 }
+
+/* Image */
+declare module "*.png" {
+  const src: string;
+  export default src;
+}
+
+declare module "*.gif" {
+  const src: string;
+  export default src;
+}
+declare module "*.webp" {
+  const src: string;
+  export default src;
+}

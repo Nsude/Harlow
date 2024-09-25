@@ -31,14 +31,12 @@
     padding: $m-body-padding;
     left: 0;
     width: 100%;
-    opacity: .5;
+    opacity: 0.5;
   }
-
 }
 
 @include apply-from(desktop) {
   .hero-section-container {
-
     .cta-container {
       position: absolute;
       left: 0;
@@ -47,7 +45,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      z-index: 10;
+      z-index: 1;
     }
 
     .cta-container a {
@@ -56,7 +54,6 @@
 
     .hero-scroller {
       display: block;
-      overflow: hidden;
     }
 
     .scroller {
@@ -82,7 +79,7 @@
     .hero-images img:nth-child(1) {
       grid-row: span 5;
       grid-column: span 3;
-      opacity: .2;
+      opacity: 0.2;
     }
 
     .hero-images img:nth-child(2) {

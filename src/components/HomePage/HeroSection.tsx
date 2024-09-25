@@ -76,6 +76,7 @@ const HeroSection = () => {
       // bottom info
       gsap.to(".bottom-info", {
         opacity: 0,
+        position: "fixed",
         scrollTrigger: {
           scrub: 0.1
         }

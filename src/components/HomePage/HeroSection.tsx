@@ -1,10 +1,14 @@
-import React, { useEffect, useRef, useState } from "react";
-import placeHolderImg from "../../assets/media/images/navmenu-image (9).webp";
+import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import useCustomEffect from "../../hooks/useCustomEffect";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGlobalContext } from "../contexts/GlobalContex";
+import heroImage1 from "../../assets/media/images/hero-image(1).webp";
+import heroImage2 from "../../assets/media/images/hero-image(2).webp";
+import heroImage3 from "../../assets/media/images/hero-image(3).webp";
+import heroImage4 from "../../assets/media/images/hero-image(4).webp";
+import heroImage5 from "../../assets/media/images/hero-image(5).webp";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -104,11 +108,11 @@ const HeroSection = () => {
       <div className="hero-scroller">
         <div className="scroller">
           <div className="hero-images">
-            <img src={placeHolderImg} alt="hero-section-image" />
-            <img src={placeHolderImg} alt="hero-section-image" />
-            <img src={placeHolderImg} alt="hero-section-image" />
-            <img src={placeHolderImg} alt="hero-section-image" />
-            <img src={placeHolderImg} alt="hero-section-image" />
+            <img src={heroImage1} alt="hero-section-image" />
+            <img src={heroImage2} alt="hero-section-image" />
+            <img src={heroImage3} alt="hero-section-image" />
+            <img src={heroImage4} alt="hero-section-image" />
+            <img src={heroImage5} alt="hero-section-image" />
           </div>
         </div>
       </div>

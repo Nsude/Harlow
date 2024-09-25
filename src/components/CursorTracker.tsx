@@ -12,9 +12,8 @@ const CursorTracker = () => {
     gsap.to(".cursor-tracker", {
       left: mousePos.x,
       top: mousePos.y,
-      duration: .2
-    })
-
+      duration: 0.2
+    });
   }, [mousePos?.x, mousePos?.y]);
 
   return <div ref={cursorRef} className="cursor-tracker"></div>;

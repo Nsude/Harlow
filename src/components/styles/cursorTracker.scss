@@ -1,7 +1,9 @@
 @use "variables" as *;
+@use "mixins" as *;
 
 .cursor-tracker {
-  position: absolute;
+  display: none;
+  position: fixed;
   height: 15px;
   aspect-ratio: 1 / 1;
   background-color: $off-white;
@@ -10,4 +12,10 @@
   transform: translate(-50%, -50%);
   z-index: 1000;
   pointer-events: none;
+}
+
+@include apply-from(desktop) {
+  .cursor-tracker {
+    display: block;
+  }
 }

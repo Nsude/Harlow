@@ -1,0 +1,105 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.hero-section-container {
+  width: 100%;
+  height: 100dvh;
+  display: grid;
+  align-items: center;
+
+  .cta-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    row-gap: 35px;
+  }
+
+  .cta-container a {
+    font-family: "HaasMedium";
+    font-size: $header;
+    letter-spacing: -0.02ch;
+    text-decoration: underline;
+  }
+
+  .hero-scroller {
+    display: none;
+  }
+
+  .bottom-info {
+    position: absolute;
+    bottom: 25px;
+    padding: $m-body-padding;
+    left: 0;
+    width: 100%;
+    opacity: 0.5;
+  }
+}
+
+@include apply-from(desktop) {
+  .hero-section-container {
+    .cta-container {
+      position: absolute;
+      left: 0;
+      width: 100%;
+      padding: $w-section-padding;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1;
+    }
+
+    .cta-container a {
+      color: $off-white;
+    }
+
+    .hero-scroller {
+      display: block;
+    }
+
+    .scroller {
+      width: max-content;
+      display: flex;
+      column-gap: 3px;
+    }
+
+    .hero-images {
+      width: 100vw;
+      display: grid;
+      grid-template-columns: repeat(15, 1fr);
+      grid-template-rows: repeat(5, 100px);
+      column-gap: 3px;
+    }
+
+    .hero-images img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-images img:nth-child(1) {
+      grid-row: span 5;
+      grid-column: span 3;
+      opacity: 0.2;
+    }
+
+    .hero-images img:nth-child(2) {
+      grid-row: 3 / span 3;
+      grid-column: 4 / span 2;
+    }
+
+    .hero-images img:nth-child(3) {
+      grid-row: 1 / span 3;
+      grid-column: 6 / span 3;
+    }
+
+    .hero-images img:nth-child(4) {
+      grid-row: 2 / span 3;
+      grid-column: 9 / span 4;
+    }
+
+    .hero-images img:nth-child(5) {
+      grid-row: 2 / span 4;
+      grid-column: 13 / span 3;
+    }
+  }
+}

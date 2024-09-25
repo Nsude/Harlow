@@ -10,6 +10,7 @@ function App() {
       <NavbarContextProvider>
         <Navbar />
       </NavbarContextProvider>
+      <Homepage />
     </div>
   );
 }

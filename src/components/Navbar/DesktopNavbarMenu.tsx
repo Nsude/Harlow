@@ -78,7 +78,7 @@ const DesktopNavbarMenu = () => {
     const stagger = 0.15;
     if (selectedOption) {
       gsap.to(desktopNavmenuCon.current, {
-        height: "75%"
+        height: "76%"
       });
 
       if (revealRef.current) return;

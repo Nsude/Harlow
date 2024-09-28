@@ -12,11 +12,12 @@ body {
   margin: 0;
 }
 
-h2 {
+body h2 {
   font-size: $header;
   letter-spacing: -0.02ch;
   font-family: "HaasRegular" !important;
   font-weight: 200;
+  line-height: 0.92;
 }
 
 p {
@@ -79,6 +80,31 @@ body a {
 
   &.cg-15 {
     column-gap: 15px;
+  }
+}
+
+/* Primary Button */
+button.primary-btn {
+  display: flex;
+  font-size: $body-copy;
+  align-items: center;
+  column-gap: 8px;
+  padding: 10px 20px 12px;
+  border: 1.25px solid $off-white;
+  border-radius: 30px;
+  background-color: $off-white;
+  color: $black;
+  transition: background-color, color;
+  transition-duration: 250ms;
+  transition-timing-function: linear;
+
+  p {
+    margin-bottom: 0 !important;
+  }
+
+  &:hover {
+    background-color: transparent;
+    color: $off-white;
   }
 }
 

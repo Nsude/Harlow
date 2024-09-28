@@ -7,7 +7,6 @@
   position: fixed;
   left: 20px;
   right: 20px;
-  z-index: 100;
 
   a {
     color: $black;
@@ -71,6 +70,7 @@
   .navbar-container {
     color: $black;
     pointer-events: none;
+    z-index: 100;
 
     &.menu-open {
       color: $off-white !important;

@@ -45,15 +45,17 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      z-index: 1;
     }
 
     .cta-container a {
       color: $off-white;
+      mix-blend-mode: difference;
     }
 
     .hero-scroller {
       display: block;
+      position: relative;
+      z-index: -1;
     }
 
     .scroller {

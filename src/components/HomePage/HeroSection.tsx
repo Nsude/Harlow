@@ -51,6 +51,17 @@ const HeroSection = () => {
         ease: "linear"
       });
 
+      gsap.to(".scroller[data-scroll='true']", {
+        scale: 1.5,
+        transformOrigin: "bottom",
+        ease: "linear",
+        scrollTrigger: {
+          start: "top 0%",
+          end: +500,
+          scrub: 0.8
+        }
+      });
+
       let scrollerTimeout: any;
       ScrollTrigger.create({
         trigger: ".scroller",
@@ -60,7 +71,7 @@ const HeroSection = () => {
         onUpdate: (self) => {
           clearTimeout(scrollerTimeout);
           const velocity = self.getVelocity();
-          scrollAnimation.timeScale(1 + velocity / 40);
+          scrollAnimation.timeScale(1 + velocity / 80);
 
           // runs when the user stops scrolling for 200ms
           scrollerTimeout = setTimeout(() => {
@@ -73,7 +84,7 @@ const HeroSection = () => {
       gsap.to(".cta-container", {
         bottom: 0,
         scrollTrigger: {
-          scrub: 0.2
+          scrub: 0
         }
       });
 
@@ -83,15 +94,6 @@ const HeroSection = () => {
         position: "fixed",
         scrollTrigger: {
           scrub: 0.1
-        }
-      });
-
-      const links = document.querySelector(".cta-container")?.children;
-      if (!links) return;
-      gsap.to(links, {
-        color: colors.black,
-        scrollTrigger: {
-          scrub: 0.2
         }
       });
     }

@@ -37,6 +37,8 @@
 
 @include apply-from(desktop) {
   .hero-section-container {
+    margin-bottom: 50px;
+
     .cta-container {
       position: absolute;
       left: 0;

@@ -5,6 +5,7 @@ import Accordion from "./Accordion";
 import { useNavContext } from "../contexts/NavbarContext";
 import { gsap } from "gsap";
 import { menuOpenAnim } from "./MobileNavbarMenu";
+import useCustomEffect from "../../hooks/useCustomEffect";
 
 interface Props {
   option: string;
@@ -18,14 +19,12 @@ const NavbarOption: React.FC<Props> = ({ option, setOption }) => {
   const [switchMenu, setSwitchMenu] = useState(false);
 
   /* On Page Load Animation */
-  useEffect(() => {
-    gsap.fromTo(
-      ".anim-option",
-      {
+  useCustomEffect(() => {
+    // prettier-ignore
+    gsap.fromTo(".anim-option",{
         y: 30,
         opacity: 0
-      },
-      {
+      }, {
         y: 0,
         opacity: 1,
         stagger: 0.06
@@ -36,11 +35,11 @@ const NavbarOption: React.FC<Props> = ({ option, setOption }) => {
   /* Menu Page Switch Animation */
   useEffect(() => {
     if (switchMenu) {
-      gsap
-        .to(".switch-prev", {
+      // prettier-ignore
+      gsap.to(".switch-prev", {
           x: 15,
           opacity: 0,
-          stagger: 0.01
+          duration: 0.2
         })
         .then(() => setOption(""));
     }

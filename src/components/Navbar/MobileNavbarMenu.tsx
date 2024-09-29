@@ -29,6 +29,7 @@ const MobileNavbarMenu = () => {
   }, []);
 
   /* Menu Open Animations */
+  // prettier-ignore
   useEffect(() => {
     if (menuOpen) {
       const tl = gsap.timeline();
@@ -37,13 +38,10 @@ const MobileNavbarMenu = () => {
       });
 
       // Stagger Elements
-      tl.fromTo(
-        `.${menuOpenAnim}`,
-        {
+      tl.fromTo(`.${menuOpenAnim}`,{
           opacity: 0,
           y: 30
-        },
-        {
+        }, {
           opacity: 1,
           y: 0,
           stagger: 0.06
@@ -68,6 +66,7 @@ const MobileNavbarMenu = () => {
   const menuItemsRef = createRef<HTMLDivElement>();
   const loginRef = createRef<HTMLButtonElement>();
   const triggerCount = useRef(0);
+  // prettier-ignore
   useEffect(() => {
     triggerCount.current += 1;
     if (triggerCount.current < 3) return;
@@ -75,11 +74,11 @@ const MobileNavbarMenu = () => {
       setShowOptions(false);
     } else {
       if (!document.querySelector(`.${menuSwitch}`)) return;
-      gsap
-        .to(`.${menuSwitch}`, {
-          x: -15,
-          stagger: 0.01,
-          opacity: 0
+      
+      gsap.to(`.${menuSwitch}`, {
+          x: -10,
+          opacity: 0,
+          duration: 0.2
         })
         .then(() => {
           setShowOptions(true);

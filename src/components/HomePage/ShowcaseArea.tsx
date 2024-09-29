@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import { useRef, useState } from "react";
 import placeHolder from "../../assets/media/images/placeholderImage.png";
 import LinkArrowIcon from "../../assets/icons/LinkArrowIcon";
 import { useGlobalContext } from "../contexts/GlobalContex";

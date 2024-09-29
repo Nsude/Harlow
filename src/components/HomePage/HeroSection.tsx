@@ -52,7 +52,7 @@ const HeroSection = () => {
       });
 
       gsap.to(".scroller[data-scroll='true']", {
-        scale: 1.5,
+        // scale: 1.5,
         transformOrigin: "bottom",
         ease: "linear",
         scrollTrigger: {

@@ -10,8 +10,7 @@ const ArrowHeadIcon: React.FC<IconProps> = ({ color, size }) => {
       height={size || 22}
       viewBox="0 0 12 22"
       fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
+      xmlns="http://www.w3.org/2000/svg">
       <path d="M1 1L11 11L1 21" stroke={color || colors.black} strokeWidth="1.38889" />
     </svg>
   );

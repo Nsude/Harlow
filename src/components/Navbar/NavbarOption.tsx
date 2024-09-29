@@ -49,8 +49,7 @@ const NavbarOption: React.FC<Props> = ({ option, setOption }) => {
     <div className="nav-option-container">
       <button
         onClick={() => setSwitchMenu(true)}
-        className={"previous flex cg-10 anim-option switch-prev " + menuOpenAnim}
-      >
+        className={"previous flex cg-10 anim-option switch-prev " + menuOpenAnim}>
         <div>
           <ArrowHeadIcon size={14} color={colors.offWhite} />
         </div>

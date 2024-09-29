@@ -120,8 +120,7 @@ const MobileNavbarMenu = () => {
                       addSwitchAnimClass();
                       setActiveOption(menu.name);
                     }}
-                    className={"nav-option flex jc-sb " + menuOpenAnim}
-                  >
+                    className={"nav-option flex jc-sb " + menuOpenAnim}>
                     <p>{menu.name}</p>
                     {menu.items && <ArrowHeadIcon size={14} color={colors.offWhite} />}
                   </button>

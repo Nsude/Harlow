@@ -17,21 +17,21 @@ const Accordion: React.FC<{ title: string; children: string[] }> = ({ title, chi
     if (showChildren) {
       tl.to(accordionConRef.current, {
         gridTemplateRows: "60px 1fr",
-        paddingBottom: 20
+        paddingBottom: 20,
       });
 
       tl.to(childrenConRef.current, {
-        opacity: 1
+        opacity: 1,
       });
     } else {
       gsap.to(childrenConRef.current, {
-        opacity: 0
+        opacity: 0,
       });
 
       gsap.to(accordionConRef.current, {
         gridTemplateRows: "60px 0fr",
         paddingBottom: 0,
-        delay: 0.25
+        delay: 0.25,
       });
     }
   }, [showChildren]);

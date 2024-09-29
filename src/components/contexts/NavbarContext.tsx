@@ -32,28 +32,28 @@ const year = new Date().getFullYear();
 const menuItems: MenuItem[] = [
   {
     title: "New & Featured",
-    children: ["New Arrivals", `Shop Summer ${year % 100}`, "Best Sellers"]
+    children: ["New Arrivals", `Shop Summer ${year % 100}`, "Best Sellers"],
   },
   {
     title: "Footwear",
-    children: ["Sneakers", "Running Shoes", "Basketball", "Bugdet Friendly"]
+    children: ["Sneakers", "Running Shoes", "Basketball", "Bugdet Friendly"],
   },
   {
     title: "All Clothing",
-    children: ["Tshirts", "Matching Sets", "Sweatshirts & Hoodies", "Jerseys", "Shorts", "Jackets"]
+    children: ["Tshirts", "Matching Sets", "Sweatshirts & Hoodies", "Jerseys", "Shorts", "Jackets"],
   },
   {
     title: "Sizes",
-    children: ["All", "Infants", "Juniors", "Little Kids"]
+    children: ["All", "Infants", "Juniors", "Little Kids"],
   },
   {
     title: "Accessories",
-    children: ["All Accessories", "Bags", "Caps", "Socks"]
+    children: ["All Accessories", "Bags", "Caps", "Socks"],
   },
   {
     title: "Brands",
-    children: ["Nike", "New Balance", "Addidas", "Harlow"]
-  }
+    children: ["Nike", "New Balance", "Addidas", "Harlow"],
+  },
 ];
 
 const NavbarContextProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
@@ -65,7 +65,7 @@ const NavbarContextProvider: React.FC<{ children: ReactNode }> = ({ children }) 
     { name: "Women", items: menuItems },
     { name: "Kids", items: menuItems },
     { name: "Sale" },
-    { name: "Explore" }
+    { name: "Explore" },
   ];
 
   return (

@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import { useRef, useState } from "react";
 import placeHolder from "../../assets/media/images/placeholderImage.png";
 import LinkArrowIcon from "../../assets/icons/LinkArrowIcon";
 import { useGlobalContext } from "../contexts/GlobalContex";
@@ -36,7 +36,7 @@ const ShowcaseArea = () => {
           <h2>Freedom to redefine your presence.</h2>
           <button ref={(e) => buttonsRef.current.push(e)} className="primary-btn">
             <p>Shop Bestselling</p>
-            <LinkArrowIcon size={14} color={arrowColor} />
+            <LinkArrowIcon size={10} color={arrowColor} />
           </button>
         </div>
         <img src={placeHolder} />
@@ -47,7 +47,7 @@ const ShowcaseArea = () => {
           <h2>Freedom to redefine your presence.</h2>
           <button ref={(e) => buttonsRef.current.push(e)} className="primary-btn">
             <p>Shop Now</p>
-            <LinkArrowIcon size={14} color={arrowColor} />
+            <LinkArrowIcon size={10} color={arrowColor} />
           </button>
         </div>
         <img src={placeHolder} />

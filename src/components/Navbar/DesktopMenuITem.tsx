@@ -20,12 +20,12 @@ const DesktopMenuITem: React.FC<{ name: string }> = ({ name }) => {
     // animate second copy in
     if (animate) {
       gsap.to(firstCopy.current, {
-        y: -35
+        y: -35,
       });
 
       gsap.to(secondCopy.current, {
         top: "50%",
-        transform: "translateY(-50%)"
+        transform: "translateY(-50%)",
       });
 
       gsap.fromTo(
@@ -33,21 +33,21 @@ const DesktopMenuITem: React.FC<{ name: string }> = ({ name }) => {
         { bottom: -25, position: "relative" },
         {
           bottom: 0,
-          delay: 0.25
+          delay: 0.25,
         }
       );
     } else {
       // animate second copy out
       gsap.to(firstCopy.current, {
-        y: 0
+        y: 0,
       });
 
       gsap.to(secondCopy.current, {
-        y: 25
+        y: 25,
       });
 
       gsap.to(iconCon.current, {
-        bottom: -25
+        bottom: -25,
       });
     }
   }, [animate]);
@@ -56,8 +56,7 @@ const DesktopMenuITem: React.FC<{ name: string }> = ({ name }) => {
     <button
       onMouseEnter={() => setAnimate(true)}
       onMouseLeave={() => setAnimate(false)}
-      className="nav-listItem-container flex"
-    >
+      className="nav-listItem-container flex">
       <span ref={firstCopy}>{name}</span>
       <div ref={secondCopy} className="second-item-copy flex cg-5">
         <p>{name}</p>

@@ -10,7 +10,6 @@ import accessoriesImage from "../../assets/media/images/navmenu-image (4).webp";
 import brands from "../../assets/media/images/navmenu-image (3).webp";
 import useCustomEffect from "../../hooks/useCustomEffect";
 import gsap from "gsap";
-import useMousePos from "../../hooks/useMousePos";
 
 export let closeNavMenuTimeout: any;
 const DNavTitleReveal = "desktop-navmenu-title-reveal-anim";
@@ -24,28 +23,28 @@ const DesktopNavbarMenu = () => {
   const navMenuDisplayImage = [
     {
       title: "New & Featured",
-      image: NFImage
+      image: NFImage,
     },
     {
       title: "Footwear",
-      image: footwearImage
+      image: footwearImage,
     },
     {
       title: "All Clothing",
-      image: allClothingImage
+      image: allClothingImage,
     },
     {
       title: "Sizes",
-      image: sizesImage
+      image: sizesImage,
     },
     {
       title: "Accessories",
-      image: accessoriesImage
+      image: accessoriesImage,
     },
     {
       title: "Brands",
-      image: brands
-    }
+      image: brands,
+    },
   ];
 
   // image change animation
@@ -72,13 +71,12 @@ const DesktopNavbarMenu = () => {
 
   /* Menu Open and Close animations */
   const desktopNavmenuCon = createRef<HTMLDivElement>();
-  const mousePos = useMousePos();
   const revealRef = useRef(false);
   useCustomEffect(() => {
     const stagger = 0.15;
     if (selectedOption) {
       gsap.to(desktopNavmenuCon.current, {
-        height: "76%"
+        height: "76%",
       });
 
       if (revealRef.current) return;
@@ -86,12 +84,12 @@ const DesktopNavbarMenu = () => {
         `.${DNavTitleReveal}`,
         {
           y: 15,
-          opacity: 0
+          opacity: 0,
         },
         {
           y: 0,
           opacity: 0.25,
-          stagger
+          stagger,
         }
       );
 
@@ -99,12 +97,12 @@ const DesktopNavbarMenu = () => {
         `.${DNavItemsReveal}`,
         {
           y: 15,
-          opacity: 0
+          opacity: 0,
         },
         {
           y: 0,
           opacity: 1,
-          stagger
+          stagger,
         }
       );
 
@@ -112,7 +110,7 @@ const DesktopNavbarMenu = () => {
     } else {
       revealRef.current = false;
       gsap.to(desktopNavmenuCon.current, {
-        height: 0
+        height: 0,
       });
     }
   }, [selectedOption]);
@@ -127,8 +125,7 @@ const DesktopNavbarMenu = () => {
     <>
       <div ref={desktopNavmenuCon} onMouseLeave={() => closeMenu()} className="desktop-navmenu-container">
         <div
-          className={`menulist ${currentMenu?.name.toLowerCase().includes("kids") ? "extend-menulist-columns" : ""}`}
-        >
+          className={`menulist ${currentMenu?.name.toLowerCase().includes("kids") ? "extend-menulist-columns" : ""}`}>
           {currentMenu &&
             currentMenu.items?.map((item) =>
               !item.title.includes("Sizes") || currentMenu.name.toLowerCase().includes("kids") ? (
@@ -136,8 +133,7 @@ const DesktopNavbarMenu = () => {
                   key={item.title}
                   onMouseEnter={() => updateDisplayImage(item.title)}
                   onMouseLeave={() => setDisplayImage(placeholderDisplayImage)}
-                  className="menu-item"
-                >
+                  className="menu-item">
                   <h2 className={`${DNavTitleReveal}`}>{item.title}</h2>
                   <div className={`menu-item-children ${DNavItemsReveal} `}>
                     {item.children.map((child) => (

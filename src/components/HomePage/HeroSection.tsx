@@ -3,18 +3,19 @@ import { Link } from "react-router-dom";
 import useCustomEffect from "../../hooks/useCustomEffect";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useGlobalContext } from "../contexts/GlobalContex";
 import heroImage1 from "../../assets/media/images/hero-image(1).webp";
 import heroImage2 from "../../assets/media/images/hero-image(2).webp";
 import heroImage3 from "../../assets/media/images/hero-image(3).webp";
 import heroImage4 from "../../assets/media/images/hero-image(4).webp";
 import heroImage5 from "../../assets/media/images/hero-image(5).webp";
+import { useDevice } from "../../hooks/useDevice";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const HeroSection = () => {
-  const { colors } = useGlobalContext();
   const [time, setTime] = useState("");
+
+  const deviceRect = useDevice();
 
   useCustomEffect(() => {
     setInterval(() => {
@@ -23,7 +24,7 @@ const HeroSection = () => {
         hour12: false,
         hour: "2-digit",
         minute: "2-digit",
-        second: "2-digit"
+        second: "2-digit",
       });
 
       setTime(NigerianTime);
@@ -48,18 +49,18 @@ const HeroSection = () => {
         duration: 40,
         xPercent: -50,
         repeat: -1,
-        ease: "linear"
+        ease: "linear",
       });
 
       gsap.to(".scroller[data-scroll='true']", {
-        scale: 1.5,
+        scale: 2,
         transformOrigin: "bottom",
         ease: "linear",
         scrollTrigger: {
           start: "top 0%",
           end: +500,
-          scrub: 0.8
-        }
+          scrub: 0.8,
+        },
       });
 
       let scrollerTimeout: any;
@@ -77,24 +78,35 @@ const HeroSection = () => {
           scrollerTimeout = setTimeout(() => {
             scrollAnimation.timeScale(1);
           }, 200);
-        }
+        },
       });
 
       // CTA Container
-      gsap.to(".cta-container", {
-        bottom: 0,
-        scrollTrigger: {
-          scrub: 0
-        }
-      });
+      if (deviceRect.width > 700) {
+        // desktop and tablet
+        gsap.to(".cta-container", {
+          bottom: 0,
+          scrollTrigger: {
+            scrub: 0,
+          },
+        });
+      } else {
+        gsap.to(".cta-container", {
+          bottom: 25,
+          transform: "translateY(0)",
+          scrollTrigger: {
+            scrub: 0,
+          },
+        });
+      }
 
       // bottom info
       gsap.to(".bottom-info", {
         opacity: 0,
         position: "fixed",
         scrollTrigger: {
-          scrub: 0.1
-        }
+          scrub: 0.1,
+        },
       });
     }
   }, []);

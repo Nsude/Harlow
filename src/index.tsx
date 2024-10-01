@@ -17,18 +17,18 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Homepage />
-      }
-    ]
+        element: <Homepage />,
+      },
+    ],
   },
   {
     path: "/login",
-    element: <Login />
+    element: <Login />,
   },
   {
     path: "/sign-up",
-    element: <SignUp />
-  }
+    element: <SignUp />,
+  },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);

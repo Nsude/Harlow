@@ -34,7 +34,7 @@ const SignUp = () => {
       setIsValidName((prev) => ({
         ...prev,
         first: validFirstName,
-        last: validLastName
+        last: validLastName,
       }));
     }
 
@@ -121,7 +121,7 @@ const SignUp = () => {
     if (!userCreds || !userCreds?.user) return;
     try {
       await updateProfile(userCreds.user, {
-        displayName: firstName + " " + lastName
+        displayName: firstName + " " + lastName,
       });
     } catch (error) {
       console.log(error);

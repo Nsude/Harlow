@@ -12,6 +12,10 @@
     grid-template-columns: 1fr;
     justify-items: center;
     row-gap: 35px;
+    position: absolute;
+    bottom: 50%;
+    transform: translateY(50%);
+    width: 90%;
   }
 
   .cta-container a {
@@ -35,10 +39,8 @@
   }
 }
 
-@include apply-from(desktop) {
+@include apply-from(tablet) {
   .hero-section-container {
-    margin-bottom: 50px;
-
     .cta-container {
       position: absolute;
       left: 0;
@@ -47,7 +49,14 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      transform: none;
     }
+  }
+}
+
+@include apply-from(desktop) {
+  .hero-section-container {
+    margin-bottom: 50px;
 
     .cta-container a {
       color: $off-white;

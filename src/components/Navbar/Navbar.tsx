@@ -8,10 +8,73 @@ import MobileNavbarMenu from "./MobileNavbarMenu";
 import DesktopNavbarMenu, { closeNavMenuTimeout } from "./DesktopNavbarMenu";
 import { useGlobalContext } from "../contexts/GlobalContex";
 import { addClass, removeClass } from "../utils";
+import { useRef, useState } from "react";
+import useCustomEffect from "../../hooks/useCustomEffect";
+import { gsap } from "gsap";
 
 const Navbar = () => {
-  const { setMenuOpen, selectedOption, setSelectedOption, menuLists } = useNavContext();
+  const { setMenuOpen, menuOpen, selectedOption, setSelectedOption, menuLists } = useNavContext();
   const { colors } = useGlobalContext();
+  const [hideMenuBar, setHideMenuBar] = useState(false);
+
+  useCustomEffect(() => {
+    let prevScrollPos = 0;
+    const handleScroll = () => {
+      let scrollPos = document.documentElement.scrollTop;
+
+      if (scrollPos > prevScrollPos) {
+        setHideMenuBar(true);
+      } else {
+        setHideMenuBar(false);
+      }
+
+      prevScrollPos = scrollPos;
+    };
+    document.addEventListener("scroll", handleScroll);
+    // clean up on Unmount
+    return () => {
+      document.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  // hide menu bar on scroll
+  const navRef = useRef<HTMLElement | null>();
+  useCustomEffect(() => {
+    // gsap.fromTo()
+    if (!navRef.current) return;
+    if (hideMenuBar) {
+      gsap.to(navRef.current, {
+        yPercent: -100,
+      });
+    } else {
+      gsap.to(navRef.current, {
+        yPercent: 0,
+      });
+    }
+  }, [hideMenuBar]);
+
+  // set navbar background color
+  useCustomEffect(() => {
+    if (!navRef.current) return;
+    // mobile
+    if (menuOpen) {
+      gsap.to(navRef.current, { zIndex: 0 });
+    } else {
+      gsap.to(navRef.current, { zIndex: 100 });
+    }
+
+    if (selectedOption) {
+      gsap.to(navRef.current, {
+        backgroundColor: colors.black,
+        duration: 0,
+      });
+    } else {
+      gsap.to(navRef.current, {
+        backgroundColor: colors.offWhite,
+        delay: 0.3,
+      });
+    }
+  }, [selectedOption, menuOpen]);
 
   const menuOptionHover = (menu: MenuList) => {
     if (!menu.items) return;
@@ -35,9 +98,9 @@ const Navbar = () => {
       <DesktopNavbarMenu />
 
       <nav
+        ref={(el) => (navRef.current = el)}
         onMouseEnter={() => keepMenuOpen()}
-        className={`navbar-container flex jc-sb ${selectedOption ? "menu-open" : ""}`}
-      >
+        className={`navbar-container flex jc-sb ${selectedOption ? "menu-open" : ""}`}>
         <button className="menu" onClick={() => setMenuOpen(true)}>
           Menu
         </button>
@@ -61,8 +124,7 @@ const Navbar = () => {
                 onMouseEnter={() => {
                   menuOptionHover(item);
                 }}
-                onClick={(e) => setActiveMenu(e)}
-              >
+                onClick={(e) => setActiveMenu(e)}>
                 {item.name}
               </Link>
             ))}

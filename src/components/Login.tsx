@@ -137,8 +137,7 @@ const Login = () => {
             ref={submitButton}
             className="submit-form flex cg-10 jc-c"
             data-disable={(pwd && validEmail) || false}
-            onClick={(e) => submitForm(e)}
-          >
+            onClick={(e) => submitForm(e)}>
             <p>Login</p>
             <div className="arrow">
               {" "}

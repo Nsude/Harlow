@@ -8,12 +8,14 @@ import heroImage2 from "../../assets/media/images/hero-image(2).webp";
 import heroImage3 from "../../assets/media/images/hero-image(3).webp";
 import heroImage4 from "../../assets/media/images/hero-image(4).webp";
 import heroImage5 from "../../assets/media/images/hero-image(5).webp";
-import { getElemByClass } from "../utils";
+import { useDevice } from "../../hooks/useDevice";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const HeroSection = () => {
   const [time, setTime] = useState("");
+
+  const deviceRect = useDevice();
 
   useCustomEffect(() => {
     setInterval(() => {
@@ -80,12 +82,23 @@ const HeroSection = () => {
       });
 
       // CTA Container
-      gsap.to(".cta-container", {
-        bottom: 0,
-        scrollTrigger: {
-          scrub: 0,
-        },
-      });
+      if (deviceRect.width > 700) {
+        // desktop and tablet
+        gsap.to(".cta-container", {
+          bottom: 0,
+          scrollTrigger: {
+            scrub: 0,
+          },
+        });
+      } else {
+        gsap.to(".cta-container", {
+          bottom: 25,
+          transform: "translateY(0)",
+          scrollTrigger: {
+            scrub: 0,
+          },
+        });
+      }
 
       // bottom info
       gsap.to(".bottom-info", {

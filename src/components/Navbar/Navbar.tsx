@@ -13,7 +13,7 @@ import useCustomEffect from "../../hooks/useCustomEffect";
 import { gsap } from "gsap";
 
 const Navbar = () => {
-  const { setMenuOpen, selectedOption, setSelectedOption, menuLists } = useNavContext();
+  const { setMenuOpen, menuOpen, selectedOption, setSelectedOption, menuLists } = useNavContext();
   const { colors } = useGlobalContext();
   const [hideMenuBar, setHideMenuBar] = useState(false);
 
@@ -56,6 +56,13 @@ const Navbar = () => {
   // set navbar background color
   useCustomEffect(() => {
     if (!navRef.current) return;
+    // mobile
+    if (menuOpen) {
+      gsap.to(navRef.current, { zIndex: 0 });
+    } else {
+      gsap.to(navRef.current, { zIndex: 100 });
+    }
+
     if (selectedOption) {
       gsap.to(navRef.current, {
         backgroundColor: colors.black,
@@ -67,7 +74,7 @@ const Navbar = () => {
         delay: 0.3,
       });
     }
-  }, [selectedOption]);
+  }, [selectedOption, menuOpen]);
 
   const menuOptionHover = (menu: MenuList) => {
     if (!menu.items) return;

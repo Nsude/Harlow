@@ -27,6 +27,10 @@
     background-image: linear-gradient(to top, $black 1%, transparent);
   }
 
+  .image-blur-mask {
+    display: none;
+  }
+
   .content {
     position: absolute;
     top: 50%;
@@ -74,8 +78,8 @@
       opacity: 0;
     }
 
-    .image-container:hover img {
-      filter: blur(2px);
+    .image-container:hover img:not(.image-blur-mask) {
+      filter: blur(2px) grayscale(1);
     }
 
     .image-container:hover::after {
@@ -84,6 +88,16 @@
 
     .image-container:hover .content {
       opacity: 1;
+    }
+
+    .image-blur-mask {
+      display: block;
+      width: 150px;
+      aspect-ratio: 1 / 1;
+      clip-path: circle(100px at 50% 50%);
+      position: absolute;
+      z-index: 1;
+      pointer-events: none;
     }
 
     .content {

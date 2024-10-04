@@ -36,8 +36,7 @@ root.render(
   <React.StrictMode>
     <AuthProvider>
       <GlobalContextProvider>
-        {" "}
-        <RouterProvider router={router} />{" "}
+        <RouterProvider router={router} />
       </GlobalContextProvider>
     </AuthProvider>
   </React.StrictMode>

@@ -45,7 +45,9 @@ const CursorTracker = () => {
       duration: 0.1,
     });
 
-    growTrackerOnShowcase(hoveredElems[0]);
+    const elem = hoveredElems[0];
+    if (!(elem instanceof Element)) return;
+    growTrackerOnShowcase(elem);
   }, [mousePos?.x, mousePos?.y]);
 
   return <div ref={cursorRef} className="cursor-tracker"></div>;

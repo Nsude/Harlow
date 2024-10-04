@@ -108,6 +108,17 @@ button.primary-btn {
   }
 }
 
+// hide scrollbar
+*.hide-scroll {
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
 @include apply-from(tablet) {
   body {
     padding: 0;

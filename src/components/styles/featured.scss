@@ -1,0 +1,71 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.featured-container {
+  margin-bottom: 75px;
+  height: max-content;
+  width: 100%;
+  overflow: hidden;
+
+  .title {
+    margin-bottom: 15px;
+  }
+
+  .featured {
+    scroll-snap-align: center;
+  }
+
+  .images {
+    display: grid;
+    grid-template-columns: repeat(3, 100%);
+    column-gap: 10px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+  }
+
+  .featured img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    object-position: center;
+    margin-bottom: 10px;
+  }
+}
+
+@include apply-from(tablet) {
+  .featured-container {
+    padding: 0 35px;
+
+    .featured h3 {
+      margin-bottom: 5px;
+    }
+
+    .title {
+      margin-bottom: 20px;
+    }
+  }
+}
+
+@include apply-from(desktop) {
+  .featured-container {
+    margin-bottom: 150px;
+
+    .title {
+      margin-bottom: 35px;
+    }
+
+    .images {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .featured {
+      overflow: hidden;
+    }
+
+    .featured img {
+      height: 700px;
+      transform: scale(1.5);
+    }
+  }
+}

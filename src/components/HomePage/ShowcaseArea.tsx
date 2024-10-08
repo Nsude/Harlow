@@ -5,7 +5,7 @@ import { useGlobalContext } from "../contexts/GlobalContex";
 import useCustomEffect from "../../hooks/useCustomEffect";
 import useMousePos from "../../hooks/useMousePos";
 import { gsap } from "gsap";
-import { getElemByClass } from "../utils";
+import { getElemByClass } from "../utility-functions/utils";
 
 const ShowcaseArea = () => {
   const { colors } = useGlobalContext();

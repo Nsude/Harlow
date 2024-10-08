@@ -20,6 +20,14 @@ body h2 {
   line-height: 0.92;
 }
 
+body h3 {
+  font-size: $title;
+  letter-spacing: -0.02ch;
+  font-family: "HaasRegular" !important;
+  font-weight: 200;
+  line-height: 0.92;
+}
+
 p {
   font-size: $body-copy;
 }
@@ -105,6 +113,17 @@ button.primary-btn {
   &:hover {
     background-color: transparent;
     color: $off-white;
+  }
+}
+
+// hide scrollbar
+*.hide-scroll {
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    display: none;
   }
 }
 

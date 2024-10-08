@@ -7,7 +7,7 @@ import { MenuList, useNavContext } from "../contexts/NavbarContext";
 import MobileNavbarMenu from "./MobileNavbarMenu";
 import DesktopNavbarMenu, { closeNavMenuTimeout } from "./DesktopNavbarMenu";
 import { useGlobalContext } from "../contexts/GlobalContex";
-import { addClass, removeClass } from "../utils";
+import { addClass, removeClass } from "../utility-functions/utils";
 import { useRef, useState } from "react";
 import useCustomEffect from "../../hooks/useCustomEffect";
 import { gsap } from "gsap";

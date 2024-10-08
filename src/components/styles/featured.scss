@@ -37,6 +37,10 @@
   .featured-container {
     padding: 0 35px;
 
+    .featured h3 {
+      margin-bottom: 5px;
+    }
+
     .title {
       margin-bottom: 20px;
     }
@@ -55,8 +59,13 @@
       grid-template-columns: repeat(3, 1fr);
     }
 
+    .featured {
+      overflow: hidden;
+    }
+
     .featured img {
       height: 700px;
+      transform: scale(1.5);
     }
   }
 }

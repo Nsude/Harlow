@@ -1,0 +1,14 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+@include apply-from(tablet) {
+  .newfeatured-container {
+    padding: 0 35px;
+  }
+}
+
+@include apply-from(desktop) {
+  .newfeatured-container {
+    margin-bottom: $d-section-margin;
+  }
+}

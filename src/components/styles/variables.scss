@@ -33,12 +33,16 @@ $border-radius: 8px;
 
 /* Size */
 $m-input: 40px;
-$w-input: 50px;
+$w-input: 75px;
 
 /* Transition */
 $td: 400ms; // transition duration
 $td2: 300ms;
 $ttf: linear; //transition timing function
+
+/* Section Margins */
+$m-section-margin: 50px;
+$d-section-margin: 150px;
 
 @font-face {
   font-family: "HaasRegular";

@@ -1,0 +1,57 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.bigtext-container {
+  p {
+    font-size: 80px;
+    letter-spacing: -0.05ch;
+  }
+
+  .image-container {
+    display: none;
+  }
+}
+
+@include apply-from(tablet) {
+  .bigtext-container {
+    p {
+      font-size: 170px;
+    }
+  }
+}
+
+@include apply-from(desktop) {
+  .bigtext-container {
+    width: 100%;
+    height: max-content;
+    position: relative;
+    padding: 35px 0;
+
+    p {
+      font-size: 350px;
+      letter-spacing: -0.08ch;
+    }
+
+    .image-container {
+      display: block;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .image-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      pointer-events: none;
+      transform: translateY(100%);
+    }
+
+    .image-container img[data-filter="grayscale"] {
+      filter: grayscale(1);
+    }
+  }
+}

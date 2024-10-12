@@ -13,7 +13,7 @@ const NewFeatured = () => {
       </div>
 
       <div className="products">
-        <ProductCard productName="Mari Tee" image={placeHolderImage} price="52.73"/>
+        <ProductCard productName="Mari Tee" image={placeHolderImage} price="52.73" />
       </div>
     </div>
   );

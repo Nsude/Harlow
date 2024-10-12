@@ -1,15 +1,14 @@
-import React from 'react';
+import React from "react";
 
 interface Props {
-  image: string,
-  label?: string,
-  productName: string,
-  discount?: number,
-  price: string
+  image: string;
+  label?: string;
+  productName: string;
+  discount?: number;
+  price: string;
 }
 
-const ProductCard:React.FC<Props> = ({image, label = "N & F", productName, discount = 33, price}) => {
-
+const ProductCard: React.FC<Props> = ({ image, label = "N & F", productName, discount = 33, price }) => {
   return (
     <div className="product-card-container">
       <div className="image-container">
@@ -26,7 +25,7 @@ const ProductCard:React.FC<Props> = ({image, label = "N & F", productName, disco
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default ProductCard;

@@ -11,12 +11,14 @@ import { addClass, removeClass } from "../utility-functions/utils";
 import { useRef, useState } from "react";
 import useCustomEffect from "../../hooks/useCustomEffect";
 import { gsap } from "gsap";
+import { scrambleText } from "../utility-functions/scrambleText";
 
 const Navbar = () => {
   const { setMenuOpen, menuOpen, selectedOption, setSelectedOption, menuLists } = useNavContext();
   const { colors } = useGlobalContext();
   const [hideMenuBar, setHideMenuBar] = useState(false);
 
+  // hide / show navbar
   useCustomEffect(() => {
     let prevScrollPos = 0;
     const handleScroll = () => {
@@ -42,13 +44,16 @@ const Navbar = () => {
   useCustomEffect(() => {
     // gsap.fromTo()
     if (!navRef.current) return;
+    const animD = 0.25;
     if (hideMenuBar) {
       gsap.to(navRef.current, {
         yPercent: -100,
+        duration: animD,
       });
     } else {
       gsap.to(navRef.current, {
         yPercent: 0,
+        duration: animD,
       });
     }
   }, [hideMenuBar]);
@@ -76,7 +81,20 @@ const Navbar = () => {
     }
   }, [selectedOption, menuOpen]);
 
-  const menuOptionHover = (menu: MenuList) => {
+  // get anchor elem width
+  const anchorElems = useRef<(HTMLAnchorElement | null)[]>([]);
+  useCustomEffect(() => {
+    if (!anchorElems.current) return;
+    anchorElems.current.forEach((elem) => {
+      if (!elem) return;
+      const rect = elem.getBoundingClientRect();
+      elem.style.setProperty("--width", `${rect.width}px`);
+    });
+  }, []);
+
+  const menuOptionHover = (menu: MenuList, e: React.MouseEvent) => {
+    let target = e.target as HTMLAnchorElement;
+    scrambleText(target, menu.name, 300, "HAR209**2LOW");
     if (!menu.items) return;
     setSelectedOption(menu.name);
   };
@@ -120,9 +138,10 @@ const Navbar = () => {
               <Link
                 key={item.name}
                 to={`/${item.name.toLocaleLowerCase()}`}
+                ref={(el) => anchorElems.current.push(el)}
                 className={`${selectedOption ? "menu-open" : ""}`}
-                onMouseEnter={() => {
-                  menuOptionHover(item);
+                onMouseEnter={(e) => {
+                  menuOptionHover(item, e);
                 }}
                 onClick={(e) => setActiveMenu(e)}>
                 {item.name}

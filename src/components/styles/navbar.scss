@@ -85,7 +85,7 @@
 
     .desktop-links {
       display: flex;
-      column-gap: 25px;
+      column-gap: 12px;
       position: absolute;
       left: 50%;
       transform: translateX(-50%);
@@ -93,44 +93,8 @@
       a {
         position: relative;
         color: inherit;
-      }
-
-      a:hover {
-        transition-delay: $td2;
-        color: $off-white;
-      }
-
-      a.active-nav-menu {
-        color: $black;
-      }
-
-      a.active-nav-menu::before {
-        width: calc(100% + 9px);
-      }
-
-      a.menu-open:hover {
-        color: $black;
-      }
-
-      a::before {
-        content: "";
-        position: absolute;
-        left: -5px;
-        top: 0;
-        height: 100%;
-        width: 0;
-        background-color: $black;
-        z-index: -1;
-        transition: width $td2 ease-out;
-      }
-
-      a:hover::before {
-        width: calc(100% + 9px);
-      }
-
-      /* Nenu Open */
-      a.menu-open::before {
-        background-color: $off-white;
+        width: var(--width);
+        font-size: $title;
       }
     }
 

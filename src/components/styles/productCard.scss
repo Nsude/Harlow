@@ -26,11 +26,12 @@
   }
 
   .label {
-    opacity: .4;
+    opacity: 0.4;
     margin-bottom: 8px;
   }
 
-  .price, .price p {
+  .price,
+  .price p {
     font-size: 12px;
   }
 

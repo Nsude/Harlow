@@ -2,7 +2,7 @@
 export const scrambleText = (
   element: HTMLElement | null,
   finalText: string,
-  duration = 2000,
+  duration = 300,
   chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
 ) => {
   if (!element) return;

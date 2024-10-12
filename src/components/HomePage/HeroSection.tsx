@@ -9,6 +9,7 @@ import heroImage3 from "../../assets/media/images/hero-image(3).webp";
 import heroImage4 from "../../assets/media/images/hero-image(4).webp";
 import heroImage5 from "../../assets/media/images/hero-image(5).webp";
 import { useDevice } from "../../hooks/useDevice";
+import { scrambleText } from "../utility-functions/scrambleText";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -111,12 +112,28 @@ const HeroSection = () => {
     }
   }, []);
 
+  // get link widths
+  const anchorElems = useRef<(HTMLAnchorElement | null)[]>([]);
+  useCustomEffect(() => {
+    if (!anchorElems.current) return;
+    anchorElems.current.forEach((elem) => {
+      if (!elem) return;
+      const rect = elem.getBoundingClientRect();
+      elem.style.setProperty("--width", `${rect.width}px`);
+    })
+  }, [])
+
+  const ctaMouseEnter = (e: React.MouseEvent, text: string) => {
+    let target = e.target as HTMLAnchorElement;
+    scrambleText(target, text)
+  } 
+
   return (
     <div className="hero-section-container">
       <div className="cta-container">
-        <Link to={"/"}>Shop Now</Link>
-        <Link to={"/"}>41% Discount</Link>
-        <Link to={"/"}>Collection</Link>
+        <Link ref={(el) => anchorElems.current.push(el)} onMouseEnter={(e) => ctaMouseEnter(e, "Shop Now")} to={"/"}>Shop Now</Link>
+        <Link ref={(el) => anchorElems.current.push(el)} onMouseEnter={(e) => ctaMouseEnter(e, "41% Discount")} to={"/"}>41% Discount</Link>
+        <Link ref={(el) => anchorElems.current.push(el)} onMouseEnter={(e) => ctaMouseEnter(e, "Collection")} to={"/"}>Collection</Link>
       </div>
 
       <div className="hero-scroller">

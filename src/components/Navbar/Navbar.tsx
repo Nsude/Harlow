@@ -94,7 +94,7 @@ const Navbar = () => {
 
   const menuOptionHover = (menu: MenuList, e: React.MouseEvent) => {
     let target = e.target as HTMLAnchorElement;
-    scrambleText(target, menu.name, 300, "HAR209**2LOW");
+    scrambleText(target, menu.name);
     if (!menu.items) return;
     setSelectedOption(menu.name);
   };

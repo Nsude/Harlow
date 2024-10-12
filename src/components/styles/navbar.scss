@@ -96,6 +96,10 @@
         width: var(--width);
         font-size: $title;
       }
+
+      a:hover {
+        text-decoration: underline;
+      }
     }
 
     .menu {

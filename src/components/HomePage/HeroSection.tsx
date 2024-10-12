@@ -120,20 +120,29 @@ const HeroSection = () => {
       if (!elem) return;
       const rect = elem.getBoundingClientRect();
       elem.style.setProperty("--width", `${rect.width}px`);
-    })
-  }, [])
+    });
+  }, []);
 
   const ctaMouseEnter = (e: React.MouseEvent, text: string) => {
     let target = e.target as HTMLAnchorElement;
-    scrambleText(target, text)
-  } 
+    scrambleText(target, text);
+  };
 
   return (
     <div className="hero-section-container">
       <div className="cta-container">
-        <Link ref={(el) => anchorElems.current.push(el)} onMouseEnter={(e) => ctaMouseEnter(e, "Shop Now")} to={"/"}>Shop Now</Link>
-        <Link ref={(el) => anchorElems.current.push(el)} onMouseEnter={(e) => ctaMouseEnter(e, "41% Discount")} to={"/"}>41% Discount</Link>
-        <Link ref={(el) => anchorElems.current.push(el)} onMouseEnter={(e) => ctaMouseEnter(e, "Collection")} to={"/"}>Collection</Link>
+        <Link ref={(el) => anchorElems.current.push(el)} onMouseEnter={(e) => ctaMouseEnter(e, "Shop Now")} to={"/"}>
+          Shop Now
+        </Link>
+        <Link
+          ref={(el) => anchorElems.current.push(el)}
+          onMouseEnter={(e) => ctaMouseEnter(e, "41% Discount")}
+          to={"/"}>
+          41% Discount
+        </Link>
+        <Link ref={(el) => anchorElems.current.push(el)} onMouseEnter={(e) => ctaMouseEnter(e, "Collection")} to={"/"}>
+          Collection
+        </Link>
       </div>
 
       <div className="hero-scroller">

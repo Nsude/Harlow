@@ -6,6 +6,7 @@ import useCustomEffect from "../../hooks/useCustomEffect";
 import useMousePos from "../../hooks/useMousePos";
 import { gsap } from "gsap";
 import { getElemByClass } from "../utility-functions/utils";
+import { scrambleText } from "../utility-functions/scrambleText";
 
 const ShowcaseArea = () => {
   const { colors } = useGlobalContext();
@@ -53,6 +54,24 @@ const ShowcaseArea = () => {
     setImageMask(target);
   };
 
+  // set text width for scramble animation
+  const buttonTextRef = useRef<(HTMLParagraphElement | null)[]>([]);
+  useCustomEffect(() => {
+    if (!buttonTextRef.current) return;
+    buttonTextRef.current.forEach((elem) => {
+      if (!elem) return;
+      const rect = elem.getBoundingClientRect();
+      elem.style.setProperty("--width", `${rect.width + 3}px`);
+    });
+  }, []);
+
+  // scramble text animation
+  const scramText = (e: React.MouseEvent, text: string) => {
+    let parent = e.target as HTMLButtonElement;
+    let target = parent.firstElementChild as HTMLParagraphElement;
+    scrambleText(target, text);
+  };
+
   return (
     <div className="showcase-container">
       <div className="image-container" onMouseEnter={(e) => ImageMaskMouseEnter(e)}>
@@ -60,8 +79,11 @@ const ShowcaseArea = () => {
         <div className="content">
           <p>001</p>
           <h2>Freedom to redefine your presence.</h2>
-          <button ref={(e) => buttonsRef.current.push(e)} className="primary-btn">
-            <p>Shop Bestselling</p>
+          <button
+            onMouseEnter={(e) => scramText(e, "Shop Bestselling")}
+            ref={(e) => buttonsRef.current.push(e)}
+            className="primary-btn">
+            <p ref={(el) => buttonTextRef.current.push(el)}>Shop Bestselling</p>
             <LinkArrowIcon size={10} color={arrowColor} />
           </button>
         </div>
@@ -72,8 +94,11 @@ const ShowcaseArea = () => {
         <div className="content">
           <p>002</p>
           <h2>Freedom to redefine your presence.</h2>
-          <button ref={(e) => buttonsRef.current.push(e)} className="primary-btn">
-            <p>Shop Now</p>
+          <button
+            onMouseEnter={(e) => scramText(e, "Shop Now")}
+            ref={(e) => buttonsRef.current.push(e)}
+            className="primary-btn">
+            <p ref={(el) => buttonTextRef.current.push(el)}>Shop Now</p>
             <LinkArrowIcon size={10} color={arrowColor} />
           </button>
         </div>

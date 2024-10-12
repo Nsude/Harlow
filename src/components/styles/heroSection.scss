@@ -61,6 +61,8 @@
     .cta-container a {
       color: $off-white;
       mix-blend-mode: difference;
+      width: var(--width);
+      text-wrap: nowrap;
     }
 
     .hero-scroller {

@@ -105,9 +105,13 @@ button.primary-btn {
   transition: background-color, color;
   transition-duration: 250ms;
   transition-timing-function: linear;
+  letter-spacing: 0.02ch;
 
   p {
     margin-bottom: 0 !important;
+    width: var(--width);
+    text-wrap: nowrap;
+    overflow-x: hidden;
   }
 
   &:hover {

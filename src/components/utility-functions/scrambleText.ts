@@ -2,8 +2,8 @@
 export const scrambleText = (
   element: HTMLElement | null,
   finalText: string,
-  duration = 2000,
-  chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+  chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
+  duration = 300
 ) => {
   if (!element) return;
   const length = finalText.length;

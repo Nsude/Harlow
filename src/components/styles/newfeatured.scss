@@ -1,6 +1,13 @@
 @use "variables" as *;
 @use "mixins" as *;
 
+.newfeatured-container {
+
+  .big-texts {
+    margin-bottom: 75px;
+  }
+}
+
 @include apply-from(tablet) {
   .newfeatured-container {
     padding: 0 35px;

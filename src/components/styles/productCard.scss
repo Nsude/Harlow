@@ -1,0 +1,42 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.product-card-container {
+  height: 400px;
+  width: 100%;
+  position: relative;
+
+  .image-container {
+    height: 100%;
+  }
+
+  .image-container img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .product-details {
+    position: absolute;
+    background-color: $white;
+    padding: 15px;
+    left: 0;
+    width: 100%;
+    bottom: 0;
+  }
+
+  .label {
+    opacity: .4;
+    margin-bottom: 8px;
+  }
+
+  .price, .price p {
+    font-size: 12px;
+  }
+
+  .discount {
+    padding: 6px 8px 5px;
+    background-color: $green;
+    border-radius: 15px;
+  }
+}

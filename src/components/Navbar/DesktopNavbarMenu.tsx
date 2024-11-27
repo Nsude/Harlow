@@ -75,6 +75,12 @@ const DesktopNavbarMenu = () => {
   useCustomEffect(() => {
     const stagger = 0.15;
     if (selectedOption) {
+      gsap.to(".hide-before-anim", {
+        opacity: 1,
+        duration: 0.1,
+        delay: 0.2,
+      });
+
       gsap.to(desktopNavmenuCon.current, {
         height: "76%",
       });
@@ -109,15 +115,21 @@ const DesktopNavbarMenu = () => {
       revealRef.current = true;
     } else {
       revealRef.current = false;
+      gsap.to(".hide-before-anim", {
+        opacity: 0,
+        duration: 0.1,
+      });
+
       gsap.to(desktopNavmenuCon.current, {
         height: 0,
       });
     }
-  }, [selectedOption]);
+  }, [currentMenu]);
 
   const closeMenu = () => {
     closeNavMenuTimeout = setTimeout(() => {
       setSelectedOption("");
+      setCurrentMenu(undefined);
     }, 50);
   };
 
@@ -125,7 +137,7 @@ const DesktopNavbarMenu = () => {
     <>
       <div ref={desktopNavmenuCon} onMouseLeave={() => closeMenu()} className="desktop-navmenu-container">
         <div
-          className={`menulist ${currentMenu?.name.toLowerCase().includes("kids") ? "extend-menulist-columns" : ""}`}>
+          className={`menulist hide-before-anim ${currentMenu?.name.toLowerCase().includes("kids") ? "extend-menulist-columns" : ""}`}>
           {currentMenu &&
             currentMenu.items?.map((item) =>
               !item.title.includes("Sizes") || currentMenu.name.toLowerCase().includes("kids") ? (
@@ -147,7 +159,7 @@ const DesktopNavbarMenu = () => {
             )}
         </div>
 
-        <div className={`navmenu-image-container`}>
+        <div className={`navmenu-image-container hide-before-anim`}>
           <img ref={displayImageRef} src={displayImage || placeholderDisplayImage} alt="menu-dispay-image" />
         </div>
       </div>

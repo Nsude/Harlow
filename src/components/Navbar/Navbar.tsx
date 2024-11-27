@@ -67,34 +67,9 @@ const Navbar = () => {
     } else {
       gsap.to(navRef.current, { zIndex: 100 });
     }
-
-    if (selectedOption) {
-      gsap.to(navRef.current, {
-        backgroundColor: colors.black,
-        duration: 0,
-      });
-    } else {
-      gsap.to(navRef.current, {
-        backgroundColor: colors.offWhite,
-        delay: 0.3,
-      });
-    }
   }, [selectedOption, menuOpen]);
 
-  // get anchor elem width
-  const anchorElems = useRef<(HTMLAnchorElement | null)[]>([]);
-  useCustomEffect(() => {
-    if (!anchorElems.current) return;
-    anchorElems.current.forEach((elem) => {
-      if (!elem) return;
-      const rect = elem.getBoundingClientRect();
-      elem.style.setProperty("--width", `${rect.width}px`);
-    });
-  }, []);
-
   const menuOptionHover = (menu: MenuList, e: React.MouseEvent) => {
-    let target = e.target as HTMLAnchorElement;
-    scrambleText(target, menu.name);
     if (!menu.items) return;
     setSelectedOption(menu.name);
   };
@@ -125,7 +100,7 @@ const Navbar = () => {
 
         {/* logo */}
         <div className="logo-search-con flex">
-          <Logo color={selectedOption ? colors.offWhite : ""} />
+          <Logo color={colors.offWhite} />
           <div className="search-box">
             <input type="text" placeholder="Search" />
           </div>
@@ -134,17 +109,17 @@ const Navbar = () => {
         {/* Destop Links */}
         <div className="desktop-links">
           {menuLists &&
-            menuLists.map((item) => (
+            menuLists.map((item, i) => (
               <Link
                 key={item.name}
                 to={`/${item.name.toLocaleLowerCase()}`}
-                ref={(el) => anchorElems.current.push(el)}
                 className={`${selectedOption ? "menu-open" : ""}`}
                 onMouseEnter={(e) => {
                   menuOptionHover(item, e);
                 }}
                 onClick={(e) => setActiveMenu(e)}>
                 {item.name}
+                {i !== menuLists.length - 1 ? ", " : ""}
               </Link>
             ))}
         </div>
@@ -154,10 +129,10 @@ const Navbar = () => {
             <SearchIcon />
           </button>
           <Link to={"/profile"} className="profile-link">
-            <ProfileIcon color={selectedOption ? colors.offWhite : ""} />
+            <ProfileIcon color={colors.offWhite} />
           </Link>
           <Link to={"/cart"}>
-            <CartIcon color={selectedOption ? colors.offWhite : ""} />
+            <CartIcon color={colors.offWhite} />
           </Link>
         </div>
       </nav>

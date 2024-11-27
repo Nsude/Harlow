@@ -5,6 +5,8 @@
   height: 400px;
   width: 100%;
   position: relative;
+  font-family: "HaasMedium";
+  scroll-snap-align: start;
 
   .image-container {
     height: 100%;
@@ -27,7 +29,7 @@
 
   .label {
     opacity: 0.4;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
   }
 
   .price,

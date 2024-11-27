@@ -3,15 +3,15 @@
 
 .navbar-container {
   flex-wrap: wrap;
-  padding: 15px 0;
+  padding: 15px 20px;
   position: fixed;
-  left: 20px;
-  right: 20px;
+  left: 0;
+  right: 0;
   z-index: 100;
-  background-color: $off-white;
+  background-color: $black;
 
   a {
-    color: $black;
+    color: $off-white;
     text-decoration: none;
   }
 
@@ -21,6 +21,7 @@
     cursor: pointer;
 
     &.menu {
+      color: $off-white;
       font-size: $title;
     }
   }
@@ -72,9 +73,10 @@
   .navbar-container {
     color: $black;
     pointer-events: none;
+    padding-block: 20px;
 
     &.menu-open {
-      color: $off-white !important;
+      color: $off-white;
     }
 
     .desktop-links,
@@ -92,12 +94,20 @@
 
       a {
         position: relative;
-        color: inherit;
+        color: $off-white;
+        mix-blend-mode: difference;
         width: var(--width);
+        font-family: "HaasMedium";
         font-size: $title;
+        opacity: 0.4;
+      }
+
+      a:first-child:not(:hover) {
+        opacity: 1;
       }
 
       a:hover {
+        opacity: 1;
         text-decoration: underline;
       }
     }

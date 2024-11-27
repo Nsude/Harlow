@@ -39,7 +39,7 @@ const menuItems: MenuItem[] = [
     children: ["Sneakers", "Running Shoes", "Basketball", "Bugdet Friendly"],
   },
   {
-    title: "All Clothing",
+    title: "All",
     children: ["Tshirts", "Matching Sets", "Sweatshirts & Hoodies", "Jerseys", "Shorts", "Jackets"],
   },
   {
@@ -61,11 +61,11 @@ const NavbarContextProvider: React.FC<{ children: ReactNode }> = ({ children }) 
   const [selectedOption, setSelectedOption] = useState("");
 
   const menuLists: MenuList[] = [
+    { name: "Explore" },
     { name: "Men", items: menuItems },
     { name: "Women", items: menuItems },
     { name: "Kids", items: menuItems },
     { name: "Sale" },
-    { name: "Explore" },
   ];
 
   return (

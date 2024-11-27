@@ -5,7 +5,6 @@ body {
   background-color: $off-white;
   color: $black;
   font-size: $body-copy;
-  padding: $m-body-padding;
   font-family: "HaasRegular";
   letter-spacing: 0.02ch;
   overflow-x: hidden;
@@ -111,13 +110,20 @@ button.primary-btn {
     margin-bottom: 0 !important;
     width: var(--width);
     text-wrap: nowrap;
-    overflow-x: hidden;
+    overflow: hidden;
   }
 
   &:hover {
     background-color: transparent;
     color: $off-white;
   }
+}
+
+button.secondary-btn {
+  font-size: $body-copy;
+  background: none;
+  border: none;
+  letter-spacing: 0.02ch;
 }
 
 // hide scrollbar
@@ -129,6 +135,18 @@ button.primary-btn {
   &::-webkit-scrollbar {
     display: none;
   }
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $black;
+}
+
+::-webkit-scrollbar-track {
+  background: $off-white;
 }
 
 @include apply-from(tablet) {

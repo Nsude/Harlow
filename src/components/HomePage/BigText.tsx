@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import useCustomEffect from "../../hooks/useCustomEffect";
 import { gsap } from "gsap";
 import placeHolderImage from "../../assets/media/images/placeholderImage.png";
@@ -13,11 +13,27 @@ interface Props {
 }
 
 const BigText: React.FC<Props> = ({ text, image, filter }) => {
+  const [exit, setExit] = useState("top");
   const imageRef = useRef<HTMLImageElement | null>();
 
   useCustomEffect(() => {
-    if (!imageRef.current) return;
-  });
+    let prevScroll = 0;
+    const handleScroll = () => {
+      const scroll = document.documentElement.scrollTop;
+      if (scroll > prevScroll) {
+        setExit("bottom");
+      } else if (scroll < prevScroll) {
+        setExit("top");
+      }
+      prevScroll = scroll
+    }
+
+    window.addEventListener("scroll", handleScroll);
+
+    return (() => {
+      window.removeEventListener("scroll", handleScroll);
+    })
+  }, []);
 
   const imageIn = () => {
     if (!imageRef.current) return;
@@ -27,17 +43,16 @@ const BigText: React.FC<Props> = ({ text, image, filter }) => {
     });
 
     gsap.to(imageRef.current, {
-      yPercent: -100,
+      yPercent: exit === "top" ? -100 : -100,
     });
   };
 
   const imageOut = () => {
     if (!imageRef.current) return;
-    gsap
-      .to(imageRef.current, {
-        yPercent: -200,
-      })
-      .then(() => resetAnimations());
+    gsap.to(imageRef.current, {
+      yPercent: exit === "top" ? -200 : 0,
+    })
+    .then(() => resetAnimations());
   };
 
   const resetAnimations = () => {

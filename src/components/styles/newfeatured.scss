@@ -16,6 +16,7 @@
 
   .products {
     display: grid;
+    overflow-y: hidden;
     grid-template-columns: repeat(var(--children, 7), 90%);
     column-gap: 10px;
     overflow-x: scroll;

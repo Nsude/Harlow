@@ -54,7 +54,7 @@ const HeroSection = () => {
       });
 
       gsap.to(".scroller[data-scroll='true']", {
-        scale: 2,
+        scale: 1.7,
         transformOrigin: "bottom",
         ease: "linear",
         scrollTrigger: {

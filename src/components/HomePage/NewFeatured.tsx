@@ -1,8 +1,12 @@
 import React, { useRef } from "react";
 import BigText from "./BigText";
 import ProductCard from "../global/ProductCard";
-import placeHolderImage from "../../assets/media/images/placeholderImage.png";
 import useCustomEffect from "../../hooks/useCustomEffect";
+import prod1 from "../../assets/media/images/prod-1.webp";
+import image1 from "../../assets/media/images/bigtext-img-1.webp";
+import image2_1 from "../../assets/media/images/bigtext-img-2-1.webp";
+import image2_2 from "../../assets/media/images/bigtext-img-2-2.webp";
+import image3 from "../../assets/media/images/bigtext-img-3.webp";
 
 const NewFeatured = () => {
   const productsConRef = useRef<HTMLDivElement | null>();
@@ -17,9 +21,9 @@ const NewFeatured = () => {
   return (
     <div className="newfeatured-container hide-scroll">
       <div className="big-texts">
-        <BigText text="Shop" />
-        <BigText text="New &" filter={"grayscale"} />
-        <BigText text="Featured" />
+        <BigText text="Shop" image={image1} />
+        <BigText text="New &" image={image2_1} objectPosition="bottom" />
+        <BigText text="Featured" image={image3} />
       </div>
 
       <div className="products-con">
@@ -29,13 +33,13 @@ const NewFeatured = () => {
           <button className="prev secondary-btn">Prev</button>
         </div>
         <div ref={(el) => (productsConRef.current = el)} className="products hide-scroll">
-          <ProductCard productName="Mari Tee" image={placeHolderImage} price="52.73" />
-          <ProductCard productName="Montage Tees" image={placeHolderImage} price="74.50" />
-          <ProductCard productName="Cradle Hoodie" image={placeHolderImage} price="97.50" />
-          <ProductCard productName="Arbeit Tees" image={placeHolderImage} price="64.50" />
-          <ProductCard productName="Kandar Condour" image={placeHolderImage} price="83.50" />
-          <ProductCard productName="Cradle Tees" image={placeHolderImage} price="38.50" />
-          <ProductCard productName="Kandar Mari" image={placeHolderImage} price="69.50" />
+          <ProductCard productName="Mari Tee" image={prod1} price="52.73" />
+          <ProductCard productName="Montage Tees" image={prod1} price="74.50" />
+          <ProductCard productName="Cradle Hoodie" image={prod1} price="97.50" />
+          <ProductCard productName="Arbeit Tees" image={prod1} price="64.50" />
+          <ProductCard productName="Kandar Condour" image={prod1} price="83.50" />
+          <ProductCard productName="Cradle Tees" image={prod1} price="38.50" />
+          <ProductCard productName="Kandar Mari" image={prod1} price="69.50" />
         </div>
       </div>
     </div>

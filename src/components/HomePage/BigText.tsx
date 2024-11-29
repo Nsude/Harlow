@@ -10,9 +10,10 @@ interface Props {
   text: string;
   image?: string;
   filter?: string;
+  objectPosition?: string;
 }
 
-const BigText: React.FC<Props> = ({ text, image, filter }) => {
+const BigText: React.FC<Props> = ({ text, image, filter, objectPosition }) => {
   const [exit, setExit] = useState("top");
   const imageRef = useRef<HTMLImageElement | null>();
 
@@ -43,7 +44,8 @@ const BigText: React.FC<Props> = ({ text, image, filter }) => {
     });
 
     gsap.to(imageRef.current, {
-      yPercent: exit === "top" ? -100 : -100,
+      yPercent: -100,
+      duration: .6
     });
   };
 
@@ -68,7 +70,10 @@ const BigText: React.FC<Props> = ({ text, image, filter }) => {
     <div className="bigtext-container hide-scroll" onMouseEnter={() => imageIn()} onMouseLeave={() => imageOut()}>
       <p> {text} </p>
       <div className="image-container">
-        <img ref={(el) => (imageRef.current = el)} data-filter={filter} src={image || placeHolderImage} />
+        <img 
+          ref={(el) => (imageRef.current = el)} 
+          data-filter={filter} src={image || placeHolderImage} 
+          style={{objectPosition: objectPosition || "center"}} />
       </div>
     </div>
   );

@@ -26,14 +26,14 @@ const BigText: React.FC<Props> = ({ text, image, filter, objectPosition }) => {
       } else if (scroll < prevScroll) {
         setExit("top");
       }
-      prevScroll = scroll
-    }
+      prevScroll = scroll;
+    };
 
     window.addEventListener("scroll", handleScroll);
 
-    return (() => {
+    return () => {
       window.removeEventListener("scroll", handleScroll);
-    })
+    };
   }, []);
 
   const imageIn = () => {
@@ -45,16 +45,17 @@ const BigText: React.FC<Props> = ({ text, image, filter, objectPosition }) => {
 
     gsap.to(imageRef.current, {
       yPercent: -100,
-      duration: .6
+      duration: 0.6,
     });
   };
 
   const imageOut = () => {
     if (!imageRef.current) return;
-    gsap.to(imageRef.current, {
-      yPercent: exit === "top" ? -200 : 0,
-    })
-    .then(() => resetAnimations());
+    gsap
+      .to(imageRef.current, {
+        yPercent: exit === "top" ? -200 : 0,
+      })
+      .then(() => resetAnimations());
   };
 
   const resetAnimations = () => {
@@ -70,10 +71,12 @@ const BigText: React.FC<Props> = ({ text, image, filter, objectPosition }) => {
     <div className="bigtext-container hide-scroll" onMouseEnter={() => imageIn()} onMouseLeave={() => imageOut()}>
       <p> {text} </p>
       <div className="image-container">
-        <img 
-          ref={(el) => (imageRef.current = el)} 
-          data-filter={filter} src={image || placeHolderImage} 
-          style={{objectPosition: objectPosition || "center"}} />
+        <img
+          ref={(el) => (imageRef.current = el)}
+          data-filter={filter}
+          src={image || placeHolderImage}
+          style={{ objectPosition: objectPosition || "center" }}
+        />
       </div>
     </div>
   );

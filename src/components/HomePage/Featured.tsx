@@ -5,7 +5,6 @@ import sneakerImage from "../../assets/media/images/sneaker-title.webp";
 import apparelImage from "../../assets/media/images/apparel-title.webp";
 import accessImage from "../../assets/media/images/access-title.webp";
 
-
 const Featured = () => {
   const imagesToAnim = useRef<(HTMLImageElement | null)[]>([]);
 

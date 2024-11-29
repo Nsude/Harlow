@@ -2,9 +2,10 @@
 
 .button-solid-overlay {
   position: relative;
-  padding: 15px 30px;
-  background-color: var(--bg, $grey);
-  color: var(--fg, $ivory);
+  padding: 15px 25px;
+  padding-left: 23px;
+  background-color: var(--bg, transparent);
+  color: var(--default-color, $off-white);
   border-radius: 50px;
   border: none;
   overflow: hidden;
@@ -13,7 +14,7 @@
 
   &.no-bg {
     background-color: transparent;
-    color: $ivory;
+    color: $off-white;
     padding-inline: 0;
   }
 
@@ -26,11 +27,12 @@
     padding: 0;
   }
 
-  .arrow-con, span:not(.btn-overlay) {
+  .arrow-con,
+  span:not(.btn-overlay) {
     position: relative;
     z-index: 10;
   }
-  
+
   .btn-overlay {
     position: absolute;
     left: 0px;

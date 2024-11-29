@@ -26,15 +26,21 @@ const Featured = () => {
       <h2 className="title">Featured</h2>
       <div className="images hide-scroll">
         <div className="featured">
-          <img ref={(el) => imagesToAnim.current.push(el)} src={sneakerImage} />
+          <div>
+            <img ref={(el) => imagesToAnim.current.push(el)} src={sneakerImage} />
+          </div>
           <h3>Sneakers</h3>
         </div>
         <div className="featured">
-          <img ref={(el) => imagesToAnim.current.push(el)} src={apparelImage} />
+          <div>
+            <img ref={(el) => imagesToAnim.current.push(el)} src={apparelImage} />
+          </div>
           <h3>Apparel</h3>
         </div>
         <div className="featured">
-          <img ref={(el) => imagesToAnim.current.push(el)} src={accessImage} />
+          <div>
+            <img ref={(el) => imagesToAnim.current.push(el)} src={accessImage} />
+          </div>
           <h3>Accessories</h3>
         </div>
       </div>

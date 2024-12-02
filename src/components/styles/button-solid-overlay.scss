@@ -47,10 +47,9 @@
   }
 }
 
-
 @include apply-from(desktop) {
   .button-solid-overlay {
-    padding: 15px 25px;
+    padding: 12px 25px;
     padding-left: 23px;
   }
 }

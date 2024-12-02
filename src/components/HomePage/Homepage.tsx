@@ -9,8 +9,9 @@ const Homepage = () => {
     <div className="homepage-container">
       <HeroSection />
       <ShowcaseArea />
-      <Featured />
+      <Featured angel={false} />
       <NewFeatured />
+      <Featured angel={true} />
     </div>
   );
 };

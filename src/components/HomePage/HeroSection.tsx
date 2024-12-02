@@ -18,20 +18,20 @@ const HeroSection = () => {
 
   const deviceRect = useDevice();
 
-   // scroll into view on refresh 
-   useCustomEffect(() => {
+  // scroll into view on refresh
+  useCustomEffect(() => {
     const hero = document.querySelector(".hero-section-container");
     const handleLoad = () => {
       if (!hero) return;
       // hero.scrollIntoView({behavior: "smooth"});
-    }
+    };
 
     window.addEventListener("load", handleLoad);
 
-    return (() => {
+    return () => {
       window.removeEventListener("load", handleLoad);
-    })
-  }, [])
+    };
+  }, []);
 
   useCustomEffect(() => {
     setInterval(() => {

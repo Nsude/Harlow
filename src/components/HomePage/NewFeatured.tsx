@@ -7,7 +7,6 @@ import image3 from "../../assets/media/images/bigtext-img-3.webp";
 import ProductList from "../global/ProductList";
 
 const NewFeatured = () => {
-
   return (
     <div className="newfeatured-container hide-scroll">
       <div className="big-texts">
@@ -17,7 +16,7 @@ const NewFeatured = () => {
       </div>
 
       <div className="products-con">
-       <ProductList />
+        <ProductList />
       </div>
     </div>
   );

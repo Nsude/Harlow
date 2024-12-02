@@ -1,48 +1,41 @@
 import React, { useRef } from "react";
-import useCustomEffect from "../../hooks/useCustomEffect";
-import { gsap } from "gsap";
 import sneakerImage from "../../assets/media/images/sneaker-title.webp";
 import apparelImage from "../../assets/media/images/apparel-title.webp";
 import accessImage from "../../assets/media/images/access-title.webp";
+import angel_1 from "../../assets/media/images/angel-1.webp";
+import angel_2 from "../../assets/media/images/angel-2.webp";
+import angel_3 from "../../assets/media/images/angel-3.webp";
+import FeaturedImage from "../global/FeaturedImage";
 
-const Featured = () => {
-  const imagesToAnim = useRef<(HTMLImageElement | null)[]>([]);
+interface Props {
+  angel: boolean;
+}
 
-  useCustomEffect(() => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    gsap.to(imagesToAnim.current, {
-      scale: 1,
-      scrollTrigger: {
-        trigger: ".images",
-        scrub: 0.6,
-        start: "-300 80%",
-        end: "max",
-      },
-    });
-  }, []);
-
+const Featured: React.FC<Props> = ({ angel }) => {
   return (
     <div className="featured-container">
-      <h2 className="title">Featured</h2>
+      {!angel ? <h2 className="title">Featured</h2> : ""}
       <div className="images hide-scroll">
-        <div className="featured">
-          <div>
-            <img ref={(el) => imagesToAnim.current.push(el)} src={sneakerImage} />
-          </div>
-          <h3>Sneakers</h3>
-        </div>
-        <div className="featured">
-          <div>
-            <img ref={(el) => imagesToAnim.current.push(el)} src={apparelImage} />
-          </div>
-          <h3>Apparel</h3>
-        </div>
-        <div className="featured">
-          <div>
-            <img ref={(el) => imagesToAnim.current.push(el)} src={accessImage} />
-          </div>
-          <h3>Accessories</h3>
-        </div>
+        <FeaturedImage
+          title={angel ? "Shop" : "Sneakers"}
+          image={angel ? angel_2 : sneakerImage}
+          buttonText={angel ? "Women" : ""}
+          angel={angel}
+        />
+
+        <FeaturedImage
+          title={angel ? "Angel" : "Apparel"}
+          image={angel ? angel_1 : apparelImage}
+          buttonText={angel ? "Men" : ""}
+          angel={angel}
+        />
+
+        <FeaturedImage
+          title={angel ? "Collection" : "Accessories"}
+          image={angel ? angel_3 : accessImage}
+          buttonText={angel ? "Kids" : ""}
+          angel={angel}
+        />
       </div>
     </div>
   );

@@ -2,7 +2,6 @@
 @use "mixins" as *;
 
 .product-list-container {
-
   .details {
     padding: 0 20px;
     margin-bottom: 20px;
@@ -29,7 +28,7 @@
   }
 
   .prev-btn {
-    opacity: .6;
+    opacity: 0.6;
     pointer-events: none;
   }
 
@@ -68,7 +67,7 @@
       padding: 0;
     }
 
-    .product, 
+    .product,
     .actions {
       min-width: 50%;
     }
@@ -77,7 +76,6 @@
 
 @include apply-from(desktop) {
   .newfeatured-container {
-
     .product,
     .actions {
       min-width: 33%;

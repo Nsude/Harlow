@@ -17,6 +17,7 @@ const Navbar = () => {
   const { setMenuOpen, menuOpen, selectedOption, setSelectedOption, menuLists } = useNavContext();
   const { colors } = useGlobalContext();
   const [hideMenuBar, setHideMenuBar] = useState(false);
+  const navRef = useRef<HTMLElement | null>(null);
 
   // hide / show navbar
   useCustomEffect(() => {
@@ -40,7 +41,6 @@ const Navbar = () => {
   }, []);
 
   // hide menu bar on scroll
-  const navRef = useRef<HTMLElement | null>();
   useCustomEffect(() => {
     // gsap.fromTo()
     if (!navRef.current) return;

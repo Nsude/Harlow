@@ -1,9 +1,10 @@
 @use "variables" as *;
+@use "mixins" as *;
 
 .button-solid-overlay {
   position: relative;
-  padding: 15px 25px;
-  padding-left: 23px;
+  padding: 10px 20px;
+  padding-left: 18px;
   background-color: var(--bg, transparent);
   color: var(--default-color, $off-white);
   border-radius: 50px;
@@ -43,5 +44,13 @@
     z-index: 1;
     border-radius: 30px;
     clip-path: circle(0% at 50% 50%);
+  }
+}
+
+
+@include apply-from(desktop) {
+  .button-solid-overlay {
+    padding: 15px 25px;
+    padding-left: 23px;
   }
 }

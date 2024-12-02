@@ -2,11 +2,12 @@
 @use "mixins" as *;
 
 .product-card-container {
-  height: 400px;
+  height: 480px;
   width: 100%;
   position: relative;
   font-family: "HaasMedium";
   scroll-snap-align: start;
+  overflow-y: hidden;
 
   .image-container {
     height: 100%;
@@ -21,26 +22,49 @@
 
   .product-details {
     position: absolute;
-    background-color: $white;
-    padding: 15px;
+    background-color: $off-white;
+    height: 20%;
     left: 0;
     width: 100%;
     bottom: 0;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  .product-name p:first-child {
+    font-size: $title;
   }
 
   .label {
     opacity: 0.4;
     margin-bottom: 6px;
+    margin-top: 15px;
   }
 
-  .price,
+  .price {
+    margin-top: 15px;
+  }
+
   .price p {
-    font-size: 12px;
+    font-size: $title;
   }
 
   .discount {
-    padding: 6px 8px 5px;
-    background-color: $green;
-    border-radius: 15px;
+    color: $accent;
+  }
+}
+
+@include apply-from(tablet) {
+  .product-card-container {
+    height: auto;
+  }
+}
+
+@include apply-from(desktop) {
+  .product-card-container {
+
+    .product-details {
+      height: 18%;
+    }
   }
 }

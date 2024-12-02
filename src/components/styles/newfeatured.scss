@@ -2,36 +2,15 @@
 @use "mixins" as *;
 
 .newfeatured-container {
-  overflow-x: hidden;
   margin-bottom: 75px;
 
   .big-texts {
     margin-bottom: 35px;
-    margin-left: 20px;
+    padding: 0 20px;
   }
 
   .control-btns {
     display: none;
-  }
-
-  .products {
-    display: grid;
-    overflow-y: hidden;
-    grid-template-columns: repeat(var(--children, 7), 90%);
-    column-gap: 10px;
-    overflow-x: scroll;
-    transform: translateX(20px);
-    scroll-snap-type: x mandatory;
-  }
-}
-
-@include apply-from(tablet) {
-  .newfeatured-container {
-    padding: 0 35px;
-
-    .products {
-      grid-template-columns: repeat(var(--children, 7), 350px);
-    }
   }
 }
 

@@ -1,0 +1,86 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.product-list-container {
+
+  .details {
+    padding: 0 20px;
+    margin-bottom: 20px;
+  }
+
+  .details h2 {
+    margin-bottom: 10px;
+  }
+
+  .actions button {
+    font-size: $body-copy;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .nav-btns {
+    display: none;
+  }
+
+  .view-all {
+    text-decoration: underline;
+  }
+
+  .prev-btn {
+    opacity: .6;
+    pointer-events: none;
+  }
+
+  .products-frame {
+    overflow: hidden;
+    padding: 0 20px;
+  }
+
+  .products {
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+  }
+
+  .product {
+    min-width: 100%;
+  }
+}
+
+@include apply-from(tablet) {
+  .newfeatured-container {
+    padding: 0 35px;
+
+    .details {
+      padding: 0;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .nav-btns {
+      display: flex;
+      column-gap: 5px;
+    }
+
+    .products-frame {
+      overflow: visible;
+      padding: 0;
+    }
+
+    .product, 
+    .actions {
+      min-width: 50%;
+    }
+  }
+}
+
+@include apply-from(desktop) {
+  .newfeatured-container {
+
+    .product,
+    .actions {
+      min-width: 33%;
+    }
+  }
+}

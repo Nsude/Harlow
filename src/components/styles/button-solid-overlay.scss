@@ -1,0 +1,56 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.button-solid-overlay {
+  position: relative;
+  padding: 10px 20px;
+  padding-left: 18px;
+  background-color: var(--bg, transparent);
+  color: var(--default-color, $off-white);
+  border-radius: 50px;
+  border: none;
+  overflow: hidden;
+  font-size: $body-copy;
+  border: 1.1px solid var(--overlay);
+
+  &.no-bg {
+    background-color: transparent;
+    color: $off-white;
+    padding-inline: 0;
+  }
+
+  &.no-bg .btn-overlay {
+    display: none;
+  }
+
+  .arrow-con {
+    overflow: hidden;
+    padding: 0;
+  }
+
+  .arrow-con,
+  span:not(.btn-overlay) {
+    position: relative;
+    z-index: 10;
+  }
+
+  .btn-overlay {
+    position: absolute;
+    left: 0px;
+    top: -5px;
+    height: 120%;
+    width: 120%;
+    background-color: var(--overlay, $black);
+    z-index: 1;
+    border-radius: 30px;
+    clip-path: circle(0% at 50% 50%);
+  }
+}
+
+
+@include apply-from(desktop) {
+  .button-solid-overlay {
+    padding: 15px 25px;
+    padding-left: 23px;
+  }
+}

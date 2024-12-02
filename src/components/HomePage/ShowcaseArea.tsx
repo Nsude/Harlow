@@ -1,12 +1,13 @@
 import { useRef, useState } from "react";
-import placeHolder from "../../assets/media/images/placeholderImage.png";
 import LinkArrowIcon from "../../assets/icons/LinkArrowIcon";
 import { useGlobalContext } from "../contexts/GlobalContex";
 import useCustomEffect from "../../hooks/useCustomEffect";
 import useMousePos from "../../hooks/useMousePos";
 import { gsap } from "gsap";
-import { getElemByClass } from "../utility-functions/utils";
 import { scrambleText } from "../utility-functions/scrambleText";
+import image1 from "../../assets/media/images/showcase-1.webp";
+import image2 from "../../assets/media/images/showcase-2.webp";
+import ButtonSolidOverlay from "../global/ButtonSolidOverlay";
 
 const ShowcaseArea = () => {
   const { colors } = useGlobalContext();
@@ -75,34 +76,34 @@ const ShowcaseArea = () => {
   return (
     <div className="showcase-container">
       <div className="image-container" onMouseEnter={(e) => ImageMaskMouseEnter(e)}>
-        <img src={placeHolder} className="image-blur-mask" />
+        <img src={image1} className="image-blur-mask" />
         <div className="content">
           <p>001</p>
           <h2>Freedom to redefine your presence.</h2>
-          <button
-            onMouseEnter={(e) => scramText(e, "Shop Bestselling")}
-            ref={(e) => buttonsRef.current.push(e)}
-            className="primary-btn">
-            <p ref={(el) => buttonTextRef.current.push(el)}>Shop Bestselling</p>
-            <LinkArrowIcon size={10} color={arrowColor} />
-          </button>
+          <ButtonSolidOverlay
+            text="Shop Now"
+            defaultColor={colors.offWhite}
+            overlay={colors.offWhite}
+            arrowIcon={true}
+            fg={colors.black}
+          />
         </div>
-        <img src={placeHolder} />
+        <img src={image1} />
       </div>
       <div className="image-container" onMouseEnter={(e) => ImageMaskMouseEnter(e)}>
-        <img src={placeHolder} className="image-blur-mask" />
+        <img src={image2} className="image-blur-mask" />
         <div className="content">
           <p>002</p>
           <h2>Freedom to redefine your presence.</h2>
-          <button
-            onMouseEnter={(e) => scramText(e, "Shop Now")}
-            ref={(e) => buttonsRef.current.push(e)}
-            className="primary-btn">
-            <p ref={(el) => buttonTextRef.current.push(el)}>Shop Now</p>
-            <LinkArrowIcon size={10} color={arrowColor} />
-          </button>
+          <ButtonSolidOverlay
+            text="Shop Bestselling"
+            defaultColor={colors.offWhite}
+            overlay={colors.offWhite}
+            arrowIcon={true}
+            fg={colors.black}
+          />
         </div>
-        <img src={placeHolder} />
+        <img src={image2} />
       </div>
     </div>
   );

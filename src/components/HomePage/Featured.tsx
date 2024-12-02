@@ -1,7 +1,9 @@
 import React, { useRef } from "react";
-import placeHolderImage from "../../assets/media/images/placeholderImage.png";
 import useCustomEffect from "../../hooks/useCustomEffect";
 import { gsap } from "gsap";
+import sneakerImage from "../../assets/media/images/sneaker-title.webp";
+import apparelImage from "../../assets/media/images/apparel-title.webp";
+import accessImage from "../../assets/media/images/access-title.webp";
 
 const Featured = () => {
   const imagesToAnim = useRef<(HTMLImageElement | null)[]>([]);
@@ -24,15 +26,21 @@ const Featured = () => {
       <h2 className="title">Featured</h2>
       <div className="images hide-scroll">
         <div className="featured">
-          <img ref={(el) => imagesToAnim.current.push(el)} src={placeHolderImage} />
+          <div>
+            <img ref={(el) => imagesToAnim.current.push(el)} src={sneakerImage} />
+          </div>
           <h3>Sneakers</h3>
         </div>
         <div className="featured">
-          <img ref={(el) => imagesToAnim.current.push(el)} src={placeHolderImage} />
+          <div>
+            <img ref={(el) => imagesToAnim.current.push(el)} src={apparelImage} />
+          </div>
           <h3>Apparel</h3>
         </div>
         <div className="featured">
-          <img ref={(el) => imagesToAnim.current.push(el)} src={placeHolderImage} />
+          <div>
+            <img ref={(el) => imagesToAnim.current.push(el)} src={accessImage} />
+          </div>
           <h3>Accessories</h3>
         </div>
       </div>

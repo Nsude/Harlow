@@ -21,7 +21,7 @@ const FeaturedImage: React.FC<Props> = ({ image, title, angel, buttonText }) => 
       scale: 1,
       scrollTrigger: {
         scrub: 0.6,
-        start: angel ? "65% 70%" : "-300 80%",
+        start: angel ? "40% 70%" : "-250 80%",
         end: "max",
       },
     });

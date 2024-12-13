@@ -1,0 +1,92 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.image-section-container {
+  width: 100vw;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  h2 {
+    font-family: "HaasBold" !important;
+    font-size: 50px;
+    text-transform: uppercase;
+    text-align: center;
+    color: $off-white;
+  }
+
+  .split-text-con {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+  .image-con {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+    background-color: $black;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: .8;
+  }
+
+  .next-section-in {
+    display: none;
+  }
+}
+
+@include apply-from(desktop) {
+  .image-section-container {
+    height: 100vh;
+    overflow: visible;
+  
+    .texts {
+      position: relative;
+      z-index: 10;
+      height: 100%;
+      width: 100%;
+      background-color: $off-white;
+    }
+  
+    h2 {
+      font-size: 200px;
+      color: $black;
+    }
+  
+    .split-text-con {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      margin-bottom: 100px;
+    }
+  
+    .image-con {
+      background-color: transparent;
+    }
+
+    img {
+      opacity: 1;
+    }
+  
+    .next-section-in {
+      display: block;
+      position: absolute;
+      z-index: 10;
+      min-height: 100%;
+      width: 100%;
+      background-color: $off-white;
+      bottom: -100%;
+    }
+  }
+}

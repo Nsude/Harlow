@@ -2,8 +2,12 @@
 @use "mixins" as *;
 
 .bigtext-container {
+  overflow: hidden;
+
   p {
-    font-size: 80px;
+    font-family: "HaasBold";
+    text-transform: uppercase;
+    font-size: 60px;
     letter-spacing: -0.05ch;
   }
 
@@ -28,7 +32,7 @@
     padding: 35px 0;
 
     p {
-      font-size: 350px;
+      font-size: 260px;
       letter-spacing: -0.08ch;
     }
 

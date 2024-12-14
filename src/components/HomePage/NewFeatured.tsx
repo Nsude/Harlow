@@ -1,8 +1,6 @@
-import React, { useRef } from "react";
 import BigText from "./BigText";
 import image1 from "../../assets/media/images/bigtext-img-1.webp";
 import image2_1 from "../../assets/media/images/bigtext-img-2-1.webp";
-import image2_2 from "../../assets/media/images/bigtext-img-2-2.webp";
 import image3 from "../../assets/media/images/bigtext-img-3.webp";
 import ProductList from "../global/ProductList";
 

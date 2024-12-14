@@ -14,6 +14,17 @@
   }
 }
 
+@include apply-from(tablet) {
+  .newfeatured-container {
+    padding-inline: 35px;
+
+    .big-texts {
+      padding: 0;
+      margin-bottom: 75px;
+    }
+  }
+}
+
 @include apply-from(desktop) {
   .newfeatured-container {
     margin-bottom: $d-section-margin;

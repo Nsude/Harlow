@@ -4,9 +4,9 @@ import ShowcaseArea from "./ShowcaseArea";
 import Featured from "./Featured";
 import NewFeatured from "./NewFeatured";
 import ImageSection from "./ImageSection";
+import MenFootwear from "./MenFootwear";
 
 const Homepage = () => {
-
   return (
     <div className="homepage-container">
       <HeroSection />
@@ -15,6 +15,7 @@ const Homepage = () => {
       <NewFeatured />
       <Featured angel={true} />
       <ImageSection />
+      <MenFootwear />
     </div>
   );
 };

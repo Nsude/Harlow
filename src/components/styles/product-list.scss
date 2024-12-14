@@ -48,9 +48,7 @@
 }
 
 @include apply-from(tablet) {
-  .newfeatured-container {
-    padding: 0 35px;
-
+  .product-list-container {
     .details {
       padding: 0;
       display: flex;
@@ -58,7 +56,7 @@
     }
 
     .nav-btns {
-      display: flex;
+      display: flex !important;
       column-gap: 5px;
     }
 
@@ -75,7 +73,7 @@
 }
 
 @include apply-from(desktop) {
-  .newfeatured-container {
+  .product-list-container {
     .product,
     .actions {
       min-width: 33%;

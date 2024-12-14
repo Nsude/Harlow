@@ -1,0 +1,13 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.men-footwear-container {
+  position: relative;
+  z-index: 100;
+}
+
+@include apply-from(desktop) {
+  .men-footwear-container {
+    padding-inline: 35px;
+  }
+}

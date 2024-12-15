@@ -1,3 +1,5 @@
+import gsap from "gsap";
+
 // Get elements from the DOM by classname
 export const getElemByClass = (className: string) => {
   const elems = document.querySelectorAll(`.${className}`);
@@ -22,3 +24,17 @@ export const addClass = (elem: HTMLElement, className: string) => {
   elem.classList.add(className);
   console.log(elem);
 };
+
+// move sections after image section
+export const moveSectionOnScroll = (container: any) => {
+  if (window.innerWidth < 1340 || !container.current) return null;
+
+  gsap.to(container.current, {
+    yPercent: -95,
+    scrollTrigger: {
+      trigger: ".image-section-container",
+      scrub: 1,
+      start: "top 0%",
+    },
+  });
+}

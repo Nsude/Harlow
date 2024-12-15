@@ -5,6 +5,7 @@ import Featured from "./Featured";
 import NewFeatured from "./NewFeatured";
 import ImageSection from "./ImageSection";
 import MenFootwear from "./MenFootwear";
+import WomenFootwear from "./WomenFootwear";
 
 const Homepage = () => {
   return (
@@ -16,6 +17,7 @@ const Homepage = () => {
       <Featured angel={true} />
       <ImageSection />
       <MenFootwear />
+      <WomenFootwear />
     </div>
   );
 };

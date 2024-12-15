@@ -8,7 +8,7 @@ const MenFootwear = () => {
   const container = useRef<HTMLDivElement | null>(null);
 
   useCustomEffect(() => {
-    moveSectionOnScroll(container);
+    // moveSectionOnScroll(container);
   });
 
   return (

@@ -1,7 +1,12 @@
 @use "mixins" as *;
 
+.women-footwear-container {
+  margin-bottom: 100px;
+}
+
 @include apply-from(desktop) {
   .women-footwear-container {
     padding-inline: 35px;
+    margin-bottom: 150px;
   }
 }

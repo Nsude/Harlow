@@ -37,4 +37,4 @@ export const moveSectionOnScroll = (container: any) => {
       start: "top 0%",
     },
   });
-}
+};

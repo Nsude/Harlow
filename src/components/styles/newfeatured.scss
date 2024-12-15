@@ -16,10 +16,8 @@
 
 @include apply-from(tablet) {
   .newfeatured-container {
-    padding-inline: 35px;
-
     .big-texts {
-      padding: 0;
+      padding-inline: 35px;
       margin-bottom: 75px;
     }
   }

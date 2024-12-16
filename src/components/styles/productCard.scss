@@ -32,22 +32,21 @@
     justify-content: flex-start;
   }
 
-  .product-name p:first-child {
+  .product-name .name {
     font-size: $title;
+    font-family: "HaasBold";
+    text-transform: uppercase;
+    margin-bottom: 6px;
   }
 
   .label {
     opacity: 0.4;
-    margin-bottom: 6px;
-    margin-top: 15px;
-  }
-
-  .price {
+    margin-bottom: 15px;
     margin-top: 15px;
   }
 
   .price p {
-    font-size: $title;
+    font-size: 14px;
   }
 
   .discount {

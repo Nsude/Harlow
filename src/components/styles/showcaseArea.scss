@@ -81,6 +81,10 @@
       opacity: 0;
     }
 
+    .content p, .content h2 {
+      pointer-events: none;
+    }
+
     .image-container:hover img:not(.image-blur-mask) {
       filter: blur(2px) grayscale(1);
     }
@@ -101,6 +105,7 @@
       position: absolute;
       z-index: 1;
       pointer-events: none;
+      opacity: 0;
     }
 
     .content {

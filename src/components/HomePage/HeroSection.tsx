@@ -23,7 +23,7 @@ const HeroSection = () => {
     const hero = document.querySelector(".hero-section-container");
     const handleLoad = () => {
       if (!hero) return;
-      // hero.scrollIntoView({behavior: "smooth"});
+      hero.scrollIntoView({behavior: "smooth"});
     };
 
     window.addEventListener("load", handleLoad);
@@ -49,82 +49,80 @@ const HeroSection = () => {
 
   const imagesDuplicated = useRef(false);
   useCustomEffect(() => {
-    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      const scroller = document.querySelector(".scroller");
-      const heroImges = document.querySelector(".hero-images");
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return null;
+    const scroller = document.querySelector(".scroller");
+    const heroImges = document.querySelector(".hero-images");
 
-      scroller?.setAttribute("data-scroll", "true");
-      const clone = heroImges?.cloneNode(true) as HTMLDivElement;
-      if (!imagesDuplicated.current) {
-        scroller?.appendChild(clone);
-        imagesDuplicated.current = true;
-      }
+    const clone = heroImges?.cloneNode(true) as HTMLDivElement;
+    if (!imagesDuplicated.current) {
+      scroller?.appendChild(clone);
+      imagesDuplicated.current = true;
+    }
 
-      // images scroll animation
-      const scrollAnimation = gsap.to(".scroller[data-scroll='true']", {
-        duration: 40,
-        xPercent: -50,
-        repeat: -1,
-        ease: "linear",
-      });
+    // images scroll animation
+    const scrollAnimation = gsap.to(".scroller", {
+      duration: 40,
+      xPercent: -50,
+      repeat: -1,
+      ease: "linear",
+    });
 
-      gsap.to(".scroller[data-scroll='true']", {
-        scale: 1.7,
-        transformOrigin: "bottom",
-        ease: "linear",
-        scrollTrigger: {
-          start: "top 0%",
-          end: +500,
-          scrub: 0.8,
-        },
-      });
-
-      let scrollerTimeout: any;
-      ScrollTrigger.create({
-        trigger: ".scroller",
-        start: "top 22%",
+    gsap.to(".hero-scroller", {
+      scale: 1.7,
+      transformOrigin: "center",
+      ease: "linear",
+      scrollTrigger: {
+        start: "top 0%",
         end: +500,
-        scrub: 0.8,
-        onUpdate: (self) => {
-          clearTimeout(scrollerTimeout);
-          const velocity = self.getVelocity();
-          scrollAnimation.timeScale(1 + velocity / 80);
+        scrub: 1,
+      },
+    });
 
-          // runs when the user stops scrolling for 200ms
-          scrollerTimeout = setTimeout(() => {
-            scrollAnimation.timeScale(1);
-          }, 200);
+    let scrollerTimeout: any;
+    ScrollTrigger.create({
+      trigger: ".scroller",
+      start: "top 22%",
+      end: +500,
+      scrub: 0.8,
+      onUpdate: (self) => {
+        clearTimeout(scrollerTimeout);
+        const velocity = self.getVelocity();
+        scrollAnimation.timeScale(1 + velocity / 80);
+
+        // runs when the user stops scrolling for 200ms
+        scrollerTimeout = setTimeout(() => {
+          scrollAnimation.timeScale(1);
+        }, 200);
+      },
+    });
+
+    // CTA Container
+    if (deviceRect.width > 700) {
+      // desktop and tablet
+      gsap.to(".cta-container", {
+        bottom: 0,
+        scrollTrigger: {
+          scrub: 0,
         },
       });
-
-      // CTA Container
-      if (deviceRect.width > 700) {
-        // desktop and tablet
-        gsap.to(".cta-container", {
-          bottom: 0,
-          scrollTrigger: {
-            scrub: 0,
-          },
-        });
-      } else {
-        gsap.to(".cta-container", {
-          bottom: 25,
-          transform: "translateY(0)",
-          scrollTrigger: {
-            scrub: 0,
-          },
-        });
-      }
-
-      // bottom info
-      gsap.to(".bottom-info", {
-        opacity: 0,
-        position: "fixed",
+    } else {
+      gsap.to(".cta-container", {
+        bottom: 25,
+        transform: "translateY(0)",
         scrollTrigger: {
-          scrub: 0.1,
+          scrub: 0,
         },
       });
     }
+
+    // bottom info
+    gsap.to(".bottom-info", {
+      opacity: 0,
+      position: "fixed",
+      scrollTrigger: {
+        scrub: 0.1,
+      },
+    });
   }, []);
 
   // get link widths

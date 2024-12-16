@@ -45,6 +45,7 @@ const ShowcaseArea = () => {
     const relativeY = mousePos.y - rect.top;
 
     gsap.to(imageMask.firstElementChild, {
+      opacity: 1,
       duration: 0.2,
       clipPath: `circle(100px at ${relativeX}px ${relativeY}px)`,
     });

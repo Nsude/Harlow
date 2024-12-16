@@ -17,8 +17,8 @@ const ProductCard: React.FC<Props> = ({ image, label = "New & Featured", product
       <div className="product-details flex fd-c">
         <p className="label">{label}</p>
         <div className="product-name">
-          <p>{productName}</p>
-          <div className="price flex cg-10">
+          <p className="name">{productName}</p>
+          <div className="price flex cg-5">
             <p>${price}</p>
             <p className="discount">({discount}% off)</p>
           </div>

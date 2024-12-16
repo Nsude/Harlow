@@ -111,7 +111,7 @@ const ProductList: React.FC<Props> = ({ title }) => {
       <div className="details">
         <h2>{title || "Shop Now"}</h2>
         <div className="actions flex jc-sb">
-          <button className="view-all">View All</button>
+          <button className="view-all">Shop All</button>
           <div className="nav-btns">
             <button className="prev-btn" onClick={prevItem}>
               Prev

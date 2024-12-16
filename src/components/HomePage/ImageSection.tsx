@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import image from "../../assets/media/images/image-section.webp";
 import gsap from "gsap";
 import useCustomEffect from "../../hooks/useCustomEffect";
+import { useDevice } from "../../hooks/useDevice";
 
 const ImageSection = () => {
   const span1Ref = useRef<HTMLHeadingElement | null>(null);
@@ -9,12 +10,12 @@ const ImageSection = () => {
   const textsCon = useRef<HTMLDivElement | null>(null);
   const imageRef = useRef<HTMLImageElement | null>(null);
   const nextSectionIn = useRef<HTMLDivElement | null>(null);
+  const device = useDevice();
 
   useCustomEffect(() => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return null;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches || device.width < 1339) return null;
     if (!span1Ref.current || !span2Ref.current || !textsCon.current || !nextSectionIn.current || !imageRef.current)
       return null;
-    if (window.innerWidth < 1340) return null;
 
     gsap.to(span1Ref.current, {
       x: -400,
@@ -62,7 +63,7 @@ const ImageSection = () => {
         start: "top 0%",
       },
     });
-  });
+  }, [device.width]);
 
   return (
     <div className="image-section-container">

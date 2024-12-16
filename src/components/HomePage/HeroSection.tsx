@@ -15,7 +15,6 @@ gsap.registerPlugin(ScrollTrigger);
 
 const HeroSection = () => {
   const [time, setTime] = useState("");
-
   const deviceRect = useDevice();
 
   // scroll into view on refresh
@@ -23,7 +22,7 @@ const HeroSection = () => {
     const hero = document.querySelector(".hero-section-container");
     const handleLoad = () => {
       if (!hero) return;
-      hero.scrollIntoView({behavior: "smooth"});
+      hero.scrollIntoView({ behavior: "smooth" });
     };
 
     window.addEventListener("load", handleLoad);
@@ -49,7 +48,13 @@ const HeroSection = () => {
 
   const imagesDuplicated = useRef(false);
   useCustomEffect(() => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return null;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches || deviceRect.width < 1339) {
+      // Clean up animations
+      gsap.killTweensOf(".scroller, .hero-scroller, .cta-container, .bottom-info");
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+      return null;
+    }
+
     const scroller = document.querySelector(".scroller");
     const heroImges = document.querySelector(".hero-images");
 
@@ -59,7 +64,7 @@ const HeroSection = () => {
       imagesDuplicated.current = true;
     }
 
-    // images scroll animation
+    // Define animations
     const scrollAnimation = gsap.to(".scroller", {
       duration: 40,
       xPercent: -50,
@@ -89,35 +94,37 @@ const HeroSection = () => {
         const velocity = self.getVelocity();
         scrollAnimation.timeScale(1 + velocity / 80);
 
-        // runs when the user stops scrolling for 200ms
+        // Restore speed after 200ms
         scrollerTimeout = setTimeout(() => {
           scrollAnimation.timeScale(1);
         }, 200);
       },
     });
 
-    // cta container
-    if (deviceRect.width >= 1340) {
-      gsap.to('.cta-container', {
-        bottom: 0,
-        scrollTrigger: {
-          trigger: '.scroller',
-          start: 'top 20%',
-          scrub: 1
-        }
-      })
-    }
+    gsap.to(".cta-container", {
+      bottom: 0,
+      scrollTrigger: {
+        trigger: ".scroller",
+        start: "top 20%",
+        scrub: 0.1,
+      },
+    });
 
-    // bottom info
     gsap.to(".bottom-info", {
       opacity: 0,
       scrollTrigger: {
-        trigger: '.scroller',
-        start: 'top 30%',
+        trigger: ".scroller",
+        start: "top 30%",
         scrub: 1,
       },
     });
-  }, []);
+
+    // Cleanup on component unmount
+    return () => {
+      gsap.killTweensOf(".scroller, .hero-scroller, .cta-container, .bottom-info");
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    };
+  }, [deviceRect.width]);
 
   // get link widths
   const anchorElems = useRef<(HTMLAnchorElement | null)[]>([]);

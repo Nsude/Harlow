@@ -43,10 +43,18 @@
   }
 }
 
+@include apply-from(tablet) {
+  .featured-image-container {
+    img {
+      height: 65vh;
+    }
+  }
+}
+
 @include apply-from(desktop) {
   .featured-image-container {
     h3 {
-      margin-top: 10px;
+      margin-top: 15px;
     }
 
     &[data-angel="true"] h3 {
@@ -54,8 +62,8 @@
     }
 
     img {
-      height: 700px;
-      transform: scale(2);
+      height: 72vh;
+      transform: scale(1.7);
     }
 
     div {

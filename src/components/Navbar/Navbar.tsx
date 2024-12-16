@@ -11,7 +11,6 @@ import { addClass, removeClass } from "../utility-functions/utils";
 import { useRef, useState } from "react";
 import useCustomEffect from "../../hooks/useCustomEffect";
 import { gsap } from "gsap";
-import { scrambleText } from "../utility-functions/scrambleText";
 
 const Navbar = () => {
   const { setMenuOpen, menuOpen, selectedOption, setSelectedOption, menuLists } = useNavContext();
@@ -139,7 +138,7 @@ const Navbar = () => {
             <CartIcon color={colors.offWhite} />
           </Link>
         </div>
-      </nav> 
+      </nav>
     </>
   );
 };

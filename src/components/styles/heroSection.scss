@@ -45,7 +45,6 @@
 @include apply-from(tablet) {
   .hero-section-container {
     .cta-container {
-      position: absolute;
       left: 0;
       width: 100%;
       padding: $w-section-padding;

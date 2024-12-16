@@ -30,6 +30,11 @@
     .title {
       margin-bottom: 20px;
     }
+
+    .images {
+      display: grid;
+      grid-template-columns: repeat(3, 50%);
+    }
   }
 }
 

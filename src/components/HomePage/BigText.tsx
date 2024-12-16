@@ -45,7 +45,7 @@ const BigText: React.FC<Props> = ({ text, image, filter, objectPosition }) => {
 
     gsap.to(imageRef.current, {
       yPercent: -100,
-      duration: 0.6,
+      duration: 0.4,
     });
   };
 

@@ -3,6 +3,7 @@ import ButtonSolidOverlay from "./ButtonSolidOverlay";
 import { useGlobalContext } from "../contexts/GlobalContex";
 import useCustomEffect from "../../hooks/useCustomEffect";
 import gsap from "gsap";
+import { useDevice } from "../../hooks/useDevice";
 
 interface Props {
   image: string;
@@ -14,23 +15,20 @@ interface Props {
 const FeaturedImage: React.FC<Props> = ({ image, title, angel, buttonText }) => {
   const { colors } = useGlobalContext();
   const imageRef = useRef<HTMLImageElement | null>(null);
+  const device = useDevice();
 
   useCustomEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const imageAnimation = gsap.to(imageRef.current, {
+    gsap.to(imageRef.current, {
       scale: 1,
       scrollTrigger: {
-        scrub: 0.6,
+        scrub: 0.4,
         start: angel ? "40% 70%" : "-250 80%",
         end: "max",
       },
     });
 
-    return () => {
-      imageAnimation.kill();
-      imageAnimation.scrollTrigger?.kill();
-    };
-  }, [angel]);
+  }, [angel, device.width]);
 
   return (
     <div className="featured-image-container" data-angel={angel}>

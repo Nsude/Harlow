@@ -25,6 +25,11 @@ const Navbar = () => {
     const handleScroll = () => {
       let scrollPos = document.documentElement.scrollTop;
 
+      // helps prevent scrollbar not being visible on mobile when scrolled to the top
+      if (scrollPos < 200) {
+        return setHideMenuBar(false);
+      }
+
       if (scrollPos > prevScrollPos) {
         setHideMenuBar(true);
       } else {
@@ -119,7 +124,6 @@ const Navbar = () => {
                 }}
                 onClick={(e) => setActiveMenu(e)}>
                 {item.name}
-                {i !== menuLists.length - 1 ? ", " : ""}
               </Link>
             ))}
         </div>
@@ -135,7 +139,7 @@ const Navbar = () => {
             <CartIcon color={colors.offWhite} />
           </Link>
         </div>
-      </nav>
+      </nav> 
     </>
   );
 };

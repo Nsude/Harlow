@@ -69,7 +69,7 @@ const HeroSection = () => {
 
     gsap.to(".hero-scroller", {
       scale: 1.7,
-      transformOrigin: "center",
+      transformOrigin: "left bottom",
       ease: "linear",
       scrollTrigger: {
         start: "top 0%",
@@ -96,31 +96,25 @@ const HeroSection = () => {
       },
     });
 
-    // CTA Container
-    if (deviceRect.width > 700) {
-      // desktop and tablet
-      gsap.to(".cta-container", {
+    // cta container
+    if (deviceRect.width >= 1340) {
+      gsap.to('.cta-container', {
         bottom: 0,
         scrollTrigger: {
-          scrub: 0,
-        },
-      });
-    } else {
-      gsap.to(".cta-container", {
-        bottom: 25,
-        transform: "translateY(0)",
-        scrollTrigger: {
-          scrub: 0,
-        },
-      });
+          trigger: '.scroller',
+          start: 'top 20%',
+          scrub: 1
+        }
+      })
     }
 
     // bottom info
     gsap.to(".bottom-info", {
       opacity: 0,
-      position: "fixed",
       scrollTrigger: {
-        scrub: 0.1,
+        trigger: '.scroller',
+        start: 'top 30%',
+        scrub: 1,
       },
     });
   }, []);

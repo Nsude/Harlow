@@ -6,7 +6,7 @@ export const useDevice = () => {
 
   useCustomEffect(() => {
     const handleResize = () => setDeviceRect(document.documentElement.getBoundingClientRect());
-    window.addEventListener("resize", () => handleResize());
+    window.addEventListener("resize", () => {handleResize()});
 
     return () => {
       window.removeEventListener("resize", handleResize);

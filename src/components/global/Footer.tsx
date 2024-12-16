@@ -1,13 +1,12 @@
 import { useRef, useState } from "react";
 import useCustomEffect from "../../hooks/useCustomEffect";
 import { Link } from "react-router-dom";
-import placeholderDisplayImage from "../../assets/media/images/navmenu-image (9).webp";
 import NFImage from "../../assets/media/images/navmenu-image (2).webp";
-import footwearImage from "../../assets/media/images/navmenu-image (5).webp";
 import allClothingImage from "../../assets/media/images/navmenu-image (7).webp";
 import sizesImage from "../../assets/media/images/navmenu-image (8).webp";
 import accessoriesImage from "../../assets/media/images/navmenu-image (4).webp";
 import brands from "../../assets/media/images/navmenu-image (3).webp";
+import socialsImage from "../../assets/media/images/contacts-image.webp"
 import gsap from "gsap";
 
 const footerContent = [
@@ -77,7 +76,7 @@ const Footer = () => {
         <div className="image-con">
           <img src={displayImage} alt="random images appearing as you hover on these links" />
         </div>
-        <div className="flex jc-sb">
+        <div onMouseEnter={() => setDisplayImage(socialsImage)} className="flex jc-sb">
           <div className="flex cg-10">
             <Link to={"https://www.instagram.com/"} target="_blank">
               Instagram
@@ -89,7 +88,7 @@ const Footer = () => {
               Facebook
             </Link>
           </div>
-          <p>{"2024"}</p>
+          <p>{ new Date().getFullYear() }</p>
         </div>
       </div>
     </div>

@@ -47,7 +47,7 @@ const menuItems: MenuItem[] = [
     children: ["All", "Infants", "Juniors", "Little Kids"],
   },
   {
-    title: "Accessories",
+    title: "Add-ons",
     children: ["All Accessories", "Bags", "Caps", "Socks"],
   },
   {

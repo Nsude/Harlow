@@ -49,6 +49,8 @@
 
 @include apply-from(tablet) {
   .product-list-container {
+    padding-inline: 35px;
+
     .details {
       padding: 0;
       display: flex;

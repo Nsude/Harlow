@@ -4,10 +4,12 @@
 .men-footwear-container {
   position: relative;
   z-index: 10;
+  margin-bottom: 75px;
 }
 
 @include apply-from(desktop) {
   .men-footwear-container {
     padding-inline: 35px;
+    margin-bottom: 150px;
   }
 }

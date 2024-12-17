@@ -21,6 +21,10 @@
     overflow-y: hidden;
     scroll-snap-type: x mandatory;
   }
+  
+  .image-con {
+    width: 100%;
+  }
 }
 
 @include apply-from(tablet) {
@@ -32,8 +36,9 @@
     }
 
     .images {
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(3, 50%);
     }
+
   }
 }
 
@@ -43,6 +48,10 @@
 
     .title {
       margin-bottom: 35px;
+    }
+
+    .images {
+      grid-template-columns: repeat(3, 1fr);
     }
   }
 }

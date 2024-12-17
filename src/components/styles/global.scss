@@ -126,6 +126,13 @@ button.secondary-btn {
   letter-spacing: 0.02ch;
 }
 
+// no-bg input
+input.no-bg {
+  background: none;
+  border: none;
+  padding: 0;
+}
+
 // hide scrollbar
 *.hide-scroll {
   -webkit-overflow-scrolling: touch;

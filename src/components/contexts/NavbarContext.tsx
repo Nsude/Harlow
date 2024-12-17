@@ -16,6 +16,8 @@ interface NavbarProps {
   menuLists: MenuList[];
   selectedOption: string;
   setSelectedOption: React.Dispatch<React.SetStateAction<string>>;
+  searchOpen: boolean;
+  setSearchOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const NavbarContext = createContext<NavbarProps | undefined>(undefined);
@@ -59,6 +61,7 @@ const menuItems: MenuItem[] = [
 const NavbarContextProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
   const [selectedOption, setSelectedOption] = useState("");
+  const [searchOpen, setSearchOpen] = useState(false);
 
   const menuLists: MenuList[] = [
     { name: "Explore" },
@@ -69,7 +72,15 @@ const NavbarContextProvider: React.FC<{ children: ReactNode }> = ({ children }) 
   ];
 
   return (
-    <NavbarContext.Provider value={{ menuOpen, setMenuOpen, menuLists, selectedOption, setSelectedOption }}>
+    <NavbarContext.Provider value={{ 
+      menuOpen, 
+      setMenuOpen, 
+      menuLists, 
+      selectedOption, 
+      setSelectedOption,
+      searchOpen, 
+      setSearchOpen
+    }}>
       {children}
     </NavbarContext.Provider>
   );

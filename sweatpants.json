@@ -1,0 +1,54 @@
+[
+  {
+    "id": "product001",
+    "name": "Jordan Brooklyn Fleece",
+    "price": 63.99,
+    "description": "Stylish and comfortable.",
+    "images": 5,
+    "path": "./src/assets/product-images/sweatpants/product-1/image (3).jpg",
+    "video": "./src/assets/product-images/sweatpants/product-1/video.mp4"
+  },
+  {
+    "id": "product002",
+    "name": "Nike Therma",
+    "price": 77.03,
+    "description": "Stylish and comfortable.",
+    "images": 7,
+    "path": "./src/assets/product-images/sweatpants/product-2/image (6).jpg",
+    "video": "./src/assets/product-images/sweatpants/product-2/video.mov"
+  },
+  {
+    "id": "product003",
+    "name": "Nike Solo Woosh",
+    "price": 83.99,
+    "description": "Stylish and comfortable.",
+    "images": 9,
+    "path": "./src/assets/product-images/sweatpants/product-3/image (1).jpg"
+  },
+  {
+    "id": "product004",
+    "name": "Nike Solo Woosh",
+    "price": 63.99,
+    "description": "Stylish and comfortable.",
+    "images": 8,
+    "path": "./src/assets/product-images/sweatpants/product-4/image (1).jpg"
+  },
+  {
+    "id": "product005",
+    "name": "Jordan Essentials",
+    "price": 59.99,
+    "description": "Stylish and comfortable.",
+    "images": 7,
+    "path": "./src/assets/product-images/sweatpants/product-5/image (6).jpg",
+    "video": "./src/assets/product-images/sweatpants/product-5/video.mp4"
+  },
+  {
+    "id": "product006",
+    "name": "Nike Sportswear Club Fleece",
+    "price": 59.99,
+    "description": "Stylish and comfortable.",
+    "images": 9,
+    "path": "./src/assets/product-images/sweatpants/product-6/image (1).jpg",
+    "video": "./src/assets/product-images/sweatpants/product-6/video.mov"
+  }
+]

@@ -57,7 +57,7 @@ const Search:React.FC<Props> = ({navbarHeight}) => {
 
   return (
     <>
-    <div className="search-overlay" />
+    <div className="search-overlay" onClick={() => setSearchOpen(false)} />
     <div ref={searchContainer} className="search-container" style={{top: `${navbarHeight}px`}}>
       <div className="flex jc-sb">
         <div className="flex cg-10">

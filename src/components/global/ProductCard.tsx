@@ -5,7 +5,7 @@ interface Props {
   label?: string;
   productName: string;
   discount?: number;
-  price: string;
+  price: string | number;
 }
 
 const ProductCard: React.FC<Props> = ({ image, label = "New & Featured", productName, discount = 33, price }) => {

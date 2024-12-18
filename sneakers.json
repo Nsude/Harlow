@@ -54,7 +54,7 @@
   },
   {
     "id": "product7",
-    "name": "Nike V2K Run",
+    "name": "Nike SB Ronde",
     "price": 79.99,
     "description": "Stylish and comfortable sneakers.",
     "images": 6,
@@ -66,7 +66,7 @@
     "price": 106.99,
     "description": "Stylish and comfortable sneakers.",
     "images": 3,
-    "path": "./src/assets/product-images/sneakers/product-8/image (6).jpg",
+    "path": "./src/assets/product-images/sneakers/product-8/image (1).jpg",
     "video": "./src/assets/product-images/sneakers/product-8/video.mov"
   },
   {
@@ -78,7 +78,7 @@
     "path": "./src/assets/product-images/sneakers/product-9/image (5).jpg"
   },
   {
-    "id": "product9",
+    "id": "product10",
     "name": "Nike Air",
     "price": 106.99,
     "description": "Stylish and comfortable sneakers.",

@@ -145,7 +145,7 @@ const Navbar = () => {
           <Link to={"/profile"} className="profile-link">
             <ProfileIcon color={colors.offWhite} />
           </Link>
-          <Link to={"/cart"}>
+          <Link to={"/cart"} style={{paddingTop: 2}}>
             <CartIcon color={colors.offWhite} />
           </Link>
         </div>

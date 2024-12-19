@@ -6,11 +6,12 @@ interface Props {
   productName: string;
   discount?: number;
   price: string | number;
+  search?: boolean;
 }
 
-const ProductCard: React.FC<Props> = ({ image, label = "New & Featured", productName, discount = 33, price }) => {
+const ProductCard: React.FC<Props> = ({ image, label = "New & Featured", productName, discount = 33, search, price }) => {
   return (
-    <div className="product-card-container">
+    <div className={`product-card-container ${search ? 'search' : ''}`}>
       <div className="image-container">
         <img src={image} alt="product-image" />
       </div>

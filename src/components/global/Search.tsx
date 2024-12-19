@@ -5,6 +5,8 @@ import CloseIcon from "../../assets/icons/CloseIcon";
 import useCustomEffect from "../../hooks/useCustomEffect";
 import gsap from "gsap";
 import { useNavContext } from "../contexts/NavbarContext";
+import { useSearch } from "../utility-functions/useSearch";
+import ProductCard from "./ProductCard";
 
 interface Props {
   navbarHeight: number
@@ -15,6 +17,7 @@ const Search:React.FC<Props> = ({navbarHeight}) => {
   const {colors} = useGlobalContext();
   const [query, setQuery] = useState('');
   const searchContainer = useRef(null);
+  const { data: matches, moreFound } = useSearch(query);
 
   // expand search dialogue
   useCustomEffect(() => {
@@ -36,20 +39,14 @@ const Search:React.FC<Props> = ({navbarHeight}) => {
   useCustomEffect(() => {
     if (!searchContainer.current) return null;
 
-    // prevent scroll
-    // searchOpen ? 
-    // document.body.style.overflowY = 'hidden' : 
-    // document.body.style.overflowY = 'scroll';
-
     // hide and display overlay
     gsap.to(".search-overlay", {
       display: searchOpen ? 'block' : 'none',
       duration: 0
     })
 
-
     gsap.to(searchContainer.current, {
-      yPercent: searchOpen ? 0 : -200,
+      transform: `${searchOpen ? 'translateY(0)' : 'translateY(-200%)'}`,
       duration: .4
     })
 
@@ -73,6 +70,57 @@ const Search:React.FC<Props> = ({navbarHeight}) => {
           <CloseIcon />
         </button>
       </div>
+
+      {
+        matches.length > 0 ? (
+          <div className="found-items hide-scroll">
+            <div className="suggestions-con">
+              <p className="title">Suggestions</p>
+              <div className="suggestions flex cg-10 hide-scroll">
+                {matches.map((match) => {
+                  const regex = new RegExp(`(${query})`, 'gi');
+                  const parts = match.name.split(regex);
+
+                  return (
+                    <button onClick={() => setQuery(match.name)} className="no-bg" key={match.id}>
+                      {parts.map((part, index) => 
+                        regex.test(part) ? (
+                          <span key={index} className="highlight">{part}</span>
+                        ) : (
+                          part
+                        )
+                      )}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+            <div className="products-con">
+              <p className="title">Products</p>
+              <div className="products flex fd-c">
+                {
+                  matches.map((match) => (
+                    <div key={match.id} className="product">
+                      <ProductCard 
+                        productName={match.name} 
+                        image={match.path} 
+                        price={match.price}
+                        search={true}
+                      />
+                    </div>
+                  ))
+                }
+              </div>
+              {
+                moreFound ? (
+                  <button className="no-bg view-all-btn">View All</button>
+                ) : ''
+              }
+            </div>
+          </div>
+        ) : ''
+      }
+
     </div>
     </>
   )

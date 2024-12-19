@@ -149,11 +149,11 @@ input.no-bg {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: $black;
+  background: $off-white;
 }
 
 ::-webkit-scrollbar-track {
-  background: $off-white;
+  background: $black;
 }
 
 @include apply-from(tablet) {

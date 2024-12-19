@@ -12,6 +12,7 @@ import { useRef, useState } from "react";
 import useCustomEffect from "../../hooks/useCustomEffect";
 import { gsap } from "gsap";
 import Search from "../global/Search";
+import { useDevice } from "../../hooks/useDevice";
 
 const Navbar = () => {
   const { setMenuOpen, menuOpen, selectedOption, setSelectedOption, menuLists, searchOpen, setSearchOpen } = useNavContext();
@@ -19,13 +20,14 @@ const Navbar = () => {
   const [hideMenuBar, setHideMenuBar] = useState(false);
   const navRef = useRef<HTMLElement | null>(null);
   const [navbarHeight, setNavbarHeight] = useState(0);
+  const device = useDevice();
 
   // get Navbar Height 
   useCustomEffect(() => {
     if (!navRef.current) return null; 
     const rect = navRef.current.getBoundingClientRect();
     setNavbarHeight(rect.height);
-  })
+  }, [device.width])
 
   // hide / show navbar
   useCustomEffect(() => {

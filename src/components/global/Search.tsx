@@ -25,7 +25,8 @@ const Search:React.FC<Props> = ({navbarHeight}) => {
 
     if (query) {
       gsap.to(searchContainer.current, {
-        height: '76%'
+        height: matches.length === 0 && query.trim() !== '' ? '32%' : 'max-content',
+        duration: 0
       })
     } else {
       gsap.to(searchContainer.current, {
@@ -33,7 +34,7 @@ const Search:React.FC<Props> = ({navbarHeight}) => {
       })
     }
 
-  }, [query])
+  }, [query, matches])
 
   // open and close dialogue
   useCustomEffect(() => {
@@ -118,7 +119,9 @@ const Search:React.FC<Props> = ({navbarHeight}) => {
               }
             </div>
           </div>
-        ) : ''
+        ) : matches.length === 0 && query.trim() !== '' ? (
+          <h3 className="empty-state">You have searched and you have found nothing, fret not, search for something else.</h3>
+        ): ''
       }
 
     </div>

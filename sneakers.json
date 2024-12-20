@@ -42,7 +42,16 @@
     "name": "Air Jordan 4",
     "price": 103.9,
     "description": "Stylish and comfortable sneakers.",
-    "images": 8,
+    "images":  [
+      "./src/assets/product-images/sneakers/product-3/image (1).jpg",
+      "./src/assets/product-images/sneakers/product-3/image (2).jpg",
+      "./src/assets/product-images/sneakers/product-3/image (3).jpg",
+      "./src/assets/product-images/sneakers/product-3/image (4).jpg",
+      "./src/assets/product-images/sneakers/product-3/image (5).jpg",
+      "./src/assets/product-images/sneakers/product-3/image (6).jpg",
+      "./src/assets/product-images/sneakers/product-3/image (7).jpg",
+      "./src/assets/product-images/sneakers/product-3/image (8).jpg"
+    ],
     "path": "./src/assets/product-images/sneakers/product-3/image (8).jpg"
   },
   {

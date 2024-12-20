@@ -107,6 +107,7 @@ const Search:React.FC<Props> = ({navbarHeight}) => {
                         image={match.path} 
                         price={match.price}
                         search={true}
+                        imageVariations={match.images}
                       />
                     </div>
                   ))

@@ -5,12 +5,13 @@ import useCustomEffect from "../../hooks/useCustomEffect";
 import gsap from "gsap";
 import sneakers from "../../../sneakers.json";
 import sweatpants from "../../../sweatpants.json";
+import { Product } from "../../models";
 
 interface Props {
   title?: string;
 }
 
-const featuredProducts = sneakers;
+const featuredProducts = sneakers as Product[];
 
 const ProductList: React.FC<Props> = ({ title }) => {
   const productsConRef = useRef<HTMLDivElement | null>();
@@ -91,9 +92,9 @@ const ProductList: React.FC<Props> = ({ title }) => {
       </div>
       <div className="products-frame hide-scroll">
         <div ref={(el) => (productsConRef.current = el)} className="products hide-scroll flex cg-10">
-          {featuredProducts.map((item, i) => (
-            <div key={i} className="product">
-              <ProductCard productName={item.name} image={item.path} price={item.price} />
+          {featuredProducts.map((item) => (
+            <div key={item.id} className="product">
+              <ProductCard productName={item.name} image={item.path} price={item.price} imageVariations={item.images} />
             </div>
           ))}
         </div>

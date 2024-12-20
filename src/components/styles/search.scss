@@ -1,0 +1,142 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.search-overlay {
+  position: fixed;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba($color: $black, $alpha: 0.4);
+  z-index: 99;
+}
+
+.search-container {
+  height: 70px;
+  background-color: $off-white;
+  padding: 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  padding-bottom: 30px;
+  transform: translateY(-200%);
+
+  input {
+    font-size: 20px;
+    color: $black;
+    font-family: "HaasMedium";
+  }
+
+  .found-items {
+    display: grid;
+    grid-template-rows: 1fr 8fr;
+    gap: 40px;
+    margin-top: 40px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+
+  .suggestions-con, .products-con {
+    overflow: hidden;
+  }
+
+  .title {
+    font-family: "HaasMedium";
+    width: 100%;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+    border-bottom: 1.5px solid rgba($color: $black, $alpha: 0.4);
+  }
+
+  .suggestions {
+    overflow-x: scroll;
+    overflow-y: hidden;
+  }
+
+  .suggestions button {
+    text-transform: lowercase;
+    text-wrap: nowrap;
+    font-family: "HaasRegular";
+    font-size: $body-copy;
+  
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .suggestions .highlight {
+    font-family: "HaasBold";
+  }
+
+  .products {
+    align-items: flex-start;
+    row-gap: 20px;
+  }
+
+  .products-con {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .view-all-btn {
+    margin-top: 40px;
+    font-size: $body-copy;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .empty-state {
+    margin-top: 50px;
+    text-align: center;
+    width: 70%;
+    line-height: 1.2;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+@include apply-from(tablet) {
+  .search-container {
+
+    .found-items {
+      grid-template-rows: none;
+      grid-template-columns: 1fr 4fr;
+    }
+
+    .suggestions {
+      flex-direction: column;
+      align-items: flex-start;
+      row-gap: 20px;
+    }
+
+    .empty-state {
+      width: 55%;
+    }
+  }
+}
+
+@include apply-from(desktop) {
+  .search-container {
+    padding-bottom: 30px;
+
+    .products {
+      flex-direction: row;
+      column-gap: 20px;
+      justify-content: flex-start;
+    }
+
+    .product {
+      width: 25%;
+    }
+
+    .view-all-btn {
+      margin-top: 80px;
+    }
+  }
+}

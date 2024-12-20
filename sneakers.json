@@ -1,0 +1,168 @@
+[
+  {
+    "id": "product1",
+    "name": "Nike SB 3K762",
+    "price": 89.99,
+    "description": "Stylish and comfortable sneakers.",
+    "images": [
+      "./src/assets/product-images/sneakers/product-1/image (1).jpg",
+      "./src/assets/product-images/sneakers/product-1/image (2).jpg",
+      "./src/assets/product-images/sneakers/product-1/image (3).jpg",
+      "./src/assets/product-images/sneakers/product-1/image (4).jpg",
+      "./src/assets/product-images/sneakers/product-1/image (5).jpg",
+      "./src/assets/product-images/sneakers/product-1/image (6).jpg",
+      "./src/assets/product-images/sneakers/product-1/image (7).jpg",
+      "./src/assets/product-images/sneakers/product-1/image (8).jpg"
+    ],
+    "path": "./src/assets/product-images/sneakers/product-1/image (7).jpg",
+    "video": "./src/assets/product-images/sneakers/product-1/video.mp4"
+  },
+  {
+    "id": "product2",
+    "name": "Air Jordan 1 Mid",
+    "price": 97.99,
+    "description": "Stylish and comfortable sneakers.",
+    "images": [
+      "./src/assets/product-images/sneakers/product-2/image (1).jpg",
+      "./src/assets/product-images/sneakers/product-2/image (2).jpg",
+      "./src/assets/product-images/sneakers/product-2/image (3).jpg",
+      "./src/assets/product-images/sneakers/product-2/image (4).jpg",
+      "./src/assets/product-images/sneakers/product-2/image (5).jpg",
+      "./src/assets/product-images/sneakers/product-2/image (6).jpg",
+      "./src/assets/product-images/sneakers/product-2/image (7).jpg",
+      "./src/assets/product-images/sneakers/product-2/image (8).jpg",
+      "./src/assets/product-images/sneakers/product-2/image (9).jpg"
+
+    ],
+    "path": "./src/assets/product-images/sneakers/product-2/image (8).jpg",
+    "video": "./src/assets/product-images/sneakers/product-2/video.mp4"
+  },
+  {
+    "id": "product3",
+    "name": "Air Jordan 4",
+    "price": 103.9,
+    "description": "Stylish and comfortable sneakers.",
+    "images": 8,
+    "path": "./src/assets/product-images/sneakers/product-3/image (8).jpg"
+  },
+  {
+    "id": "product4",
+    "name": "Nike Dunk Low",
+    "price": 79.99,
+    "description": "Stylish and comfortable sneakers.",
+    "images": [
+      "./src/assets/product-images/sneakers/product-4/image (1).jpg",
+      "./src/assets/product-images/sneakers/product-4/image (2).jpg",
+      "./src/assets/product-images/sneakers/product-4/image (3).jpg",
+      "./src/assets/product-images/sneakers/product-4/image (4).jpg",
+      "./src/assets/product-images/sneakers/product-4/image (5).jpg",
+      "./src/assets/product-images/sneakers/product-4/image (6).jpg",
+      "./src/assets/product-images/sneakers/product-4/image (7).jpg",
+      "./src/assets/product-images/sneakers/product-4/image (8).jpg"
+
+    ],
+    "path": "./src/assets/product-images/sneakers/product-4/image (7).jpg",
+    "video": "./src/assets/product-images/sneakers/product-4/video.mp4"
+  },
+  {
+    "id": "product5",
+    "name": "Air Max",
+    "price": 107.9,
+    "description": "Stylish and comfortable sneakers.",
+    "images": [
+      "./src/assets/product-images/sneakers/product-5/image (1).jpg",
+      "./src/assets/product-images/sneakers/product-5/image (2).jpg",
+      "./src/assets/product-images/sneakers/product-5/image (3).jpg",
+      "./src/assets/product-images/sneakers/product-5/image (4).jpg",
+      "./src/assets/product-images/sneakers/product-5/image (5).jpg",
+      "./src/assets/product-images/sneakers/product-5/image (6).jpg",
+      "./src/assets/product-images/sneakers/product-5/image (7).jpg",
+      "./src/assets/product-images/sneakers/product-5/image (8).jpg",
+      "./src/assets/product-images/sneakers/product-5/image (9).jpg"
+
+    ],
+    "path": "./src/assets/product-images/sneakers/product-5/image (1).jpg",
+    "video": "./src/assets/product-images/sneakers/product-5/video.mp4"
+  },
+  {
+    "id": "product6",
+    "name": "Nike V2K Run",
+    "price": 89.99,
+    "description": "Stylish and comfortable sneakers.",
+    "images": [
+      "./src/assets/product-images/sneakers/product-6/image (1).jpg",
+    "./src/assets/product-images/sneakers/product-6/image (2).jpg",
+    "./src/assets/product-images/sneakers/product-6/image (3).jpg",
+    "./src/assets/product-images/sneakers/product-6/image (4).jpg",
+    "./src/assets/product-images/sneakers/product-6/image (5).jpg",
+    "./src/assets/product-images/sneakers/product-6/image (6).jpg",
+    "./src/assets/product-images/sneakers/product-6/image (7).jpg",
+    "./src/assets/product-images/sneakers/product-6/image (8).jpg"
+    ],
+    "path": "./src/assets/product-images/sneakers/product-6/image (7).jpg",
+    "video": "./src/assets/product-images/sneakers/product-6/video.mp4"
+  },
+  {
+    "id": "product7",
+    "name": "Nike SB Ronde",
+    "price": 79.99,
+    "description": "Stylish and comfortable sneakers.",
+    "images": [
+      "./src/assets/product-images/sneakers/product-7/image (1).jpg",
+      "./src/assets/product-images/sneakers/product-7/image (2).jpg",
+      "./src/assets/product-images/sneakers/product-7/image (3).jpg",
+      "./src/assets/product-images/sneakers/product-7/image (4).jpg",
+      "./src/assets/product-images/sneakers/product-7/image (5).jpg",
+      "./src/assets/product-images/sneakers/product-7/image (6).jpg"
+    ],
+    "path": "./src/assets/product-images/sneakers/product-7/image (6).jpg"
+  },
+  {
+    "id": "product8",
+    "name": "Air Max 270",
+    "price": 106.99,
+    "description": "Stylish and comfortable sneakers.",
+    "images": [
+      "./src/assets/product-images/sneakers/product-8/image (1).jpg",
+      "./src/assets/product-images/sneakers/product-8/image (2).jpg",
+      "./src/assets/product-images/sneakers/product-8/image (3).jpg"
+    ],
+    "path": "./src/assets/product-images/sneakers/product-8/image (1).jpg",
+    "video": "./src/assets/product-images/sneakers/product-8/video.mov"
+  },
+  {
+    "id": "product9",
+    "name": "Air Jordan 2 Mid",
+    "price": 106.99,
+    "description": "Stylish and comfortable sneakers.",
+    "images": [
+      "./src/assets/product-images/sneakers/product-9/image (1).jpg",
+      "./src/assets/product-images/sneakers/product-9/image (2).jpg",
+      "./src/assets/product-images/sneakers/product-9/image (3).jpg",
+      "./src/assets/product-images/sneakers/product-9/image (4).jpg",
+      "./src/assets/product-images/sneakers/product-9/image (5).jpg",
+      "./src/assets/product-images/sneakers/product-9/image (6).jpg",
+      "./src/assets/product-images/sneakers/product-9/image (7).jpg",
+      "./src/assets/product-images/sneakers/product-9/image (8).jpg"
+    ]
+    ,
+    "path": "./src/assets/product-images/sneakers/product-9/image (5).jpg"
+  },
+  {
+    "id": "product10",
+    "name": "Nike Air",
+    "price": 106.99,
+    "description": "Stylish and comfortable sneakers.",
+    "images": [
+      "./src/assets/product-images/sneakers/product-10/image (1).jpg",
+      "./src/assets/product-images/sneakers/product-10/image (2).jpg",
+      "./src/assets/product-images/sneakers/product-10/image (3).jpg",
+      "./src/assets/product-images/sneakers/product-10/image (4).jpg",
+      "./src/assets/product-images/sneakers/product-10/image (5).jpg",
+      "./src/assets/product-images/sneakers/product-10/image (6).jpg",
+      "./src/assets/product-images/sneakers/product-10/image (7).jpg",
+      "./src/assets/product-images/sneakers/product-10/image (8).jpg"
+    ],
+    "path": "./src/assets/product-images/sneakers/product-10/image (1).jpg"
+  }
+]

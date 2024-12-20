@@ -120,16 +120,12 @@
       column-gap: 20px;
     }
 
-    .m-search-button {
-      display: none;
-    }
-
     .logo-search-con {
       position: relative;
       left: 0;
       transform: none;
       justify-content: space-between;
-      width: 27%;
+      width: 33%;
     }
 
     .logo-search-con :first-child {
@@ -137,14 +133,16 @@
     }
 
     .search-box {
-      display: block;
+      display: flex;
+      align-items: center;
+      column-gap: 10px;
 
       input {
         background: none;
         border: none;
         font-size: $title;
-        padding: 0;
-        color: inherit;
+        padding: 3px 0 0 0;
+        color: $off-white;
       }
     }
   }

@@ -11,12 +11,23 @@ import { addClass, removeClass } from "../utility-functions/utils";
 import { useRef, useState } from "react";
 import useCustomEffect from "../../hooks/useCustomEffect";
 import { gsap } from "gsap";
+import Search from "../global/Search";
+import { useDevice } from "../../hooks/useDevice";
 
 const Navbar = () => {
-  const { setMenuOpen, menuOpen, selectedOption, setSelectedOption, menuLists } = useNavContext();
+  const { setMenuOpen, menuOpen, selectedOption, setSelectedOption, menuLists, searchOpen, setSearchOpen } = useNavContext();
   const { colors } = useGlobalContext();
   const [hideMenuBar, setHideMenuBar] = useState(false);
   const navRef = useRef<HTMLElement | null>(null);
+  const [navbarHeight, setNavbarHeight] = useState(0);
+  const device = useDevice();
+
+  // get Navbar Height 
+  useCustomEffect(() => {
+    if (!navRef.current) return null; 
+    const rect = navRef.current.getBoundingClientRect();
+    setNavbarHeight(rect.height);
+  }, [device.width])
 
   // hide / show navbar
   useCustomEffect(() => {
@@ -25,7 +36,7 @@ const Navbar = () => {
       let scrollPos = document.documentElement.scrollTop;
 
       // helps prevent scrollbar not being visible on mobile when scrolled to the top
-      if (scrollPos < 200) {
+      if (scrollPos < 200 || searchOpen) {
         return setHideMenuBar(false);
       }
 
@@ -42,7 +53,7 @@ const Navbar = () => {
     return () => {
       document.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [searchOpen]);
 
   // hide menu bar on scroll
   useCustomEffect(() => {
@@ -93,9 +104,10 @@ const Navbar = () => {
     <>
       <MobileNavbarMenu />
       <DesktopNavbarMenu />
+      <Search navbarHeight={navbarHeight} />
 
       <nav
-        ref={(el) => (navRef.current = el)}
+        ref={navRef}
         onMouseEnter={() => keepMenuOpen()}
         className={`navbar-container flex jc-sb ${selectedOption ? "menu-open" : ""}`}>
         <button className="menu" onClick={() => setMenuOpen(true)}>
@@ -105,9 +117,10 @@ const Navbar = () => {
         {/* logo */}
         <div className="logo-search-con flex">
           <Logo color={colors.offWhite} />
-          <div className="search-box">
-            <input type="text" placeholder="Search" />
-          </div>
+          {/* <div className="search-box" onClick={() => setSearchOpen((prev) => !prev)}>
+            <SearchIcon color={colors.offWhite} />
+            <input placeholder="Search" />
+          </div> */}
         </div>
 
         {/* Destop Links */}
@@ -128,13 +141,13 @@ const Navbar = () => {
         </div>
 
         <div className="side-links flex cg-15">
-          <button className="m-search-button">
-            <SearchIcon />
+          <button className="m-search-button" onClick={() => setSearchOpen((prev) => !prev)}>
+            <SearchIcon color={colors.offWhite} />
           </button>
           <Link to={"/profile"} className="profile-link">
             <ProfileIcon color={colors.offWhite} />
           </Link>
-          <Link to={"/cart"}>
+          <Link to={"/cart"} style={{paddingTop: 2}}>
             <CartIcon color={colors.offWhite} />
           </Link>
         </div>

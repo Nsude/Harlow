@@ -1,14 +1,13 @@
 import React from "react";
+import { IconProps } from "../../models";
+import { useGlobalContext } from "../../components/contexts/GlobalContex";
 
-const SearchIcon = () => {
+const SearchIcon:React.FC<IconProps> = ({color}) => {
+  const {colors} = useGlobalContext();
+
   return (
-    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path
-        fillRule="evenodd"
-        clipRule="evenodd"
-        d="M14.5052 7.96363C14.5052 11.5764 11.5764 14.5052 7.96363 14.5052C4.35083 14.5052 1.42208 11.5764 1.42208 7.96363C1.42208 4.35083 4.35083 1.42208 7.96363 1.42208C11.5764 1.42208 14.5052 4.35083 14.5052 7.96363ZM13.0696 14.0752C11.6873 15.2314 9.90671 15.9273 7.96363 15.9273C3.56544 15.9273 0 12.3618 0 7.96363C0 3.56544 3.56544 0 7.96363 0C12.3618 0 15.9273 3.56544 15.9273 7.96363C15.9273 9.90671 15.2314 11.6873 14.0752 13.0696L20 18.9944L18.9944 20L13.0696 14.0752Z"
-        fill="#171717"
-      />
+    <svg width="22" height="21" viewBox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M20.231 19.25L18.481 17.5M19.356 10.0625C19.356 14.6534 15.6343 18.375 11.0435 18.375C6.45259 18.375 2.73096 14.6534 2.73096 10.0625C2.73096 5.47163 6.45259 1.75 11.0435 1.75C15.6343 1.75 19.356 5.47163 19.356 10.0625Z" stroke={color || colors.black} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
     </svg>
   );
 };

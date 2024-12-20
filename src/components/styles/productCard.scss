@@ -18,7 +18,7 @@
     height: 100%;
     width: 100%;
     object-fit: cover;
-    object-position: top;
+    object-position: center;
   }
 
   .product-details {
@@ -41,8 +41,7 @@
 
   .label {
     opacity: 0.4;
-    margin-bottom: 15px;
-    margin-top: 15px;
+    margin-block: 15px;
   }
 
   .price p {
@@ -51,6 +50,36 @@
 
   .discount {
     color: $accent;
+  }
+
+  &.search {
+    display: flex;
+    position: static;
+    height: 80px;
+    column-gap: 20px;
+    align-items: flex-start;
+
+    .image-container {
+      min-width: 80px;
+    }
+
+    .product-details {
+      position: static;
+    }
+
+    .name {
+      font-size: $body-copy;
+    }
+
+    .label {
+      margin: 0;
+      margin-bottom: 15px;
+      font-size: 12px;
+    }
+
+    .price p {
+      font-size: 12px;
+    }
   }
 }
 
@@ -64,6 +93,17 @@
   .product-card-container {
     .product-details {
       height: 18%;
+    }
+
+    &.search {
+      height: 100%;
+      row-gap: 20px;
+      flex-direction: column;
+
+      .image-container {
+        height: 350px;
+        width: 100%;
+      }
     }
   }
 }

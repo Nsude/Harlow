@@ -3,48 +3,14 @@ import ProductCard from "../global/ProductCard";
 import prod1 from "../../assets/media/images/prod-1.webp";
 import useCustomEffect from "../../hooks/useCustomEffect";
 import gsap from "gsap";
+import sneakers from "../../../sneakers.json";
+import sweatpants from "../../../sweatpants.json";
 
 interface Props {
   title?: string;
 }
 
-const featuredProducts = [
-  {
-    name: "Mari Tee",
-    image: prod1,
-    price: "52.73",
-  },
-  {
-    name: "Montage Tees",
-    image: prod1,
-    price: "74.50",
-  },
-  {
-    name: "Cradle Hoodie",
-    image: prod1,
-    price: "97.50",
-  },
-  {
-    name: "Arbeit Tees",
-    image: prod1,
-    price: "64.50",
-  },
-  {
-    name: "Kandar Condour",
-    image: prod1,
-    price: "38.50",
-  },
-  {
-    name: "Cradle Tees",
-    image: prod1,
-    price: "38.50",
-  },
-  {
-    name: "Kandar Mari",
-    image: prod1,
-    price: "69.50",
-  },
-];
+const featuredProducts = sneakers;
 
 const ProductList: React.FC<Props> = ({ title }) => {
   const productsConRef = useRef<HTMLDivElement | null>();
@@ -127,7 +93,7 @@ const ProductList: React.FC<Props> = ({ title }) => {
         <div ref={(el) => (productsConRef.current = el)} className="products hide-scroll flex cg-10">
           {featuredProducts.map((item, i) => (
             <div key={i} className="product">
-              <ProductCard productName={item.name} image={item.image} price={item.price} />
+              <ProductCard productName={item.name} image={item.path} price={item.price} />
             </div>
           ))}
         </div>

@@ -25,7 +25,7 @@ const Search:React.FC<Props> = ({navbarHeight}) => {
 
     if (query) {
       gsap.to(searchContainer.current, {
-        height: matches.length === 0 && query.trim() !== '' ? '32%' : 'max-content',
+        height: matches.length === 0 && query.trim() !== '' ? '32%' : '70%',
         duration: 0
       })
     } else {

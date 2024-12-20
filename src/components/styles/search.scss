@@ -20,7 +20,6 @@
   left: 0;
   right: 0;
   z-index: 99;
-  padding-bottom: 30px;
   transform: translateY(-200%);
 
   input {
@@ -123,7 +122,6 @@
 
 @include apply-from(desktop) {
   .search-container {
-    padding-bottom: 30px;
 
     .products {
       flex-direction: row;

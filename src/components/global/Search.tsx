@@ -5,7 +5,7 @@ import CloseIcon from "../../assets/icons/CloseIcon";
 import useCustomEffect from "../../hooks/useCustomEffect";
 import gsap from "gsap";
 import { useNavContext } from "../contexts/NavbarContext";
-import { useSearch } from "../utility-functions/useSearch";
+import { useSearch } from "../../hooks/useSearch";
 import ProductCard from "./ProductCard";
 
 interface Props {
@@ -103,11 +103,8 @@ const Search:React.FC<Props> = ({navbarHeight}) => {
                   matches.map((match) => (
                     <div key={match.id} className="product">
                       <ProductCard 
-                        productName={match.name} 
-                        image={match.path} 
-                        price={match.price}
+                        image={match} 
                         search={true}
-                        imageVariations={match.images}
                       />
                     </div>
                   ))

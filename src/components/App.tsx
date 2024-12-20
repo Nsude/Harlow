@@ -36,11 +36,7 @@ function App() {
   return (
     <div className="App">
       <CursorTracker />
-      <NavbarContextProvider>
-        <Navbar />
-      </NavbarContextProvider>
       <Homepage />
-      <Footer />
     </div>
   );
 }

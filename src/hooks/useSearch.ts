@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
-import sneakers from "../../../sneakers.json";
-import sweatpants from "../../../sweatpants.json";
-import { Product } from "../../models";
-import useCustomEffect from "../../hooks/useCustomEffect";
+import sneakers from "../../sneakers.json";
+import sweatpants from "../../sweatpants.json";
+import { Product } from "../models";
+import useCustomEffect from "./useCustomEffect";
 
 
 export const useSearch = (query: string) => {

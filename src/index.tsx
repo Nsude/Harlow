@@ -9,25 +9,31 @@ import { AuthProvider } from "./components/contexts/AuthContext";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Homepage from "./components/HomePage/Homepage";
 import { GlobalContextProvider } from "./components/contexts/GlobalContex";
+import ProductPage from "./components/global/ProductPage";
+import Layout from "./components/global/Layout";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: <Layout />,
     children: [
       {
         index: true,
-        element: <Homepage />,
+        element: <App />
+      },
+      {
+        path: "/product-page/:id",
+        element: <ProductPage />
+      },
+      {
+        path: "/login",
+        element: <Login />,
+      },
+      {
+        path: "/sign-up",
+        element: <SignUp />,
       },
     ],
-  },
-  {
-    path: "/login",
-    element: <Login />,
-  },
-  {
-    path: "/sign-up",
-    element: <SignUp />,
   },
 ]);
 

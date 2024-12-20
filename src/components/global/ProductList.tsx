@@ -94,7 +94,7 @@ const ProductList: React.FC<Props> = ({ title }) => {
         <div ref={(el) => (productsConRef.current = el)} className="products hide-scroll flex cg-10">
           {featuredProducts.map((item) => (
             <div key={item.id} className="product">
-              <ProductCard productName={item.name} image={item.path} price={item.price} imageVariations={item.images} />
+              <ProductCard image={item} />
             </div>
           ))}
         </div>

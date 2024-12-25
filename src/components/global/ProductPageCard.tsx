@@ -68,7 +68,7 @@ const ProductPageCard: React.FC<Props> = ({ product }) => {
         </div>
       ) : (
         <div className="image-con">
-          <div className="variations flex fd-c rg-10">
+          <div className="variations flex fd-c rg-10 hide-scroll">
             {images.map((image, i) => (
               <div key={i} className="box" onMouseEnter={(e) => updateDisplay(image, e)}>
                 <img src={image} alt="product-image" />

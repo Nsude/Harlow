@@ -9,11 +9,11 @@ const Layout = () => {
     <div>
       <NavbarContextProvider>
         <Navbar />
+        <main>
+          <Outlet />
+        </main>
+        <Footer />
       </NavbarContextProvider>
-      <main>
-        <Outlet />
-      </main>
-      <Footer />
     </div>
   );
 };

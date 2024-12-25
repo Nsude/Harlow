@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Product } from "../../models";
 import { useNavigate } from "react-router-dom";
+import { useNavContext } from "../contexts/NavbarContext";
 
 interface Props {
   image: Product;
@@ -12,10 +13,13 @@ interface Props {
 const ProductCard: React.FC<Props> = ({ image, label = "New & Featured", discount = 33, search }) => {
   const [displayedImage, setDisplayedImage] = useState(image.path);
   const navigate = useNavigate();
+  const {setSearchOpen} = useNavContext();
 
   const viewProduct = (id: string) => {
     try {
       navigate(`/product-page/${id}`);
+      if (!search) return;
+      setSearchOpen(false);
     } catch (error) {
       console.log("Invalid product id:", error);
     }

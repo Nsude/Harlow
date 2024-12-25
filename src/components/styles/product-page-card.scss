@@ -55,6 +55,8 @@
 
       .variations {
         justify-content: flex-start;
+        overflow-y: scroll;
+        overflow-x: hidden;
       }
 
       .box {
@@ -93,6 +95,7 @@
 
       .current-image img {
         width: 100%;
+        border-radius: 10px;
       }
     }
   }

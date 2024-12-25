@@ -13,6 +13,11 @@
   font-size: $body-copy;
   border: 1.1px solid var(--overlay);
 
+  &.disable-btn {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
   &.no-bg {
     background-color: transparent;
     color: $off-white;
@@ -32,6 +37,7 @@
   span:not(.btn-overlay) {
     position: relative;
     z-index: 10;
+    text-wrap: nowrap;
   }
 
   .btn-overlay {

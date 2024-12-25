@@ -4,7 +4,6 @@ import prod1 from "../../assets/media/images/prod-1.webp";
 import useCustomEffect from "../../hooks/useCustomEffect";
 import gsap from "gsap";
 import sneakers from "../../../sneakers.json";
-import sweatpants from "../../../sweatpants.json";
 import { Product } from "../../models";
 
 interface Props {
@@ -94,7 +93,7 @@ const ProductList: React.FC<Props> = ({ title }) => {
         <div ref={(el) => (productsConRef.current = el)} className="products hide-scroll flex cg-10">
           {featuredProducts.map((item) => (
             <div key={item.id} className="product">
-              <ProductCard productName={item.name} image={item.path} price={item.price} imageVariations={item.images} />
+              <ProductCard image={item} />
             </div>
           ))}
         </div>

@@ -88,6 +88,14 @@ body a {
   &.cg-15 {
     column-gap: 15px;
   }
+
+  &.rg-10 {
+    row-gap: 10px;
+  }
+
+  &.rg-5 {
+    row-gap: 5px;
+  }
 }
 
 /* Primary Button */
@@ -149,7 +157,7 @@ input.no-bg {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: $off-white;
+  background: $gray;
 }
 
 ::-webkit-scrollbar-track {

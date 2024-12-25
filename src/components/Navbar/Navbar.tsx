@@ -1,5 +1,5 @@
 import Logo from "../../assets/icons/Logo";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import ProfileIcon from "../../assets/icons/ProfileIcon";
 import CartIcon from "../../assets/icons/CartIcon";
 import SearchIcon from "../../assets/icons/SearchIcon";
@@ -15,19 +15,21 @@ import Search from "../global/Search";
 import { useDevice } from "../../hooks/useDevice";
 
 const Navbar = () => {
-  const { setMenuOpen, menuOpen, selectedOption, setSelectedOption, menuLists, searchOpen, setSearchOpen } = useNavContext();
+  const { setMenuOpen, menuOpen, selectedOption, setSelectedOption, menuLists, searchOpen, setSearchOpen } =
+    useNavContext();
   const { colors } = useGlobalContext();
   const [hideMenuBar, setHideMenuBar] = useState(false);
   const navRef = useRef<HTMLElement | null>(null);
   const [navbarHeight, setNavbarHeight] = useState(0);
   const device = useDevice();
+  const navigate = useNavigate();
 
-  // get Navbar Height 
+  // get Navbar Height
   useCustomEffect(() => {
-    if (!navRef.current) return null; 
+    if (!navRef.current) return null;
     const rect = navRef.current.getBoundingClientRect();
     setNavbarHeight(rect.height);
-  }, [device.width])
+  }, [device.width]);
 
   // hide / show navbar
   useCustomEffect(() => {
@@ -115,7 +117,7 @@ const Navbar = () => {
         </button>
 
         {/* logo */}
-        <div className="logo-search-con flex">
+        <div className="logo-search-con flex" onClick={() => navigate("/")}>
           <Logo color={colors.offWhite} />
           {/* <div className="search-box" onClick={() => setSearchOpen((prev) => !prev)}>
             <SearchIcon color={colors.offWhite} />
@@ -147,7 +149,7 @@ const Navbar = () => {
           <Link to={"/profile"} className="profile-link">
             <ProfileIcon color={colors.offWhite} />
           </Link>
-          <Link to={"/cart"} style={{paddingTop: 2}}>
+          <Link to={"/cart"} style={{ paddingTop: 2 }}>
             <CartIcon color={colors.offWhite} />
           </Link>
         </div>

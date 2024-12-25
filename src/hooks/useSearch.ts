@@ -1,9 +1,8 @@
 import { useState, useEffect } from "react";
-import sneakers from "../../../sneakers.json";
-import sweatpants from "../../../sweatpants.json";
-import { Product } from "../../models";
-import useCustomEffect from "../../hooks/useCustomEffect";
-
+import sneakers from "../../sneakers.json";
+import sweatpants from "../../sweatpants.json";
+import { Product } from "../models";
+import useCustomEffect from "./useCustomEffect";
 
 export const useSearch = (query: string) => {
   const [data, setData] = useState<Product[]>([]);
@@ -14,13 +13,13 @@ export const useSearch = (query: string) => {
 
     const getMatch = (dataset: Product[]) => {
       const match = dataset.filter((set) => set.name.toLowerCase().includes(query.toLowerCase()));
-      
+
       if (!match) return [];
       return match;
-    }
+    };
 
     // ignores spaces when checking if the query is empty
-    if (query.trim() === '') {
+    if (query.trim() === "") {
       setData([]);
     } else {
       const sneakerMatches = getMatch(sneakers as Product[]);
@@ -31,8 +30,7 @@ export const useSearch = (query: string) => {
       setData(limitedMatches);
       setMoreFound(combinedMatches.length > 4);
     }
-
-  }, [query])
+  }, [query]);
 
   return { data, moreFound };
-}
+};

@@ -3,175 +3,181 @@
     "id": "product1",
     "name": "Nike SB 3K762",
     "price": 89.99,
-    "description": "Stylish and comfortable sneakers.",
+    "description": "Step up your streetwear game with the Nike SB 3K762. Engineered for comfort and designed to turn heads, these sneakers feature a sleek silhouette and durable materials that keep you moving effortlessly. Whether you're hitting the skate park or the city streets, the Nike SB 3K762 is your perfect companion for style and performance.",
+    "sizes": [35, 39, 41, 44],
     "images": [
-      "./src/assets/product-images/sneakers/product-1/image (1).jpg",
-      "./src/assets/product-images/sneakers/product-1/image (2).jpg",
-      "./src/assets/product-images/sneakers/product-1/image (3).jpg",
-      "./src/assets/product-images/sneakers/product-1/image (4).jpg",
-      "./src/assets/product-images/sneakers/product-1/image (5).jpg",
-      "./src/assets/product-images/sneakers/product-1/image (6).jpg",
-      "./src/assets/product-images/sneakers/product-1/image (7).jpg",
-      "./src/assets/product-images/sneakers/product-1/image (8).jpg"
+      "../../assets/product-images/sneakers/product-1/image (1).jpg",
+      "../../assets/product-images/sneakers/product-1/image (2).jpg",
+      "../../assets/product-images/sneakers/product-1/image (3).jpg",
+      "../../assets/product-images/sneakers/product-1/image (4).jpg",
+      "../../assets/product-images/sneakers/product-1/image (5).jpg",
+      "../../assets/product-images/sneakers/product-1/image (6).jpg",
+      "../../assets/product-images/sneakers/product-1/image (7).jpg",
+      "../../assets/product-images/sneakers/product-1/image (8).jpg"
     ],
-    "path": "./src/assets/product-images/sneakers/product-1/image (7).jpg",
-    "video": "./src/assets/product-images/sneakers/product-1/video.mp4"
+    "path": "../../assets/product-images/sneakers/product-1/image (7).jpg",
+    "video": "../../assets/product-images/sneakers/product-1/video.mp4"
   },
   {
     "id": "product2",
     "name": "Air Jordan 1 Mid",
     "price": 97.99,
-    "description": "Stylish and comfortable sneakers.",
+    "description": "The Air Jordan 1 Mid is a timeless blend of heritage and innovation. With its bold colors and iconic design, this sneaker brings the perfect balance of functionality and flair to your wardrobe. Lightweight construction and premium materials make every step a statement, whether you're on the court or out on the town.",
+    "sizes": [36, 39, 40, 42, 44, 45],
     "images": [
-      "./src/assets/product-images/sneakers/product-2/image (1).jpg",
-      "./src/assets/product-images/sneakers/product-2/image (2).jpg",
-      "./src/assets/product-images/sneakers/product-2/image (3).jpg",
-      "./src/assets/product-images/sneakers/product-2/image (4).jpg",
-      "./src/assets/product-images/sneakers/product-2/image (5).jpg",
-      "./src/assets/product-images/sneakers/product-2/image (6).jpg",
-      "./src/assets/product-images/sneakers/product-2/image (7).jpg",
-      "./src/assets/product-images/sneakers/product-2/image (8).jpg",
-      "./src/assets/product-images/sneakers/product-2/image (9).jpg"
-
+      "../../assets/product-images/sneakers/product-2/image (1).jpg",
+      "../../assets/product-images/sneakers/product-2/image (2).jpg",
+      "../../assets/product-images/sneakers/product-2/image (3).jpg",
+      "../../assets/product-images/sneakers/product-2/image (4).jpg",
+      "../../assets/product-images/sneakers/product-2/image (5).jpg",
+      "../../assets/product-images/sneakers/product-2/image (6).jpg",
+      "../../assets/product-images/sneakers/product-2/image (7).jpg",
+      "../../assets/product-images/sneakers/product-2/image (8).jpg",
+      "../../assets/product-images/sneakers/product-2/image (9).jpg"
     ],
-    "path": "./src/assets/product-images/sneakers/product-2/image (8).jpg",
-    "video": "./src/assets/product-images/sneakers/product-2/video.mp4"
+    "path": "../../assets/product-images/sneakers/product-2/image (8).jpg",
+    "video": "../../assets/product-images/sneakers/product-2/video.mp4"
   },
   {
     "id": "product3",
     "name": "Air Jordan 4",
     "price": 103.9,
-    "description": "Stylish and comfortable sneakers.",
-    "images":  [
-      "./src/assets/product-images/sneakers/product-3/image (1).jpg",
-      "./src/assets/product-images/sneakers/product-3/image (2).jpg",
-      "./src/assets/product-images/sneakers/product-3/image (3).jpg",
-      "./src/assets/product-images/sneakers/product-3/image (4).jpg",
-      "./src/assets/product-images/sneakers/product-3/image (5).jpg",
-      "./src/assets/product-images/sneakers/product-3/image (6).jpg",
-      "./src/assets/product-images/sneakers/product-3/image (7).jpg",
-      "./src/assets/product-images/sneakers/product-3/image (8).jpg"
+    "description": "Revolutionize your sneaker collection with the iconic Air Jordan 4. Crafted for peak performance and enduring style, these kicks combine breathable mesh panels with premium leather accents. A cushioned midsole and durable outsole ensure comfort and traction, making it the perfect blend of sport and sophistication.",
+    "sizes": [35, 39, 40, 41, 44],
+    "images": [
+      "../../assets/product-images/sneakers/product-3/image (1).jpg",
+      "../../assets/product-images/sneakers/product-3/image (2).jpg",
+      "../../assets/product-images/sneakers/product-3/image (3).jpg",
+      "../../assets/product-images/sneakers/product-3/image (4).jpg",
+      "../../assets/product-images/sneakers/product-3/image (5).jpg",
+      "../../assets/product-images/sneakers/product-3/image (6).jpg",
+      "../../assets/product-images/sneakers/product-3/image (7).jpg",
+      "../../assets/product-images/sneakers/product-3/image (8).jpg"
     ],
-    "path": "./src/assets/product-images/sneakers/product-3/image (8).jpg"
+    "path": "../../assets/product-images/sneakers/product-3/image (8).jpg"
   },
   {
     "id": "product4",
     "name": "Nike Dunk Low",
     "price": 79.99,
-    "description": "Stylish and comfortable sneakers.",
+    "description": "The Nike Dunk Low brings retro vibes to modern streetwear. Featuring smooth leather uppers and bold colorways, these sneakers deliver timeless appeal. Padded collars and responsive soles ensure all-day comfort, making them a go-to for everything from casual outings to skate sessions.",
+    "sizes": [36, 40, 41, 43, 44, 46],
     "images": [
-      "./src/assets/product-images/sneakers/product-4/image (1).jpg",
-      "./src/assets/product-images/sneakers/product-4/image (2).jpg",
-      "./src/assets/product-images/sneakers/product-4/image (3).jpg",
-      "./src/assets/product-images/sneakers/product-4/image (4).jpg",
-      "./src/assets/product-images/sneakers/product-4/image (5).jpg",
-      "./src/assets/product-images/sneakers/product-4/image (6).jpg",
-      "./src/assets/product-images/sneakers/product-4/image (7).jpg",
-      "./src/assets/product-images/sneakers/product-4/image (8).jpg"
-
+      "../../assets/product-images/sneakers/product-4/image (1).jpg",
+      "../../assets/product-images/sneakers/product-4/image (2).jpg",
+      "../../assets/product-images/sneakers/product-4/image (3).jpg",
+      "../../assets/product-images/sneakers/product-4/image (4).jpg",
+      "../../assets/product-images/sneakers/product-4/image (5).jpg",
+      "../../assets/product-images/sneakers/product-4/image (6).jpg",
+      "../../assets/product-images/sneakers/product-4/image (7).jpg",
+      "../../assets/product-images/sneakers/product-4/image (8).jpg"
     ],
-    "path": "./src/assets/product-images/sneakers/product-4/image (7).jpg",
-    "video": "./src/assets/product-images/sneakers/product-4/video.mp4"
+    "path": "../../assets/product-images/sneakers/product-4/image (7).jpg",
+    "video": "../../assets/product-images/sneakers/product-4/video.mp4"
   },
   {
     "id": "product5",
     "name": "Air Max",
     "price": 107.9,
-    "description": "Stylish and comfortable sneakers.",
+    "description": "A revolution in sneaker design, the Air Max brings timeless style and cutting-edge comfort together. Crafted for the modern individual who demands both performance and flair, this sneaker stands out in any crowd. From its breathable mesh upper to the plush cushioning system, every detail is engineered to elevate your every step. With its sleek, bold silhouette, it's not just a shoe—it's a statement. Whether you're running, walking, or just owning the streets, the Air Max delivers exceptional comfort and iconic looks that never go out of style.",
+    "sizes": [35, 36, 39, 41, 42],
     "images": [
-      "./src/assets/product-images/sneakers/product-5/image (1).jpg",
-      "./src/assets/product-images/sneakers/product-5/image (2).jpg",
-      "./src/assets/product-images/sneakers/product-5/image (3).jpg",
-      "./src/assets/product-images/sneakers/product-5/image (4).jpg",
-      "./src/assets/product-images/sneakers/product-5/image (5).jpg",
-      "./src/assets/product-images/sneakers/product-5/image (6).jpg",
-      "./src/assets/product-images/sneakers/product-5/image (7).jpg",
-      "./src/assets/product-images/sneakers/product-5/image (8).jpg",
-      "./src/assets/product-images/sneakers/product-5/image (9).jpg"
-
+      "../../assets/product-images/sneakers/product-5/image (1).jpg",
+      "../../assets/product-images/sneakers/product-5/image (2).jpg",
+      "../../assets/product-images/sneakers/product-5/image (3).jpg",
+      "../../assets/product-images/sneakers/product-5/image (4).jpg",
+      "../../assets/product-images/sneakers/product-5/image (5).jpg",
+      "../../assets/product-images/sneakers/product-5/image (6).jpg",
+      "../../assets/product-images/sneakers/product-5/image (7).jpg",
+      "../../assets/product-images/sneakers/product-5/image (8).jpg",
+      "../../assets/product-images/sneakers/product-5/image (9).jpg"
     ],
-    "path": "./src/assets/product-images/sneakers/product-5/image (1).jpg",
-    "video": "./src/assets/product-images/sneakers/product-5/video.mp4"
+    "path": "../../assets/product-images/sneakers/product-5/image (1).jpg",
+    "video": "../../assets/product-images/sneakers/product-5/video.mp4"
   },
   {
     "id": "product6",
     "name": "Nike V2K Run",
     "price": 89.99,
-    "description": "Stylish and comfortable sneakers.",
+    "description": "Engineered for speed and built for the streets, the Nike V2K Run takes inspiration from the greats. Its smooth, athletic design is powered by advanced cushioning that propels you forward, making every run feel effortless. Whether you're pushing through your workout or sprinting through your day, these sneakers are designed to keep up. The bold aesthetic and ultra-durable construction guarantee you not only look the part but perform like one of the elite. Comfort and agility combine in the perfect running companion.",
+    "sizes": [36, 39, 40, 42, 44, 45],
     "images": [
-      "./src/assets/product-images/sneakers/product-6/image (1).jpg",
-    "./src/assets/product-images/sneakers/product-6/image (2).jpg",
-    "./src/assets/product-images/sneakers/product-6/image (3).jpg",
-    "./src/assets/product-images/sneakers/product-6/image (4).jpg",
-    "./src/assets/product-images/sneakers/product-6/image (5).jpg",
-    "./src/assets/product-images/sneakers/product-6/image (6).jpg",
-    "./src/assets/product-images/sneakers/product-6/image (7).jpg",
-    "./src/assets/product-images/sneakers/product-6/image (8).jpg"
+      "../../assets/product-images/sneakers/product-6/image (1).jpg",
+      "../../assets/product-images/sneakers/product-6/image (2).jpg",
+      "../../assets/product-images/sneakers/product-6/image (3).jpg",
+      "../../assets/product-images/sneakers/product-6/image (4).jpg",
+      "../../assets/product-images/sneakers/product-6/image (5).jpg",
+      "../../assets/product-images/sneakers/product-6/image (6).jpg",
+      "../../assets/product-images/sneakers/product-6/image (7).jpg",
+      "../../assets/product-images/sneakers/product-6/image (8).jpg"
     ],
-    "path": "./src/assets/product-images/sneakers/product-6/image (7).jpg",
-    "video": "./src/assets/product-images/sneakers/product-6/video.mp4"
+    "path": "../../assets/product-images/sneakers/product-6/image (7).jpg",
+    "video": "../../assets/product-images/sneakers/product-6/video.mp4"
   },
   {
     "id": "product7",
     "name": "Nike SB Ronde",
     "price": 79.99,
-    "description": "Stylish and comfortable sneakers.",
+    "description": "Step up your street style with the Nike SB Ronde. A sneaker designed for those who walk to their own beat, it offers a perfect balance of flexibility and durability. The breathable upper ensures comfort all day long, while the durable rubber outsole grips the ground, providing ultimate traction for skateboarding or daily wear. With a classic design that pays homage to Nike's skateboarding heritage, the SB Ronde adds a touch of rebellion to your look, making it the ideal choice for anyone who lives life on the edge.",
+    "sizes": [36, 39, 40, 42, 44],
     "images": [
-      "./src/assets/product-images/sneakers/product-7/image (1).jpg",
-      "./src/assets/product-images/sneakers/product-7/image (2).jpg",
-      "./src/assets/product-images/sneakers/product-7/image (3).jpg",
-      "./src/assets/product-images/sneakers/product-7/image (4).jpg",
-      "./src/assets/product-images/sneakers/product-7/image (5).jpg",
-      "./src/assets/product-images/sneakers/product-7/image (6).jpg"
+      "../../assets/product-images/sneakers/product-7/image (1).jpg",
+      "../../assets/product-images/sneakers/product-7/image (2).jpg",
+      "../../assets/product-images/sneakers/product-7/image (3).jpg",
+      "../../assets/product-images/sneakers/product-7/image (4).jpg",
+      "../../assets/product-images/sneakers/product-7/image (5).jpg",
+      "../../assets/product-images/sneakers/product-7/image (6).jpg"
     ],
-    "path": "./src/assets/product-images/sneakers/product-7/image (6).jpg"
+    "path": "../../assets/product-images/sneakers/product-7/image (6).jpg"
   },
   {
     "id": "product8",
     "name": "Air Max 270",
     "price": 106.99,
-    "description": "Stylish and comfortable sneakers.",
+    "description": "Unleash your true potential with the Air Max 270. Designed with the latest Air Max technology, this sneaker provides unmatched comfort with its large visible Air unit, offering superior cushioning with every step. Ideal for active lifestyles, the lightweight mesh upper keeps your feet cool, while the bold colorways ensure you stand out in any crowd. Whether you're hitting the gym or out on the town, the Air Max 270 brings performance and style together for an unforgettable experience.",
+    "sizes": [35, 36, 40, 42, 45],
     "images": [
-      "./src/assets/product-images/sneakers/product-8/image (1).jpg",
-      "./src/assets/product-images/sneakers/product-8/image (2).jpg",
-      "./src/assets/product-images/sneakers/product-8/image (3).jpg"
+      "../../assets/product-images/sneakers/product-8/image (1).jpg",
+      "../../assets/product-images/sneakers/product-8/image (2).jpg",
+      "../../assets/product-images/sneakers/product-8/image (3).jpg"
     ],
-    "path": "./src/assets/product-images/sneakers/product-8/image (1).jpg",
-    "video": "./src/assets/product-images/sneakers/product-8/video.mov"
+    "path": "../../assets/product-images/sneakers/product-8/image (1).jpg",
+    "video": "../../assets/product-images/sneakers/product-8/video.mov"
   },
   {
     "id": "product9",
     "name": "Air Jordan 2 Mid",
     "price": 106.99,
-    "description": "Stylish and comfortable sneakers.",
+    "description": "Inspired by the game’s greatest, the Air Jordan 2 Mid delivers a premium blend of style and performance. With its sleek silhouette and luxurious leather upper, this sneaker pays tribute to Jordan’s legacy while pushing the boundaries of modern footwear design. The cushioned midsole provides long-lasting comfort, while the bold details—like the iconic Wings logo—make this pair stand out. Whether you're on the court or off, the Air Jordan 2 Mid will ensure you're always at the top of your game.",
+    "sizes": [36, 39, 40, 41, 42, 43],
     "images": [
-      "./src/assets/product-images/sneakers/product-9/image (1).jpg",
-      "./src/assets/product-images/sneakers/product-9/image (2).jpg",
-      "./src/assets/product-images/sneakers/product-9/image (3).jpg",
-      "./src/assets/product-images/sneakers/product-9/image (4).jpg",
-      "./src/assets/product-images/sneakers/product-9/image (5).jpg",
-      "./src/assets/product-images/sneakers/product-9/image (6).jpg",
-      "./src/assets/product-images/sneakers/product-9/image (7).jpg",
-      "./src/assets/product-images/sneakers/product-9/image (8).jpg"
-    ]
-    ,
-    "path": "./src/assets/product-images/sneakers/product-9/image (5).jpg"
+      "../../assets/product-images/sneakers/product-9/image (1).jpg",
+      "../../assets/product-images/sneakers/product-9/image (2).jpg",
+      "../../assets/product-images/sneakers/product-9/image (3).jpg",
+      "../../assets/product-images/sneakers/product-9/image (4).jpg",
+      "../../assets/product-images/sneakers/product-9/image (5).jpg",
+      "../../assets/product-images/sneakers/product-9/image (6).jpg",
+      "../../assets/product-images/sneakers/product-9/image (7).jpg",
+      "../../assets/product-images/sneakers/product-9/image (8).jpg"
+    ],
+    "path": "../../assets/product-images/sneakers/product-9/image (5).jpg"
   },
   {
     "id": "product10",
     "name": "Nike Air",
     "price": 106.99,
-    "description": "Stylish and comfortable sneakers.",
+    "description": "The Nike Air is designed to bring ultimate comfort and style to your everyday hustle. With its iconic Air cushioning technology, it offers a light, responsive feel underfoot, ensuring that your steps are both soft and supported. The breathable mesh upper provides all-day ventilation, while the sleek silhouette adds a touch of modern elegance to any look. Whether you're running errands or making a statement, the Nike Air is the perfect blend of performance and fashion, giving you confidence with every step.",
+    "sizes": [35, 36, 39, 40, 42, 43],
     "images": [
-      "./src/assets/product-images/sneakers/product-10/image (1).jpg",
-      "./src/assets/product-images/sneakers/product-10/image (2).jpg",
-      "./src/assets/product-images/sneakers/product-10/image (3).jpg",
-      "./src/assets/product-images/sneakers/product-10/image (4).jpg",
-      "./src/assets/product-images/sneakers/product-10/image (5).jpg",
-      "./src/assets/product-images/sneakers/product-10/image (6).jpg",
-      "./src/assets/product-images/sneakers/product-10/image (7).jpg",
-      "./src/assets/product-images/sneakers/product-10/image (8).jpg"
+      "../../assets/product-images/sneakers/product-10/image (1).jpg",
+      "../../assets/product-images/sneakers/product-10/image (2).jpg",
+      "../../assets/product-images/sneakers/product-10/image (3).jpg",
+      "../../assets/product-images/sneakers/product-10/image (4).jpg",
+      "../../assets/product-images/sneakers/product-10/image (5).jpg",
+      "../../assets/product-images/sneakers/product-10/image (6).jpg",
+      "../../assets/product-images/sneakers/product-10/image (7).jpg",
+      "../../assets/product-images/sneakers/product-10/image (8).jpg"
     ],
-    "path": "./src/assets/product-images/sneakers/product-10/image (1).jpg"
-  }
+    "path": "../../assets/product-images/sneakers/product-10/image (1).jpg"
+  }  
 ]

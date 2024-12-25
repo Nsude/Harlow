@@ -87,7 +87,11 @@
     }
 
     .image-container:hover img:not(.image-blur-mask) {
-      filter: blur(2px) grayscale(1);
+      filter: blur(2px) grayscale(1) ;
+    }
+
+    .image-container img:not(.image-blur-mask) {
+      filter: grayscale(1) blur(2px);
     }
 
     .image-container:hover::after {

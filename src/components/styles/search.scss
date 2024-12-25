@@ -1,5 +1,5 @@
-@use 'variables' as *;
-@use 'mixins' as *;
+@use "variables" as *;
+@use "mixins" as *;
 
 .search-overlay {
   position: fixed;
@@ -37,7 +37,8 @@
     overflow-x: hidden;
   }
 
-  .suggestions-con, .products-con {
+  .suggestions-con,
+  .products-con {
     overflow: hidden;
   }
 
@@ -59,7 +60,7 @@
     text-wrap: nowrap;
     font-family: "HaasRegular";
     font-size: $body-copy;
-  
+
     &:hover {
       text-decoration: underline;
     }
@@ -102,7 +103,6 @@
 
 @include apply-from(tablet) {
   .search-container {
-
     .found-items {
       grid-template-rows: none;
       grid-template-columns: 1fr 4fr;
@@ -122,7 +122,6 @@
 
 @include apply-from(desktop) {
   .search-container {
-
     .products {
       flex-direction: row;
       column-gap: 20px;

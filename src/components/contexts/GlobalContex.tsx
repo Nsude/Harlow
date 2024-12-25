@@ -1,7 +1,7 @@
 import { createContext, ReactNode, useContext } from "react";
 
 interface GlobalProps {
-  colors: { offWhite: string; black: string; accent: string, gray: string };
+  colors: { offWhite: string; black: string; accent: string; gray: string };
 }
 
 const GlobalContext = createContext<GlobalProps | undefined>(undefined);

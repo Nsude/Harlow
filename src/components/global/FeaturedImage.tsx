@@ -27,7 +27,6 @@ const FeaturedImage: React.FC<Props> = ({ image, title, angel, buttonText }) => 
         end: "max",
       },
     });
-
   }, [angel, device.width]);
 
   return (

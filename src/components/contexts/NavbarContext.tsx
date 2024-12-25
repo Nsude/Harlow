@@ -72,15 +72,16 @@ const NavbarContextProvider: React.FC<{ children: ReactNode }> = ({ children }) 
   ];
 
   return (
-    <NavbarContext.Provider value={{ 
-      menuOpen, 
-      setMenuOpen, 
-      menuLists, 
-      selectedOption, 
-      setSelectedOption,
-      searchOpen, 
-      setSearchOpen
-    }}>
+    <NavbarContext.Provider
+      value={{
+        menuOpen,
+        setMenuOpen,
+        menuLists,
+        selectedOption,
+        setSelectedOption,
+        searchOpen,
+        setSearchOpen,
+      }}>
       {children}
     </NavbarContext.Provider>
   );

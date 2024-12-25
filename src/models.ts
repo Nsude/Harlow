@@ -11,6 +11,6 @@ export interface Product {
   description: string;
   sizes: string[] | number[];
   images: string[];
-  path: string;//main image
-  video?: string 
+  path: string; //main image
+  video?: string;
 }

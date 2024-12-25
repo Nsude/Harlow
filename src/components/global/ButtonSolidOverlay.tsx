@@ -13,7 +13,7 @@ interface Props {
   fg?: string; // text color after overlay
   defaultColor?: string; //default text color
   noBg?: boolean; // bg or no-bg
-  disable?: boolean
+  disable?: boolean;
 }
 
 const ButtonSolidOverlay: React.FC<Props> = ({ arrowIcon, text, bg, overlay, fg, defaultColor, noBg, disable }) => {
@@ -140,7 +140,7 @@ const ButtonSolidOverlay: React.FC<Props> = ({ arrowIcon, text, bg, overlay, fg,
   return (
     <button
       ref={buttonRef}
-      className={`button-solid-overlay flex cg-5 ${disable ? 'disable-btn' : ''}`}
+      className={`button-solid-overlay flex cg-5 ${disable ? "disable-btn" : ""}`}
       onMouseEnter={() => growOverlay()}
       onMouseMove={() => moveOverlay()}
       onMouseLeave={() => {

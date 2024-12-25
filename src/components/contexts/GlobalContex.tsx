@@ -1,7 +1,7 @@
 import { createContext, ReactNode, useContext } from "react";
 
 interface GlobalProps {
-  colors: { offWhite: string; black: string; accent: string };
+  colors: { offWhite: string; black: string; accent: string, gray: string };
 }
 
 const GlobalContext = createContext<GlobalProps | undefined>(undefined);
@@ -15,7 +15,7 @@ const useGlobalContext = () => {
 };
 
 const GlobalContextProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-  const colors = { offWhite: "#FAF9F6", black: "#171717", accent: "#F060E2" };
+  const colors = { offWhite: "#FAF9F6", black: "#171717", accent: "#F060E2", gray: "#EAEAEA" };
 
   return <GlobalContext.Provider value={{ colors }}>{children}</GlobalContext.Provider>;
 };

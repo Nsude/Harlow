@@ -4,7 +4,6 @@ import prod1 from "../../assets/media/images/prod-1.webp";
 import useCustomEffect from "../../hooks/useCustomEffect";
 import gsap from "gsap";
 import sneakers from "../../../sneakers.json";
-import sweatpants from "../../../sweatpants.json";
 import { Product } from "../../models";
 
 interface Props {

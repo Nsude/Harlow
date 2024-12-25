@@ -1,5 +1,5 @@
 import Logo from "../../assets/icons/Logo";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import ProfileIcon from "../../assets/icons/ProfileIcon";
 import CartIcon from "../../assets/icons/CartIcon";
 import SearchIcon from "../../assets/icons/SearchIcon";
@@ -21,6 +21,7 @@ const Navbar = () => {
   const navRef = useRef<HTMLElement | null>(null);
   const [navbarHeight, setNavbarHeight] = useState(0);
   const device = useDevice();
+  const navigate = useNavigate();
 
   // get Navbar Height 
   useCustomEffect(() => {
@@ -115,7 +116,7 @@ const Navbar = () => {
         </button>
 
         {/* logo */}
-        <div className="logo-search-con flex">
+        <div className="logo-search-con flex" onClick={() => navigate('/')}>
           <Logo color={colors.offWhite} />
           {/* <div className="search-box" onClick={() => setSearchOpen((prev) => !prev)}>
             <SearchIcon color={colors.offWhite} />

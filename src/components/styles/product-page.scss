@@ -1,6 +1,84 @@
 @use "variables" as *;
 @use "mixins" as *;
 
-// .product-page-container {
-  
-// }
+.product-page-container {
+  padding: 80px 20px;
+  display: grid;
+  grid-template-rows: 350px 1fr;
+  grid-template-columns: 100%;
+  gap: 30px;
+  position: relative;
+
+  .header {
+    margin-bottom: 15px;
+  }
+
+  .header h2 {
+    font-family: "HaasBold" !important;
+    font-size: $title;
+    margin-bottom: 5px;
+  }
+
+  .desc {
+    margin-bottom: 30px;
+    font-family: "HaasMedium";
+  }
+
+  .desc p {
+    font-size: 16px;
+    line-height: 1.2;
+  }
+
+  .sizes {
+    margin-bottom: 30px;
+  }
+
+  .sizes h4 {
+    font-family: "HaasMedium";
+    margin-bottom: 15px;
+    font-size: $body-copy;
+    font-weight: 300;
+  }
+
+  .cta {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+@include apply-from(tablet) {
+  .product-page-container {
+    padding-inline: 35px;
+    grid-template-rows: 450px 1fr;
+
+    .desc {
+      width: 55%;
+    }
+
+    .cta {
+      position: static;
+      left: 0;
+      transform: none;
+    }
+
+  }
+}
+
+@include apply-from(desktop) {
+  .product-page-container {
+    padding-top: 150px;
+    width: 65%;
+    margin-inline: auto;
+    grid-template-columns: 60% 40%;
+    grid-template-rows: 100%;
+
+    .desc {
+      width: 90%;
+    }
+
+    .sizes h4 {
+      font-size: $title;
+    }
+  }
+}

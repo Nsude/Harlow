@@ -1,0 +1,32 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.sizes-container {
+  display: grid;
+  grid-template-columns: repeat(2, 50%);
+  gap: 4px;
+
+  button.size {
+    border: 1.5px solid rgba($color: $black, $alpha: .2);
+    padding-block: 12px;
+    font-family: "HaasMedium";
+    border-radius: 4px;
+
+    &.selected {
+      background: $black;
+      color: $off-white;
+    }
+  }
+}
+
+@include apply-from(tablet) {
+  .sizes-container {
+    grid-template-columns: repeat(3, 33.3%);
+  }
+}
+
+@include apply-from(desktop) {
+  .sizes-container {
+    grid-template-columns: repeat(2, 50%);
+  }
+}

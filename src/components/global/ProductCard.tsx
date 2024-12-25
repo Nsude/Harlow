@@ -34,8 +34,8 @@ const ProductCard: React.FC<Props> = ({
       <div className="product-details flex fd-c">
         <div className="image-variations flex cg-5">
           { Array.isArray(image.images) &&
-            image.images.slice(0, 4).map((image) => (
-              <button className="variation-con" onMouseEnter={() => setDisplayedImage(image)}>
+            image.images.slice(0, 4).map((image, i) => (
+              <button key={i} className="variation-con" onMouseEnter={() => setDisplayedImage(image)}>
                 <img src={image} alt="product-image-variation" />
               </button>
             ))

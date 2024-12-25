@@ -9,6 +9,7 @@ export interface Product {
   name: string;
   price: number | string;
   description: string;
+  sizes: string[] | number[];
   images: string[];
   path: string;//main image
   video?: string 

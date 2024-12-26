@@ -5,6 +5,7 @@ import ArrowHeadIcon from "../../assets/icons/ArrowHeadIcon";
 import ProfileIcon from "../../assets/icons/ProfileIcon";
 import { useGlobalContext } from "../contexts/GlobalContex";
 import { gsap } from "gsap";
+import { useNavigate } from "react-router-dom";
 
 export const menuOpenAnim = "nav-menu-open-a";
 const menuSwitch = "nav-menu-switch-a";
@@ -14,6 +15,7 @@ const MobileNavbarMenu = () => {
   const { colors } = useGlobalContext();
   const [activeOption, setActiveOption] = useState<string>("");
   const [showOptions, setShowOptions] = useState<boolean>(false);
+  const navigate = useNavigate();
 
   /* Get Page Height */
   const adjustHeight = () => {
@@ -126,7 +128,13 @@ const MobileNavbarMenu = () => {
                   </button>
                 ))}
             </div>
-            <button ref={loginRef} className={"login flex cg-10 " + menuOpenAnim}>
+            <button
+              ref={loginRef}
+              className={"login flex cg-10 " + menuOpenAnim}
+              onClick={() => {
+                navigate("/sign-up");
+                setMenuOpen(false);
+              }}>
               <ProfileIcon color={colors.offWhite} />
               <p>Login</p>
             </button>

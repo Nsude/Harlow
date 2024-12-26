@@ -13,7 +13,7 @@ interface Props {
 const ProductCard: React.FC<Props> = ({ image, label = "New & Featured", discount = 33, search }) => {
   const [displayedImage, setDisplayedImage] = useState(image.path);
   const navigate = useNavigate();
-  const {setSearchOpen} = useNavContext();
+  const { setSearchOpen } = useNavContext();
 
   const viewProduct = (id: string) => {
     try {

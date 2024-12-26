@@ -6,14 +6,16 @@ import { Link, useNavigate } from "react-router-dom";
 import GoogleIcon from "../assets/icons/GoogleIcon";
 import { useAuth } from "./contexts/AuthContext";
 import { updateProfile, UserCredential } from "firebase/auth";
-import Logo from "../assets/icons/Logo";
-import underwaterVD from "../assets/media/underwater.mp4";
+import placeholder from "../assets/media/images/placeholderImage.png";
 
 const SignUp = () => {
   const [error, setError] = useState<string>("");
-  /* Name */
-  const [firstName, setFirstName] = useState<string>("");
-  const [lastName, setLastName] = useState<string>("");
+  const [form, setForm] = useState({
+    pwd: "",
+    firstName: "",
+    lastName: "",
+    email: "",
+  });
   const [isNameValid, setIsValidName] = useState<{
     first?: boolean;
     last?: boolean;
@@ -28,8 +30,8 @@ const SignUp = () => {
     };
 
     if (nameRef.current) {
-      const validFirstName = testNameRegex(firstName);
-      const validLastName = testNameRegex(lastName);
+      const validFirstName = testNameRegex(form.firstName);
+      const validLastName = testNameRegex(form.lastName);
 
       setIsValidName((prev) => ({
         ...prev,
@@ -41,31 +43,25 @@ const SignUp = () => {
     return () => {
       nameRef.current = true;
     };
-  }, [firstName, lastName]);
+  }, [form.firstName, form.lastName]);
 
   /* Email */
-  const [email, setEmail] = useState<string>("");
   const [validEmail, setValidEmail] = useState<boolean>(false);
-
   const emailUseEffectRef = useRef<boolean>(false);
   useEffect(() => {
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     if (emailUseEffectRef.current) {
-      const isValid = emailRegex.test(email);
+      const isValid = emailRegex.test(form.email);
       setValidEmail(isValid);
     }
 
     return () => {
       emailUseEffectRef.current = true;
     };
-  }, [email]);
+  }, [form.email]);
 
   /* Password */
-  const [pwd, setPwd] = useState<string>("");
-  const [confirmPwd, setConfirmPwd] = useState<string>("");
   const [validPwd, setValidPwd] = useState<boolean>(false);
-  const [pwrdMatch, setPwrdMatch] = useState<boolean>(false);
-
   const pwdUseEffectRef = useRef<boolean>(false);
   useEffect(() => {
     const pwdRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
@@ -75,24 +71,15 @@ const SignUp = () => {
       return pwdRegex.test(pwd);
     };
 
-    const validatePwd = () => {
-      if (!pwd) return false;
-      return pwd === confirmPwd;
-    };
-
-    if (pwdUseEffectRef.current && pwd) {
-      const validPwd = testPwrRegex(pwd);
+    if (pwdUseEffectRef.current && form.pwd) {
+      const validPwd = testPwrRegex(form.pwd);
       setValidPwd(validPwd);
-      if (!confirmPwd) return;
-      const matchPwd = validatePwd();
-
-      setPwrdMatch(matchPwd);
     }
 
     return () => {
       pwdUseEffectRef.current = true;
     };
-  }, [pwd, confirmPwd]);
+  }, [form.pwd]);
 
   const [viewPwd, setViewPwd] = useState<boolean>(false);
   const toggleViewPwd = (e: React.MouseEvent | React.TouchEvent) => {
@@ -109,7 +96,7 @@ const SignUp = () => {
     submitButton.current?.classList.add("animate-button");
 
     try {
-      const userCreds: UserCredential | void = await signUp(email, pwd);
+      const userCreds: UserCredential | void = await signUp(form.email, form.pwd);
       await setUserInfo(userCreds);
       navigate("/");
     } catch (error) {
@@ -121,7 +108,7 @@ const SignUp = () => {
     if (!userCreds || !userCreds?.user) return;
     try {
       await updateProfile(userCreds.user, {
-        displayName: firstName + " " + lastName,
+        displayName: form.firstName + " " + form.lastName,
       });
     } catch (error) {
       console.log(error);
@@ -142,18 +129,11 @@ const SignUp = () => {
   const iconSize = 16;
   return (
     <div className="form-container flex jc-c">
-      <div className="side-image">
-        <Logo color="#FAF9F6" />
-        {/* <video autoPlay loop>
-          <source src={underwaterVD} />
-          <p>Your browser does not support this video</p>
-        </video> */}
-      </div>
       <div className="wrap-form">
         <form className="auth-form">
-          <div className="form-intro">
+          <div className="form-intro flex fd-c">
             <h2>Sign up</h2>
-            <p>Welcome, please enter your details</p>
+            <p>Please fill the details below</p>
           </div>
           {error && (
             <div className="error-message flex cg-5">
@@ -161,54 +141,62 @@ const SignUp = () => {
               <p>{error}</p>
             </div>
           )}
+
           <button className="google-button flex cg-10 jc-c" onClick={(e) => signUpWithGoogle(e)}>
             <GoogleIcon size={18} />
             <p>Sign up with Gooogle</p>
           </button>
-
           <div className="line-con">
             <div className="line"></div>
             <p>Or</p>
           </div>
 
           <div className="name">
-            <label htmlFor="firstname">
-              <p>Firstname</p>
-              <input
-                type="text"
-                value={firstName}
-                className={firstName && !isNameValid?.first ? "invalid-input" : isNameValid?.first ? "valid-input" : ""}
-                required
-                onChange={(e) => setFirstName(e.target.value)}
-                id="firstname"
-                placeholder="enter firstname"
-              />
-              {firstName && !isNameValid?.first && (
+            <div className="box">
+              <label htmlFor="firstname">
+                <p>First Name</p>
+                <input
+                  type="text"
+                  value={form.firstName}
+                  className={
+                    form.firstName && !isNameValid?.first ? "invalid-input" : isNameValid?.first ? "valid-input" : ""
+                  }
+                  required
+                  onChange={(e) => setForm({ ...form, firstName: e.currentTarget.value })}
+                  id="firstname"
+                  placeholder="your first name"
+                />
+              </label>
+              {form.firstName && !isNameValid?.first && (
                 <div className="error-message flex cg-5">
                   <ErrorSvg size={iconSize} />
-                  <p>firstname should be at least 3 characters long</p>
+                  <p>at least 3 characters long</p>
                 </div>
               )}
-            </label>
+            </div>
 
-            <label htmlFor="lastname">
-              <p>Lastname</p>
-              <input
-                type="text"
-                value={lastName}
-                className={lastName && !isNameValid?.last ? "invalid-input" : isNameValid?.last ? "valid-input" : ""}
-                required
-                onChange={(e) => setLastName(e.target.value)}
-                id="lastname"
-                placeholder="enter lastname"
-              />
-              {lastName && !isNameValid?.last && (
+            <div className="box">
+              <label htmlFor="lastname">
+                <p>Last Name</p>
+                <input
+                  type="text"
+                  value={form.lastName}
+                  className={
+                    form.lastName && !isNameValid?.last ? "invalid-input" : isNameValid?.last ? "valid-input" : ""
+                  }
+                  required
+                  onChange={(e) => setForm({ ...form, lastName: e.currentTarget.value })}
+                  id="lastname"
+                  placeholder="your last name"
+                />
+              </label>
+              {form.lastName && !isNameValid?.last && (
                 <div className="error-message flex cg-5">
                   <ErrorSvg size={iconSize} />
-                  <p>lastname should be at least 3 characters long</p>
+                  <p>at least 3 characters long</p>
                 </div>
               )}
-            </label>
+            </div>
           </div>
 
           <label htmlFor="email">
@@ -216,15 +204,15 @@ const SignUp = () => {
             <input
               type="text"
               id="email"
-              className={email && !validEmail ? "invalid-input" : validEmail ? "valid-input" : ""}
+              className={form.email && !validEmail ? "invalid-input" : validEmail ? "valid-input" : ""}
               required
-              value={email}
+              value={form.email}
               onChange={(e) => {
-                setEmail(e.target.value);
+                setForm({ ...form, email: e.currentTarget.value });
               }}
-              placeholder="enter email"
+              placeholder="your email"
             />
-            {email && !validEmail && (
+            {form.email && !validEmail && (
               <div className="error-message flex cg-5">
                 <ErrorSvg size={iconSize} />
                 <p>invalid email address</p>
@@ -239,13 +227,13 @@ const SignUp = () => {
                 <input
                   type={viewPwd ? "text" : "password"}
                   id="password"
-                  className={pwd && !validPwd ? "invalid-input" : validPwd ? "valid-input" : ""}
-                  value={pwd}
+                  className={form.pwd && !validPwd ? "invalid-input" : validPwd ? "valid-input" : ""}
+                  value={form.pwd}
                   required
                   onChange={(e) => {
-                    setPwd(e.target.value);
+                    setForm({ ...form, pwd: e.currentTarget.value });
                   }}
-                  placeholder="enter password"
+                  placeholder="create password"
                   autoComplete="false"
                   autoCorrect="false"
                 />
@@ -253,49 +241,25 @@ const SignUp = () => {
                   <EyeIcon display={viewPwd} />
                 </button>
               </div>
-              {pwd && !validPwd && (
+              {form.pwd && !validPwd && (
                 <div className="error-message flex cg-5">
                   {/* <ErrorSvg size={iconSize} /> */}
-                  <ul>
-                    <li>must be at least 8 characters long</li>
-                    <li>must contain an upper and lowercase letter</li>
-                    <li>must contain a special character</li>
-                    <li>must contain a number</li>
-                  </ul>
-                </div>
-              )}
-            </label>
-
-            <label htmlFor="confirm-password">
-              <p>Confirm</p>
-              <div className="password-con">
-                <input
-                  type={viewPwd ? "text" : "password"}
-                  id="confirm-password"
-                  className={confirmPwd && !pwrdMatch ? "invalid-input" : pwrdMatch ? "valid-input" : ""}
-                  required
-                  value={confirmPwd}
-                  onChange={(e) => {
-                    setConfirmPwd(e.target.value);
-                  }}
-                  placeholder="re-enter password"
-                  autoComplete="false"
-                  autoCorrect="false"
-                />
-                <button className="hide-view-icon" onClick={(e) => toggleViewPwd(e)}>
-                  <EyeIcon display={viewPwd} />
-                </button>
-              </div>
-              {confirmPwd && !pwrdMatch && (
-                <div className="error-message flex cg-5">
-                  <ErrorSvg size={iconSize} />
-                  <p>password does not match</p>
+                  <ol>
+                    <li>At least 8 characters long</li>
+                    <li>Upper and lowercase letter</li>
+                    <li>Special character (e.g @, $)</li>
+                    <li>Number</li>
+                  </ol>
                 </div>
               )}
             </label>
           </div>
 
-          <button ref={submitButton} className={"submit-form flex cg-10 jc-c"} onClick={(e) => submitForm(e)}>
+          <button
+            ref={submitButton}
+            className={"submit-form flex cg-10 jc-c"}
+            data-disable={(form.email && form.firstName && form.lastName && form.pwd) || false}
+            onClick={(e) => submitForm(e)}>
             <p>Create Account</p>
             <div className="arrow">
               {" "}

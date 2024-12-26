@@ -119,10 +119,6 @@ const Navbar = () => {
         {/* logo */}
         <div className="logo-search-con flex" onClick={() => navigate("/")}>
           <Logo color={colors.offWhite} />
-          {/* <div className="search-box" onClick={() => setSearchOpen((prev) => !prev)}>
-            <SearchIcon color={colors.offWhite} />
-            <input placeholder="Search" />
-          </div> */}
         </div>
 
         {/* Destop Links */}
@@ -146,7 +142,7 @@ const Navbar = () => {
           <button className="m-search-button" onClick={() => setSearchOpen((prev) => !prev)}>
             <SearchIcon color={colors.offWhite} />
           </button>
-          <Link to={"/profile"} className="profile-link">
+          <Link to={"/login"} className="profile-link">
             <ProfileIcon color={colors.offWhite} />
           </Link>
           <Link to={"/cart"} style={{ paddingTop: 2 }}>

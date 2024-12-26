@@ -22,7 +22,7 @@ const HeroSection = () => {
     const hero = document.querySelector(".hero-section-container");
     const handleLoad = () => {
       if (!hero) return;
-      hero.scrollIntoView({ behavior: "smooth" });
+      // hero.scrollIntoView({ behavior: "smooth" });
     };
 
     window.addEventListener("load", handleLoad);
@@ -106,7 +106,7 @@ const HeroSection = () => {
       scrollTrigger: {
         trigger: ".scroller",
         start: "top 20%",
-        scrub: 0.1,
+        scrub: true,
       },
     });
 

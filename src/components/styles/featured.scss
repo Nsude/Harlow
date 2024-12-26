@@ -16,15 +16,22 @@
   .images {
     display: grid;
     grid-template-columns: repeat(3, 100%);
+    grid-template-rows: 100%;
     column-gap: 10px;
     overflow-x: scroll;
     overflow-y: hidden;
     scroll-snap-type: x mandatory;
   }
 
-  .image-con {
+  .box {
+    overflow: hidden;
+    scroll-snap-align: start;
     width: 100%;
   }
+
+  // .image-con {
+  //   width: 100%;
+  // }
 }
 
 @include apply-from(tablet) {

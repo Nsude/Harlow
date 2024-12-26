@@ -97,6 +97,7 @@
   .product-card-container {
     &:hover {
       .image-variations {
+        min-height: 45px;
         height: 100%;
       }
 

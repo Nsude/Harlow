@@ -170,7 +170,7 @@ const SignUp = () => {
               {form.firstName && !isNameValid?.first && (
                 <div className="error-message flex cg-5">
                   <ErrorSvg size={iconSize} />
-                  <p>at least 3 characters long</p>
+                  <p>at least 3 characters</p>
                 </div>
               )}
             </div>
@@ -193,7 +193,7 @@ const SignUp = () => {
               {form.lastName && !isNameValid?.last && (
                 <div className="error-message flex cg-5">
                   <ErrorSvg size={iconSize} />
-                  <p>at least 3 characters long</p>
+                  <p>at least 3 characters</p>
                 </div>
               )}
             </div>
@@ -245,7 +245,7 @@ const SignUp = () => {
                 <div className="error-message flex cg-5">
                   {/* <ErrorSvg size={iconSize} /> */}
                   <ol>
-                    <li>At least 8 characters long</li>
+                    <li>At least 8 characters</li>
                     <li>Upper and lowercase letter</li>
                     <li>Special character (e.g @, $)</li>
                     <li>Number</li>

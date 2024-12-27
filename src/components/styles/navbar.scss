@@ -5,6 +5,7 @@
   flex-wrap: wrap;
   padding: 15px 20px;
   position: fixed;
+  top: 0;
   left: 0;
   right: 0;
   z-index: 100;
@@ -66,6 +67,10 @@
 
     .profile-link {
       display: block;
+    }
+
+    .logout {
+      padding-top: 4px;
     }
   }
 }

@@ -14,7 +14,7 @@ body {
 body h2 {
   font-size: $header;
   letter-spacing: -0.02ch;
-  font-family: "HaasRegular" !important;
+  font-family: "HaasRegular";
   font-weight: 200;
   line-height: 0.92;
 }
@@ -22,7 +22,7 @@ body h2 {
 body h3 {
   font-size: $title;
   letter-spacing: -0.02ch;
-  font-family: "HaasRegular" !important;
+  font-family: "HaasRegular";
   font-weight: 200;
   line-height: 0.92;
 }

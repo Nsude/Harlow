@@ -7,30 +7,31 @@ import GoogleIcon from "../assets/icons/GoogleIcon";
 import { useAuth } from "./contexts/AuthContext";
 import { UserCredential } from "firebase/auth";
 import Logo from "../assets/icons/Logo";
+import useCustomEffect from "../hooks/useCustomEffect";
 
 const Login = () => {
   const navigate = useNavigate();
   const [error, setError] = useState<string>("");
-  /* Email */
-  const [email, setEmail] = useState<string>("");
+  const [form, setForm] = useState({
+    email: "",
+    pwd: "",
+  });
   const [validEmail, setValidEmail] = useState<boolean>(false);
 
   const emailUseEffectRef = useRef<boolean>(false);
   useEffect(() => {
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     if (emailUseEffectRef.current) {
-      const valid = emailRegex.test(email);
+      const valid = emailRegex.test(form.email);
       setValidEmail(valid);
     }
 
     return () => {
       emailUseEffectRef.current = true;
     };
-  }, [email]);
+  }, [form.email]);
 
   /* Password */
-  const [pwd, setPwd] = useState<string>("");
-
   const [viewPwd, setViewPwd] = useState<boolean>(false);
   const toggleViewPwd = (e: React.MouseEvent | React.TouchEvent) => {
     e.preventDefault();
@@ -40,11 +41,11 @@ const Login = () => {
   const submitButton = createRef<HTMLButtonElement>();
   const { login, googleSignIn } = useAuth();
   const submitForm = async (e: React.MouseEvent | React.TouchEvent) => {
+    if (!form.pwd || !form.pwd) return;
     e.preventDefault();
     setError("");
-    submitButton.current?.classList.add("animate-button");
     try {
-      await login(email, pwd);
+      await login(form.email, form.pwd);
       navigate("/");
     } catch (error) {
       setError("Invalid username or password");
@@ -62,15 +63,20 @@ const Login = () => {
     }
   };
 
+  // center the auth forms
+  useEffect(() => {
+    const formContainers = document.querySelectorAll('.form-container');
+    formContainers.forEach((form) => {
+      form.scrollIntoView({behavior: "instant"})
+    })
+  }, [])
+
   const iconSize = 16;
   return (
     <div className="form-container flex jc-c">
-      <div className="side-image">
-        <Logo color="#FAF9F6" />
-      </div>
       <div className="wrap-form">
         <form className="auth-form">
-          <div className="form-intro">
+          <div className="form-intro flex fd-c">
             <h2>Login</h2>
             <p>Welcome back, please enter your details</p>
           </div>
@@ -95,15 +101,15 @@ const Login = () => {
             <input
               type="text"
               id="email"
-              className={email && !validEmail ? "invalid-input" : validEmail ? "valid-input" : ""}
+              className={form.email && !validEmail ? "invalid-input" : validEmail ? "valid-input" : ""}
               required
-              value={email}
+              value={form.email}
               onChange={(e) => {
-                setEmail(e.target.value);
+                setForm({ ...form, email: e.currentTarget.value });
               }}
               placeholder="enter email"
             />
-            {email && !validEmail && (
+            {form.email && !validEmail && (
               <div className="error-message flex cg-5">
                 <ErrorSvg size={iconSize} />
                 <p>invalid email address</p>
@@ -117,11 +123,11 @@ const Login = () => {
               <input
                 type={viewPwd ? "text" : "password"}
                 id="password"
-                className={pwd ? "valid-input" : ""}
-                value={pwd}
+                className={form.pwd ? "valid-input" : ""}
+                value={form.pwd}
                 required
                 onChange={(e) => {
-                  setPwd(e.target.value);
+                  setForm({ ...form, pwd: e.currentTarget.value });
                 }}
                 placeholder="enter password"
                 autoComplete="false"
@@ -136,7 +142,7 @@ const Login = () => {
           <button
             ref={submitButton}
             className="submit-form flex cg-10 jc-c"
-            data-disable={(pwd && validEmail) || false}
+            data-disable={(form.pwd && validEmail) || false}
             onClick={(e) => submitForm(e)}>
             <p>Login</p>
             <div className="arrow">

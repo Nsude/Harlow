@@ -7,6 +7,7 @@ import GoogleIcon from "../assets/icons/GoogleIcon";
 import { useAuth } from "./contexts/AuthContext";
 import { UserCredential } from "firebase/auth";
 import Logo from "../assets/icons/Logo";
+import useCustomEffect from "../hooks/useCustomEffect";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -43,7 +44,6 @@ const Login = () => {
     if (!form.pwd || !form.pwd) return;
     e.preventDefault();
     setError("");
-    submitButton.current?.classList.add("animate-button");
     try {
       await login(form.email, form.pwd);
       navigate("/");
@@ -62,6 +62,14 @@ const Login = () => {
       setError("Authentication failed, please try again");
     }
   };
+
+  // center the auth forms
+  useEffect(() => {
+    const formContainers = document.querySelectorAll('.form-container');
+    formContainers.forEach((form) => {
+      form.scrollIntoView({behavior: "instant"})
+    })
+  }, [])
 
   const iconSize = 16;
   return (

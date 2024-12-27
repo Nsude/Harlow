@@ -13,6 +13,8 @@ import useCustomEffect from "../../hooks/useCustomEffect";
 import { gsap } from "gsap";
 import Search from "../global/Search";
 import { useDevice } from "../../hooks/useDevice";
+import { useAuth } from "../contexts/AuthContext";
+import LogoutIcon from "../../assets/icons/LogoutIcon";
 
 const Navbar = () => {
   const { setMenuOpen, menuOpen, selectedOption, setSelectedOption, menuLists, searchOpen, setSearchOpen } =
@@ -23,6 +25,7 @@ const Navbar = () => {
   const [navbarHeight, setNavbarHeight] = useState(0);
   const device = useDevice();
   const navigate = useNavigate();
+  const {currentUser, logout} = useAuth();
 
   // get Navbar Height
   useCustomEffect(() => {
@@ -102,6 +105,12 @@ const Navbar = () => {
     clearTimeout(closeNavMenuTimeout);
   };
 
+  // logout
+  const logOut = async () => {
+    await logout();
+    navigate('/login')
+  }
+
   return (
     <>
       <MobileNavbarMenu />
@@ -142,9 +151,17 @@ const Navbar = () => {
           <button className="m-search-button" onClick={() => setSearchOpen((prev) => !prev)}>
             <SearchIcon color={colors.offWhite} />
           </button>
-          <Link to={"/login"} className="profile-link">
-            <ProfileIcon color={colors.offWhite} />
-          </Link>
+          {
+            !currentUser ? (
+              <Link to={"/login"} className="profile-link">
+                <ProfileIcon color={colors.offWhite} />
+              </Link>
+            ) : (
+              <button onClick={logOut} className="logout">
+                <LogoutIcon color={colors.offWhite} />
+              </button>
+            )
+          }
           <Link to={"/cart"} style={{ paddingTop: 2 }}>
             <CartIcon color={colors.offWhite} />
           </Link>

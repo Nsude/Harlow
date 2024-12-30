@@ -15,6 +15,7 @@ import Search from "../global/Search";
 import { useDevice } from "../../hooks/useDevice";
 import { useAuth } from "../contexts/AuthContext";
 import LogoutIcon from "../../assets/icons/LogoutIcon";
+import { useCartContext } from "../contexts/CartContext";
 
 const Navbar = () => {
   const { setMenuOpen, menuOpen, selectedOption, setSelectedOption, menuLists, searchOpen, setSearchOpen } =
@@ -25,7 +26,8 @@ const Navbar = () => {
   const [navbarHeight, setNavbarHeight] = useState(0);
   const device = useDevice();
   const navigate = useNavigate();
-  const {currentUser, logout} = useAuth();
+  const { currentUser, logout } = useAuth();
+  const { setOpenCart } = useCartContext();
 
   // get Navbar Height
   useCustomEffect(() => {
@@ -108,8 +110,8 @@ const Navbar = () => {
   // logout
   const logOut = async () => {
     await logout();
-    navigate('/login')
-  }
+    navigate("/login");
+  };
 
   return (
     <>
@@ -151,20 +153,18 @@ const Navbar = () => {
           <button className="m-search-button" onClick={() => setSearchOpen((prev) => !prev)}>
             <SearchIcon color={colors.offWhite} />
           </button>
-          {
-            !currentUser ? (
-              <Link to={"/login"} className="profile-link">
-                <ProfileIcon color={colors.offWhite} />
-              </Link>
-            ) : (
-              <button onClick={logOut} className="logout">
-                <LogoutIcon color={colors.offWhite} />
-              </button>
-            )
-          }
-          <Link to={"/cart"} style={{ paddingTop: 2 }}>
+          {!currentUser ? (
+            <Link to={"/login"} className="profile-link">
+              <ProfileIcon color={colors.offWhite} />
+            </Link>
+          ) : (
+            <button onClick={logOut} className="logout">
+              <LogoutIcon color={colors.offWhite} />
+            </button>
+          )}
+          <button style={{ paddingTop: 2 }} onClick={() => setOpenCart(true)}>
             <CartIcon color={colors.offWhite} />
-          </Link>
+          </button>
         </div>
       </nav>
     </>

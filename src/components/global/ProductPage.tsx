@@ -7,12 +7,19 @@ import { useGlobalContext } from "../contexts/GlobalContex";
 import ProductPageCard from "./ProductPageCard";
 import { Product } from "../../models";
 import placeholder from "../../assets/media/images/placeholderImage.png";
+import { useCartContext } from "../contexts/CartContext";
+import ProductCard from "./ProductCard";
 
 const ProductPage = () => {
   const { id } = useParams();
   const { selectedProd: product } = useSelectedProduct(id || "");
   const { colors } = useGlobalContext();
   const [selectedSize, setSelectedSize] = useState<string | number>("");
+  const { addToCart } = useCartContext();
+
+  const updateCart = (product: Product) => {
+    addToCart(product, selectedSize);
+  };
 
   return (
     <>
@@ -50,6 +57,7 @@ const ProductPage = () => {
                 disable={!selectedSize ? true : false}
                 bg={colors.gray}
                 fg={colors.offWhite}
+                handleClick={() => updateCart(product)}
               />
             </div>
           </div>

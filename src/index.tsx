@@ -11,6 +11,7 @@ import Homepage from "./components/HomePage/Homepage";
 import { GlobalContextProvider } from "./components/contexts/GlobalContex";
 import ProductPage from "./components/global/ProductPage";
 import Layout from "./components/global/Layout";
+import { CartProvider } from "./components/contexts/CartContext";
 
 const router = createBrowserRouter([
   {
@@ -42,7 +43,9 @@ root.render(
   <React.StrictMode>
     <AuthProvider>
       <GlobalContextProvider>
-        <RouterProvider router={router} />
+        <CartProvider>
+          <RouterProvider router={router} />
+        </CartProvider>
       </GlobalContextProvider>
     </AuthProvider>
   </React.StrictMode>

@@ -2,7 +2,7 @@ import React from "react";
 import { IconProps } from "../../models";
 import { useGlobalContext } from "../../components/contexts/GlobalContex";
 
-const CloseIcon: React.FC<IconProps> = ({ color }) => {
+const CloseIcon: React.FC<IconProps> = ({ color, size }) => {
   const { colors } = useGlobalContext();
 
   return (

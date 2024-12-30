@@ -7,10 +7,19 @@ interface Props {
   image: Product;
   label?: string;
   discount?: number;
-  search?: boolean;
+  search?: boolean; // makes product display inline
+  size?: string | number;
+  cartPreview?: boolean;
 }
 
-const ProductCard: React.FC<Props> = ({ image, label = "New & Featured", discount = 33, search }) => {
+const ProductCard: React.FC<Props> = ({
+  image,
+  label = "New & Featured",
+  discount = 33,
+  search,
+  size,
+  cartPreview,
+}) => {
   const [displayedImage, setDisplayedImage] = useState(image.path);
   const navigate = useNavigate();
   const { setSearchOpen } = useNavContext();
@@ -27,7 +36,7 @@ const ProductCard: React.FC<Props> = ({ image, label = "New & Featured", discoun
 
   return (
     <div
-      className={`product-card-container ${search ? "search" : ""}`}
+      className={`product-card-container ${search ? "search" : ""} ${cartPreview ? "cart" : ""}`}
       onMouseLeave={() => setDisplayedImage(image.path)}>
       <div className="image-container" onClick={() => viewProduct(image.id)}>
         <img src={displayedImage} alt="product-image" />
@@ -49,6 +58,12 @@ const ProductCard: React.FC<Props> = ({ image, label = "New & Featured", discoun
               <p>${image.price}</p>
               <p className="discount">({discount}% off)</p>
             </div>
+            {size && (
+              <button className="size flex">
+                <p>Size &nbsp;</p>
+                <span>{size}</span>
+              </button>
+            )}
           </div>
         </div>
       </div>

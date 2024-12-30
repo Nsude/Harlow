@@ -1,8 +1,11 @@
 import React from "react";
 import { useGlobalContext } from "../../components/contexts/GlobalContex";
+import { useCartContext } from "../../components/contexts/CartContext";
 
-const CartIcon: React.FC<{ selectedItems?: boolean; color?: string }> = ({ selectedItems, color }) => {
+const CartIcon: React.FC<{ selectedItems?: boolean; color?: string }> = ({ color }) => {
   const { colors } = useGlobalContext();
+  const { selectedProducts } = useCartContext();
+
   return (
     <svg width="23" height="22" viewBox="0 0 23 22" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path
@@ -12,7 +15,7 @@ const CartIcon: React.FC<{ selectedItems?: boolean; color?: string }> = ({ selec
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-      {selectedItems ? (
+      {selectedProducts.length !== 0 ? (
         <circle cx="17" cy="6.10205" r="4.625" fill={colors.accent} stroke={colors.black} strokeWidth="1.25" />
       ) : (
         ""

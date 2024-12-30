@@ -14,9 +14,22 @@ interface Props {
   defaultColor?: string; //default text color
   noBg?: boolean; // bg or no-bg
   disable?: boolean;
+  otherStyles?: {};
+  handleClick?: () => void;
 }
 
-const ButtonSolidOverlay: React.FC<Props> = ({ arrowIcon, text, bg, overlay, fg, defaultColor, noBg, disable }) => {
+const ButtonSolidOverlay: React.FC<Props> = ({
+  arrowIcon,
+  text,
+  bg,
+  overlay,
+  fg,
+  defaultColor,
+  noBg,
+  disable,
+  handleClick,
+  otherStyles,
+}) => {
   const spanRef = useRef<HTMLSpanElement>(null);
   const textRef = useRef<HTMLSpanElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
@@ -140,6 +153,8 @@ const ButtonSolidOverlay: React.FC<Props> = ({ arrowIcon, text, bg, overlay, fg,
   return (
     <button
       ref={buttonRef}
+      onClick={handleClick}
+      style={{ ...otherStyles }}
       className={`button-solid-overlay flex cg-5 ${disable ? "disable-btn" : ""}`}
       onMouseEnter={() => growOverlay()}
       onMouseMove={() => moveOverlay()}

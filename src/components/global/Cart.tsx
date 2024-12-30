@@ -61,7 +61,7 @@ const Cart = () => {
       });
 
       previewTimeout.current = setTimeout(() => {
-        // setToPreview(null);
+        setToPreview(null);
       }, 5000);
     } else {
       clearTimeout(previewTimeout.current);

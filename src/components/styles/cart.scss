@@ -29,7 +29,6 @@
   z-index: 102;
   bottom: 0;
   height: 350px;
-  left: 0;
   width: 100%;
   border-radius: 25px 25px 0 0;
   background: $off-white;
@@ -63,6 +62,7 @@
   z-index: 102;
   background-color: $off-white;
   transform: translateX(110%);
+  padding-bottom: 110px;
 
   .header {
     padding: 20px;
@@ -155,5 +155,17 @@
 @include apply-from(tablet) {
   .cart-container {
     max-width: 480px;
+  }
+
+  .cart-preview {
+    position: fixed;
+    top: 80px;
+    right: 35px;
+    width: 400px;
+    border-radius: 20px;
+  }
+
+  .preview-backdrop {
+    display: none;
   }
 }

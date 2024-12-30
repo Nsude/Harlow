@@ -10,6 +10,7 @@ interface Props {
   search?: boolean; // makes product display inline
   size?: string | number;
   cartPreview?: boolean;
+  listView?: boolean;
 }
 
 const ProductCard: React.FC<Props> = ({
@@ -19,6 +20,7 @@ const ProductCard: React.FC<Props> = ({
   search,
   size,
   cartPreview,
+  listView,
 }) => {
   const [displayedImage, setDisplayedImage] = useState(image.path);
   const navigate = useNavigate();
@@ -36,7 +38,7 @@ const ProductCard: React.FC<Props> = ({
 
   return (
     <div
-      className={`product-card-container ${search ? "search" : ""} ${cartPreview ? "cart" : ""}`}
+      className={`product-card-container ${search ? "search" : ""} ${cartPreview ? "cart" : ""} ${listView ? "list-view" : ""}`}
       onMouseLeave={() => setDisplayedImage(image.path)}>
       <div className="image-container" onClick={() => viewProduct(image.id)}>
         <img src={displayedImage} alt="product-image" />

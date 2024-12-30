@@ -61,7 +61,7 @@ const Cart = () => {
       });
 
       previewTimeout.current = setTimeout(() => {
-        setToPreview(null);
+        // setToPreview(null);
       }, 5000);
     } else {
       clearTimeout(previewTimeout.current);
@@ -130,7 +130,7 @@ const Cart = () => {
             <div className="products">
               {selectedProducts.map(({ product, selectedSize, orderCount }) => (
                 <div key={product.id} className="item flex jc-sb">
-                  <ProductCard image={product} search={true} size={selectedSize} />
+                  <ProductCard image={product} search={true} listView={true} size={selectedSize} />
                   <div className="count flex jc-c cg-10">
                     <button className="delete" onClick={() => removeFromCart(product.id)}>
                       <DeleteIcon size={15} />

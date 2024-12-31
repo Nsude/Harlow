@@ -22,7 +22,12 @@
   z-index: 99;
   transform: translateY(-200%);
 
+  .search-input-con {
+    min-width: 90%;
+  }
+
   input {
+    width: 100%;
     font-size: 20px;
     color: $black;
     font-family: "HaasMedium";
@@ -106,6 +111,10 @@
     .found-items {
       grid-template-rows: none;
       grid-template-columns: 1fr 4fr;
+    }
+
+    .search-input-con {
+      min-width: 96%;
     }
 
     .suggestions {

@@ -63,12 +63,10 @@ const Login = () => {
     }
   };
 
-  // center the auth forms
+  // center the form
   useEffect(() => {
-    const formContainers = document.querySelectorAll(".form-container");
-    formContainers.forEach((form) => {
-      form.scrollIntoView({ behavior: "instant" });
-    });
+    const formContainer = document.querySelector(".form-container");
+    formContainer?.scrollIntoView({ behavior: "smooth" });
   }, []);
 
   const iconSize = 16;

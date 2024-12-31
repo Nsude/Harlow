@@ -126,6 +126,12 @@ const SignUp = () => {
     }
   };
 
+  // center the form
+  useEffect(() => {
+    const formContainer = document.querySelector(".form-container");
+    formContainer?.scrollIntoView({ behavior: "smooth" });
+  }, []);
+
   const iconSize = 16;
   return (
     <div className="form-container flex jc-c">

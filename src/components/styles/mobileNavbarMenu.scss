@@ -72,7 +72,7 @@
     border-bottom: none;
   }
 
-  button {
+  button:not(.child-item) {
     padding: 22.5px 0;
     width: 100%;
     font-family: "HaasBold";
@@ -85,7 +85,7 @@
     opacity: 0;
   }
 
-  .children-con a {
+  .children-con .child-item {
     color: $off-white;
     padding: $m-padding;
   }

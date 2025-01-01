@@ -76,7 +76,9 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
   };
 
   useCustomEffect(() => {
-    const storedProducts = JSON.parse(localStorage.getItem("selectedProducts") || "");
+    const stored = localStorage.getItem("selectedProducts");
+    if (!stored) return;
+    const storedProducts = JSON.parse(stored);
     if (!storedProducts) return;
     setSelectedProducts(storedProducts);
   }, []);

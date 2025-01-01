@@ -1,12 +1,21 @@
 import React, { createRef, useEffect, useState } from "react";
 import AddIcon from "../../assets/icons/AddIcon";
 import { useGlobalContext } from "../contexts/GlobalContex";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { gsap } from "gsap";
+import { useNavContext } from "../contexts/NavbarContext";
 
-const Accordion: React.FC<{ title: string; children: string[] }> = ({ title, children }) => {
+interface Props {
+  title: string;
+  children: string[];
+  activeOption: string;
+}
+
+const Accordion: React.FC<Props> = ({ title, children, activeOption }) => {
   const { colors } = useGlobalContext();
   const [showChildren, setShowChildren] = useState<boolean>(false);
+  const navigate = useNavigate();
+  const { setMenuOpen } = useNavContext();
 
   /* Element Refs */
   const accordionConRef = createRef<HTMLDivElement>();
@@ -36,6 +45,12 @@ const Accordion: React.FC<{ title: string; children: string[] }> = ({ title, chi
     }
   }, [showChildren]);
 
+  const handleClick = (product: string, title: string) => {
+    if (!product) return;
+    navigate(`/view-products/${activeOption}/${title}/${product}`);
+    setMenuOpen(false);
+  };
+
   return (
     <div ref={accordionConRef} className="accordion-container anim-option">
       <button onClick={() => setShowChildren(!showChildren)} className="flex jc-sb">
@@ -44,10 +59,10 @@ const Accordion: React.FC<{ title: string; children: string[] }> = ({ title, chi
       </button>
       <div ref={childrenConRef} onClick={(e) => e.stopPropagation()} className="children-con flex fd-c">
         {children &&
-          children.map((child) => (
-            <Link key={child} to={`/${encodeURIComponent(child)}`}>
+          children.map((child, i) => (
+            <button key={i} className="child-item" onClick={() => handleClick(child, title)}>
               {child}
-            </Link>
+            </button>
           ))}
       </div>
     </div>

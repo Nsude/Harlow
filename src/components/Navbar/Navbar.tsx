@@ -43,7 +43,7 @@ const Navbar = () => {
       let scrollPos = document.documentElement.scrollTop;
 
       // helps prevent scrollbar not being visible on mobile when scrolled to the top
-      if (scrollPos < 200 || searchOpen) {
+      if (scrollPos < 100 || searchOpen) {
         return setHideMenuBar(false);
       }
 
@@ -138,7 +138,7 @@ const Navbar = () => {
             menuLists.map((item, i) => (
               <Link
                 key={item.name}
-                to={`/${item.name.toLocaleLowerCase()}`}
+                to={`/${item.name.toLowerCase()}`}
                 className={`${selectedOption ? "menu-open" : ""}`}
                 onMouseEnter={(e) => {
                   menuOptionHover(item, e);

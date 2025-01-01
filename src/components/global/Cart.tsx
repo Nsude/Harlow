@@ -89,7 +89,7 @@ const Cart = () => {
               </button>
             </div>
             <div className="product-card">
-              <ProductCard image={toPreview.product} search={true} cartPreview={true} size={toPreview.selectedSize} />
+              <ProductCard image={toPreview.product} search={true} listView={true} size={toPreview.selectedSize} />
             </div>
             <div className="flex fd-c rg-10">
               <ButtonSolidOverlay

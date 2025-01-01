@@ -46,7 +46,7 @@ const ProductList: React.FC<Props> = ({ title }) => {
       const lastRect = lastitem.getBoundingClientRect();
 
       const isFirst = firstRect.left === rect.left;
-      const isLast = Math.floor(lastRect.left) === Math.floor(rect.left + rect.width - lastRect.width);
+      const isLast = Math.floor(lastRect.right) <= rect.right;
 
       gsap.to(productsCon, {
         transform: "translateX(0)",

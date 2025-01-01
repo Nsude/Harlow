@@ -1,0 +1,109 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.vp-container {
+  margin-block: 100px;
+
+  .header {
+    height: 50px;
+    width: 100%;
+    position: sticky;
+    background-color: $off-white;
+    border-block: 1.5px solid rgba($color: $black, $alpha: 0.4);
+    top: 0;
+    z-index: 10;
+    margin-bottom: 60px;
+  }
+
+  .actions {
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr) 100px;
+  }
+
+  .filter,
+  .sort {
+    border-right: 1.5px solid rgba($color: $black, $alpha: 0.4);
+  }
+
+  .filter,
+  .sort {
+    font-family: "HaasBold";
+    text-transform: uppercase;
+    font-size: 12px;
+    opacity: 0.6;
+    transition: opacity 200ms ease-out;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  .display button {
+    opacity: 0.6;
+    transition: opacity 200ms ease-out;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  .display button.active-grid {
+    opacity: 1;
+  }
+
+  .desc {
+    text-transform: uppercase;
+    text-align: justify;
+    font-family: "HaasBold";
+    margin-bottom: 20px;
+    padding-inline: 20px;
+  }
+
+  .products {
+    display: grid;
+    overflow: hidden;
+    gap: 10px;
+    padding-inline: 20px;
+  }
+
+  .products.single {
+    grid-template-columns: 100%;
+  }
+
+  .products.double,
+  .products.multi {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@include apply-from(tablet) {
+  .vp-container {
+    .desc {
+      width: 60%;
+      position: relative;
+      left: 40%;
+    }
+
+    .products.multi {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
+
+@include apply-from(desktop) {
+  .vp-container {
+    .desc {
+      width: 35%;
+      left: 65%;
+    }
+
+    .products.double {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .products.multi {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+}

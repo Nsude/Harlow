@@ -6,6 +6,8 @@ import { useGetProducts } from "../../hooks/useGetProducts";
 import ProductCard from "./ProductCard";
 import GridIcon from "../../assets/icons/GridIcon";
 import { useDevice } from "../../hooks/useDevice";
+import gsap from "gsap";
+import { useNavContext } from "../contexts/NavbarContext";
 
 const ViewProducts = () => {
   const { category, title, product } = useParams();
@@ -13,6 +15,7 @@ const ViewProducts = () => {
   const { data: products } = useGetProducts(toget);
   const [grid, setGrid] = useState("double");
   const device = useDevice();
+  const {hideMenuBar, navbarHeight} = useNavContext();
 
   useCustomEffect(() => {
     if (!category || !product || !title) return;
@@ -33,13 +36,22 @@ const ViewProducts = () => {
     target.classList.add("active-grid");
   };
 
+
+  // move header when the navbar enters the view
+  useCustomEffect(() => {
+    gsap.to(".vp-container .header", {
+      top: !hideMenuBar ? navbarHeight : 0,
+      duration: .25
+    })
+
+  }, [hideMenuBar])
+
   return (
     // view-products-container
     <div className="vp-container">
       <h2 className="desc">&nbsp; SHOP OUR {title} COLLECTION AND EXPLORE THE LATEST PRODUCTS AND STYLES.</h2>
 
       <div className="header">
-        <div className="actions">
           <button className="filter">Filter</button>
           <button className="sort">Sort By</button>
           <div className="display flex cg-15 jc-c">
@@ -64,7 +76,6 @@ const ViewProducts = () => {
               </button>
             )}
           </div>
-        </div>
       </div>
 
       <div className={`products ${grid.toLowerCase()}`}>

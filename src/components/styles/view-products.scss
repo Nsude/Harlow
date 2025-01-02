@@ -13,10 +13,6 @@
     top: 0;
     z-index: 10;
     margin-bottom: 60px;
-  }
-
-  .actions {
-    height: 100%;
     display: grid;
     grid-template-columns: repeat(2, 1fr) 100px;
   }
@@ -79,6 +75,11 @@
 
 @include apply-from(tablet) {
   .vp-container {
+
+    .header {
+      height: 55px;
+    }
+
     .desc {
       width: 60%;
       position: relative;

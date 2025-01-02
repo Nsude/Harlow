@@ -18,12 +18,22 @@ import LogoutIcon from "../../assets/icons/LogoutIcon";
 import { useCartContext } from "../contexts/CartContext";
 
 const Navbar = () => {
-  const { setMenuOpen, menuOpen, selectedOption, setSelectedOption, menuLists, searchOpen, setSearchOpen } =
-    useNavContext();
+  // prettier ignore
+  const { 
+    setMenuOpen, 
+    menuOpen, 
+    selectedOption, 
+    setSelectedOption, 
+    menuLists, 
+    searchOpen, 
+    setSearchOpen,
+    navbarHeight,
+    setNavbarHeight,
+    hideMenuBar,
+    setHideMenuBar
+  } = useNavContext();
   const { colors } = useGlobalContext();
-  const [hideMenuBar, setHideMenuBar] = useState(false);
   const navRef = useRef<HTMLElement | null>(null);
-  const [navbarHeight, setNavbarHeight] = useState(0);
   const device = useDevice();
   const navigate = useNavigate();
   const { currentUser, logout } = useAuth();

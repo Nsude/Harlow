@@ -19,8 +19,10 @@ const ViewProducts = () => {
 
     if (title.toLowerCase() !== "addons" && title.toLowerCase() !== "all") {
       setToGet("sneakers");
+    } else {
+      setToGet("sweatpants")
     }
-  });
+  }, [category, title, product]);
 
   const changeGrid = (gridType: string, target: HTMLButtonElement) => {
     // set new active grid

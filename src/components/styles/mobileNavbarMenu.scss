@@ -90,3 +90,9 @@
     padding: $m-padding;
   }
 }
+
+@include apply-from(desktop) {
+  .navmenu-container {
+    display: none;
+  }
+}

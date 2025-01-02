@@ -149,7 +149,11 @@ const DesktopNavbarMenu = () => {
                   <h2 className={`${DNavTitleReveal}`}>{item.title}</h2>
                   <div className={`menu-item-children ${DNavItemsReveal} `}>
                     {item.children.map((child) => (
-                      <DesktopMenuITem key={child} name={child} />
+                      <DesktopMenuITem key={child} 
+                        name={child} 
+                        currentMenu={currentMenu.name} 
+                        closeDesktopMenu={closeMenu}
+                        title={item.title} />
                     ))}
                   </div>
                 </div>

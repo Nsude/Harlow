@@ -7,17 +7,17 @@ import { useNavigate } from "react-router-dom";
 import { useNavContext } from "../contexts/NavbarContext";
 
 interface Props {
-  name: string // product-name
-  title: string
-  currentMenu: string
-  closeDesktopMenu: () => void
+  name: string; // product-name
+  title: string;
+  currentMenu: string;
+  closeDesktopMenu: () => void;
 }
 
 const DesktopMenuITem: React.FC<Props> = ({ name, title, currentMenu, closeDesktopMenu }) => {
   const { colors } = useGlobalContext();
   const [animate, setAnimate] = useState(false);
   const navigate = useNavigate();
-  const {setMenuOpen} = useNavContext();
+  const { setMenuOpen } = useNavContext();
 
   /* Element Refs */
   const firstCopy = createRef<HTMLSpanElement>();
@@ -66,7 +66,7 @@ const DesktopMenuITem: React.FC<Props> = ({ name, title, currentMenu, closeDeskt
   const handleClick = () => {
     closeDesktopMenu();
     navigate(`/view-products/${currentMenu}/${title}/${name}`);
-  }
+  };
 
   return (
     <button

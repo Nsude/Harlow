@@ -90,7 +90,7 @@ const NavbarContextProvider: React.FC<{ children: ReactNode }> = ({ children }) 
         navbarHeight,
         setNavbarHeight,
         hideMenuBar,
-        setHideMenuBar
+        setHideMenuBar,
       }}>
       {children}
     </NavbarContext.Provider>

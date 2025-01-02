@@ -9,6 +9,7 @@ import useCustomEffect from "../../hooks/useCustomEffect";
 import gsap from "gsap";
 import CheckmarkIcon from "../../assets/icons/CheckmarkIcon";
 import ButtonSolidOverlay from "./ButtonSolidOverlay";
+import MobileOptionsOverlay from "./MobileOptionsOverlay";
 
 const buttonStyles = { width: "100%", paddingBlock: "22px", display: "flex", justifyContent: "center" };
 
@@ -75,48 +76,42 @@ const Cart = () => {
 
   return (
     <>
-      {toPreview ? (
-        <>
-          <div className="preview-backdrop"></div>
-          <div className="cart-preview">
-            <div className="flex jc-sb">
-              <div className="header flex cg-5">
-                <CheckmarkIcon />
-                <p>Added to Cart</p>
-              </div>
-              <button onClick={() => setToPreview(null)}>
-                <CloseIcon />
-              </button>
-            </div>
-            <div className="product-card">
-              <ProductCard image={toPreview.product} search={true} listView={true} size={toPreview.selectedSize} />
-            </div>
-            <div className="flex fd-c rg-10">
-              <ButtonSolidOverlay
-                text="View Cart"
-                defaultColor={colors.black}
-                overlay={colors.black}
-                fg={colors.offWhite}
-                bg={"transparent"}
-                otherStyles={buttonStyles}
-                handleClick={() => {
-                  setOpenCart(true);
-                  setToPreview(null);
-                }}
-              />
-
-              <ButtonSolidOverlay
-                text="Checkout"
-                defaultColor={colors.offWhite}
-                bg={colors.black}
-                otherStyles={buttonStyles}
-              />
-            </div>
+      <MobileOptionsOverlay display={toPreview?.product ? true : false}>
+        <div className="cart-preview flex jc-sb">
+          <div className="header flex cg-5">
+            <CheckmarkIcon />
+            <p>Added to Cart</p>
           </div>
-        </>
-      ) : (
-        ""
-      )}
+          <button onClick={() => setToPreview(null)}>
+            <CloseIcon />
+          </button>
+        </div>
+        <div className="product-card">
+          <ProductCard image={toPreview?.product} search={true} listView={true} size={toPreview?.selectedSize} />
+        </div>
+        <div className="flex fd-c rg-10">
+          <ButtonSolidOverlay
+            text="View Cart"
+            defaultColor={colors.black}
+            overlay={colors.black}
+            fg={colors.offWhite}
+            bg={"transparent"}
+            otherStyles={buttonStyles}
+            handleClick={() => {
+              setOpenCart(true);
+              setToPreview(null);
+            }}
+          />
+
+          <ButtonSolidOverlay
+            text="Checkout"
+            defaultColor={colors.offWhite}
+            bg={colors.black}
+            otherStyles={buttonStyles}
+          />
+        </div>
+      </MobileOptionsOverlay>
+
       <div className="cart-overlay"></div>
       <div ref={container} className="cart-container">
         <div className="header flex jc-sb">

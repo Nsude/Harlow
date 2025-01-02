@@ -1,6 +1,17 @@
 @use "variables" as *;
 @use "mixins" as *;
 
+.vp-overlay {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  background-color: rgba($color: $black, $alpha: 0.5);
+  z-index: 100;
+  pointer-events: none;
+}
+
 .vp-container {
   margin-block: 100px;
 
@@ -20,6 +31,7 @@
   .filter,
   .sort {
     border-right: 1.5px solid rgba($color: $black, $alpha: 0.4);
+    position: relative;
   }
 
   .filter,
@@ -56,6 +68,30 @@
     padding-inline: 20px;
   }
 
+  /* ====== SORT OPTIONS ====== */
+  .sort-options-mobile {
+    .top p {
+      text-transform: uppercase;
+      font-family: "HaasBold", Helvetica, sans-serif;
+    }
+
+    button {
+      font-size: 12px;
+      font-family: "HaasRegular";
+      transition: opacity 200ms ease-out;
+    }
+
+    button:hover,
+    button:active {
+      opacity: 1;
+    }
+
+    .sort-body {
+      margin-top: 50px;
+      row-gap: 25px;
+    }
+  }
+
   .products {
     display: grid;
     overflow: hidden;
@@ -75,7 +111,6 @@
 
 @include apply-from(tablet) {
   .vp-container {
-
     .header {
       height: 55px;
     }

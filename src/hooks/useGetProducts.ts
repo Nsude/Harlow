@@ -1,5 +1,6 @@
 import useCustomEffect from "./useCustomEffect";
 import sneakers from "../../sneakers.json";
+import sweatpants from "../../sweatpants.json";
 import { useState } from "react";
 import { Product } from "../models";
 
@@ -8,9 +9,9 @@ export const useGetProducts = (products: string) => {
 
   useCustomEffect(() => {
     if (products.toLowerCase() === "sneakers") {
-      setData(sneakers);
+      setData(sneakers as Product[]);
     } else {
-      setData([]);
+      setData(sweatpants as Product[]);
     }
   }, [products]);
 

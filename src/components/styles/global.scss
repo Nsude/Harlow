@@ -44,6 +44,11 @@ body button {
   border: none;
   color: $black;
   -webkit-tap-highlight-color: transparent;
+  font-family: "HaasRegular", Helvetica, sans-serif;
+}
+
+body input {
+  -webkit-tap-highlight-color: transparent;
 }
 
 body input:focus {

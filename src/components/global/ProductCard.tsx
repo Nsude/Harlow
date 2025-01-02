@@ -6,7 +6,7 @@ import useCustomEffect from "../../hooks/useCustomEffect";
 import { useDevice } from "../../hooks/useDevice";
 
 interface Props {
-  image: Product;
+  image: Product | undefined;
   label?: string;
   discount?: number;
   search?: boolean; // makes product display inline
@@ -15,6 +15,7 @@ interface Props {
 }
 
 const ProductCard: React.FC<Props> = ({ image, label = "New & Featured", discount = 33, search, size, listView }) => {
+  if (!image) throw new Error("Product object is undefined");
   const [displayedImage, setDisplayedImage] = useState(image.path);
   const navigate = useNavigate();
   const { setSearchOpen } = useNavContext();

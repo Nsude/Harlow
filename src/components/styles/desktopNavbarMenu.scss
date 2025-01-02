@@ -1,6 +1,10 @@
 @use "variables" as *;
 @use "mixins" as *;
 
+.desktop-navmenu-container {
+  display: none;
+}
+
 @include apply-from(desktop) {
   .desktop-navmenu-container {
     height: 0;
@@ -12,7 +16,8 @@
     left: 0;
     top: 0;
     z-index: 100;
-  
+    display: block;
+
     .menulist {
       margin-top: 8%;
       display: grid;
@@ -23,32 +28,32 @@
       width: 76%;
       column-gap: 20px;
     }
-  
+
     .menulist.extend-menulist-columns {
       grid-template-columns: 2fr repeat(2, 1fr) 0.6fr repeat(2, 1fr);
     }
-  
+
     .menu-item {
       display: grid;
       grid-template-columns: 1fr;
       align-content: flex-start;
     }
-  
+
     .menu-item {
       white-space: nowrap;
       overflow: hidden;
     }
-  
+
     .menu-item h2 {
       opacity: 0.25;
       margin-bottom: 20px;
     }
-  
+
     .menu-item-children {
       display: grid;
       grid-template-columns: 1fr;
     }
-  
+
     /* Image Container */
     .navmenu-image-container {
       height: 300px;
@@ -60,16 +65,16 @@
       transition: border-radius 200ms linear;
       overflow: hidden;
       cursor: pointer;
-  
+
       &:hover {
         border-radius: 15px;
       }
-  
+
       &:hover img {
         transform: scale(1.04);
       }
     }
-  
+
     .navmenu-image-container img {
       transition: transform 200ms linear;
       width: 108%;
@@ -78,7 +83,7 @@
       object-position: right;
     }
   }
-  
+
   /* Navbar ListItem Buttons */
   .nav-listItem-container {
     font-size: $body-copy;
@@ -89,13 +94,13 @@
     height: 25px;
     overflow: hidden;
     position: relative;
-  
+
     .second-item-copy {
       position: absolute;
       left: 0;
       bottom: -50px;
     }
-  
+
     .second-item-copy span {
       padding-top: 4px;
       position: relative;
@@ -103,4 +108,3 @@
     }
   }
 }
-

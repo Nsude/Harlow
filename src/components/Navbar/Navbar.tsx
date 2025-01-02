@@ -19,18 +19,18 @@ import { useCartContext } from "../contexts/CartContext";
 
 const Navbar = () => {
   // prettier ignore
-  const { 
-    setMenuOpen, 
-    menuOpen, 
-    selectedOption, 
-    setSelectedOption, 
-    menuLists, 
-    searchOpen, 
+  const {
+    setMenuOpen,
+    menuOpen,
+    selectedOption,
+    setSelectedOption,
+    menuLists,
+    searchOpen,
     setSearchOpen,
     navbarHeight,
     setNavbarHeight,
     hideMenuBar,
-    setHideMenuBar
+    setHideMenuBar,
   } = useNavContext();
   const { colors } = useGlobalContext();
   const navRef = useRef<HTMLElement | null>(null);

@@ -33,15 +33,7 @@
 }
 
 .cart-container {
-  position: fixed;
-  right: 0;
-  top: 0;
-  height: 100vh;
-  width: 95vw;
-  z-index: 102;
-  background-color: $off-white;
-  transform: translateX(110%);
-  padding-bottom: 110px;
+  
 
   .header {
     padding: 20px;
@@ -50,7 +42,7 @@
 
   .body {
     justify-content: flex-start;
-    padding: 20px;
+    padding-inline: 20px;
     overflow-x: hidden;
     overflow-y: scroll;
   }
@@ -128,11 +120,5 @@
   .footer h2 {
     margin-bottom: 15px;
     text-align: center;
-  }
-}
-
-@include apply-from(tablet) {
-  .cart-container {
-    max-width: 480px;
   }
 }

@@ -115,6 +115,59 @@
       height: 55px;
     }
 
+    /* ===== SORT OPTION TABLET & DESKTOP ===== */
+    .sort-options {
+      width: 100%;
+      height: 100%;
+      padding: 20px;
+      position: relative;
+
+      .sort-header p {
+        font-family: "HaasBold", Helvetica, sans-serif;
+        text-transform: uppercase;
+      }
+
+      .sort-body {
+        align-items: start;
+        margin-top: 100px;
+      }
+
+      .sort-body button {
+        text-align: left;
+        font-size: 12px;
+        width: 100%;
+        padding-block: 20px;
+        border-top: 1.5px solid rgba($color: $black, $alpha: 0.4);
+        transition: opacity 200ms ease-out;
+
+        &:last-child {
+          border-bottom: 1.5px solid rgba($color: $black, $alpha: 0.4);
+        }
+
+        &:hover {
+          opacity: .4;
+        }
+      }
+
+      .sort-footer {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        bottom: 0;
+        padding: 20px;
+        border-top: 1.5px solid rgba($color: $black, $alpha: 0.4);
+
+        &:hover p {
+          opacity: .4;
+        }
+      }
+
+      .sort-footer p {
+        font-size: 12px;
+        transition: opacity 200ms ease-out;
+      }
+    }
+
     .desc {
       width: 60%;
       position: relative;

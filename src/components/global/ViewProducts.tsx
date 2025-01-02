@@ -12,6 +12,7 @@ import MobileNavbarMenu from "../Navbar/MobileNavbarMenu";
 import MobileOptionsOverlay from "./MobileOptionsOverlay";
 import CloseIcon from "../../assets/icons/CloseIcon";
 import { useSortProducts } from "../../hooks/useSortProducts";
+import OptionsOverlay from "./OptionsOverlay";
 
 export const sortFilters = [
   "Best Selling",
@@ -69,6 +70,19 @@ const ViewProducts = () => {
     });
   };
 
+  // close menus when user clicks outside 
+  useCustomEffect(() => {
+    const handleClick = () => {
+      setActions({...actions, openFilter: false, openSort: false});
+    }
+
+    window.addEventListener("click", handleClick);
+
+    return() => {
+      window.removeEventListener("click", handleClick);
+    }
+  })
+
   return (
     // view-products-container
     <>
@@ -76,7 +90,7 @@ const ViewProducts = () => {
       <div className="vp-container">
         <h2 className="desc">&nbsp; SHOP OUR {title} COLLECTION AND EXPLORE THE LATEST PRODUCTS AND STYLES.</h2>
 
-        <div className="header">
+        <div className="header" onClick={(e) => e.stopPropagation()}>
           <button className="filter">Filter</button>
           <button className="sort" onClick={() => setActions({ ...actions, openSort: !actions.openSort })}>
             Sort by
@@ -113,22 +127,41 @@ const ViewProducts = () => {
               <div className="top flex jc-sb">
                 <p>Sort By</p>
                 <button onClick={() => setActions({ ...actions, openSort: false })}>
-                  {" "}
-                  <CloseIcon />{" "}
+                  <CloseIcon />
                 </button>
               </div>
               <div className="sort-body flex fd-c">
                 {sortFilters.map((item, i) => (
                   <button key={i} onClick={() => handleSort(item)}>
-                    {" "}
-                    {item}{" "}
+                    {item}
                   </button>
                 ))}
               </div>
             </div>
           </MobileOptionsOverlay>
         ) : (
-          <div></div>
+          <OptionsOverlay display={actions.openSort}>
+            <div className="sort-options">
+              <div className="sort-header flex jc-sb">
+                <p>Sort By</p>
+                <button onClick={() => setActions({ ...actions, openSort: false })}>
+                  <CloseIcon />
+                </button>
+              </div>
+
+              <div className="sort-body flex fd-c">
+                {
+                  sortFilters.map((item, i) => (
+                    <button key={i} onClick={() => handleSort(item)}> {item} </button>
+                  ))
+                }
+              </div>
+
+              <button onClick={() => setActions({ ...actions, openSort: false })} className="sort-footer">
+                <p>View All Results</p>
+              </button>
+            </div>
+          </OptionsOverlay>
         )}
 
         <div className={`products ${grid.toLowerCase()}`}>

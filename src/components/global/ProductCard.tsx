@@ -18,7 +18,7 @@ const ProductCard: React.FC<Props> = ({ image, label = "New & Featured", discoun
   const [displayedImage, setDisplayedImage] = useState(image.path);
   const navigate = useNavigate();
   const { setSearchOpen } = useNavContext();
-  const [index, setIndex] = useState(0);
+  const [index, setIndex] = useState<number>();
   const device = useDevice();
 
   const viewProduct = (id: string) => {
@@ -34,11 +34,12 @@ const ProductCard: React.FC<Props> = ({ image, label = "New & Featured", discoun
   const loopInterval = useRef<any>(null);
   const loopDisplayedImage = () => {
     loopInterval.current = setInterval(() => {
-      setIndex((prev) => (prev + 1) % image.images.length);
+      setIndex((prev) => ((prev || 0) + 1) % image.images.length);
     }, 250);
   };
 
   useCustomEffect(() => {
+    if (!index) return;
     setDisplayedImage(image.images[index]);
   }, [index]);
 

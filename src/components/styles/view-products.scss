@@ -172,6 +172,7 @@
       width: 60%;
       position: relative;
       left: 40%;
+      font-size: $header;
     }
 
     .products.multi {
@@ -183,8 +184,9 @@
 @include apply-from(desktop) {
   .vp-container {
     .desc {
-      width: 35%;
-      left: 65%;
+      width: 40%;
+      left: 60%;
+      font-size: 45px;
     }
 
     .products.double {

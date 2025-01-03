@@ -18,13 +18,6 @@ export const useSortProducts = (
 ) => {
   const [sorted, setSorted] = useState<Product[] | null>();
 
-  // if (sortValue?.trim() !== '') {
-  //   range = undefined;
-  //   size = undefined
-  // } else if (size || range?.min) {
-  //   sortValue = undefined
-  // }
-
   const fisherYatesShuffle = (array: any[]) => {
     const shuffledArray = [...array];
     for (let i = shuffledArray.length - 1; i > 0; i--) {

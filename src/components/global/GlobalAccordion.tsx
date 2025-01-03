@@ -78,7 +78,7 @@ const GlobalAccordion: React.FC<AccordionProps> = ({ title, children, products, 
               </div>
               {
                 value && 
-                <div onClick={() => handleClick(title)}>
+                <div onClick={() => handleClick(title)} onTouchStart={() => handleClick(title)}>
                   <RangeSlider min={value.min} max={value.max} setExternalRange={setPriceRange} />
                 </div>
               }
@@ -86,7 +86,10 @@ const GlobalAccordion: React.FC<AccordionProps> = ({ title, children, products, 
           ) : (
             <>
             {children.map((child, i) => (
-              <button key={i} className="child-item flex fd-c" onClick={() => handleClick(title)}>
+              <button key={i} 
+                className="child-item flex fd-c" 
+                onClick={() => handleClick(title)} 
+                onTouchStart={() => handleClick(title)}>
                 {child}
               </button>
               ))}

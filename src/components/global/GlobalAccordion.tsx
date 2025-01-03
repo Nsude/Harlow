@@ -6,22 +6,37 @@ import { useGlobalContext } from "../contexts/GlobalContex";
 import RangeSlider from "./RangeSlider";
 import { Product } from "../../models";
 import useMinMax from "../../hooks/useMinMax";
+import { useCartContext } from "../contexts/CartContext";
 
 interface AccordionProps {
   title: string;
   children: any[];
-  products?: Product[]
+  products?: Product[];
+  productType?: string
+  handleClick: (sortValue: string) => void;
 }
 
-const GlobalAccordion: React.FC<AccordionProps> = ({ title, children, products }) => {
+const GlobalAccordion: React.FC<AccordionProps> = ({ title, children, products, handleClick, productType}) => {
   const [isOpen, setIsOpen] = useState(false);
   const containerRef = useRef(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const {colors} = useGlobalContext();
-  const { value } = useMinMax(products || []);
+  const { value } = useMinMax((products || []), (productType || ''));
   const [priceRange, setPriceRange] = useState({ min: 0, max: 0});
+  const {setFilterDetails, filterDetails} = useCartContext();
 
-  // open and close accordion
+  /* INIT PRICERANGE VALUES */ 
+  useCustomEffect(() => {
+    if (!value) return;
+    setPriceRange({...value})
+  }, [value])
+
+  useCustomEffect(() => {
+    if (!priceRange) return;
+    setFilterDetails({...filterDetails, priceRange});
+  }, [priceRange])
+
+  /* OPEN AND CLOSE ACCORDION */
   useCustomEffect(() => {
     const tl = gsap.timeline();
     if (isOpen) {
@@ -46,10 +61,6 @@ const GlobalAccordion: React.FC<AccordionProps> = ({ title, children, products }
     }
   }, [isOpen])
 
-  useCustomEffect(() => {
-    console.log(priceRange)
-  }, [priceRange])
-
   return (
     <div ref={containerRef} className="global-accordion">
       <button onClick={() => setIsOpen(!isOpen)} className="flex jc-sb">
@@ -58,17 +69,24 @@ const GlobalAccordion: React.FC<AccordionProps> = ({ title, children, products }
       </button>
       <div ref={contentRef} onClick={(e) => e.stopPropagation()} className="content">
         {
-          title.toLowerCase() === "prices" ? (
+          title.toLowerCase() === "price" ? (
             <div className="child-item">
+              <div className="price-range flex jc-sb cg-15">
+                <div> $ {priceRange.min} </div>
+                <span>to</span>
+                <div> $ {priceRange.max} </div>
+              </div>
               {
                 value && 
-                <RangeSlider min={Math.round(value.min)} max={Math.round(value.max)} setExternalRange={setPriceRange} />
+                <div onClick={() => handleClick(title)}>
+                  <RangeSlider min={value.min} max={value.max} setExternalRange={setPriceRange} />
+                </div>
               }
             </div>
           ) : (
             <>
             {children.map((child, i) => (
-              <button key={i} className="child-item flex fd-c">
+              <button key={i} className="child-item flex fd-c" onClick={() => handleClick(title)}>
                 {child}
               </button>
               ))}

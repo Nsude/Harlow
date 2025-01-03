@@ -10,7 +10,7 @@ export const useGetProducts = (products: string) => {
   useCustomEffect(() => {
     if (products.toLowerCase() === "sneakers") {
       setData(sneakers as Product[]);
-    } else {
+    } else if (products.toLowerCase() === "sweatpants"){
       setData(sweatpants as Product[]);
     }
   }, [products]);

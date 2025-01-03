@@ -2,7 +2,7 @@
   {
     "id": "product1",
     "name": "Nike SB 3K762",
-    "price": 89.99,
+    "price": 155.99,
     "description": "Step up your streetwear game with the Nike SB 3K762. Engineered for comfort and designed to turn heads, these sneakers feature a sleek silhouette and durable materials that keep you moving effortlessly. Whether you're hitting the skate park or the city streets, the Nike SB 3K762 is your perfect companion for style and performance.",
     "sizes": [35, 39, 41, 44],
     "images": [
@@ -41,7 +41,7 @@
   {
     "id": "product3",
     "name": "Air Jordan 4",
-    "price": 103.9,
+    "price": 165.09,
     "description": "Revolutionize your sneaker collection with the iconic Air Jordan 4. Crafted for peak performance and enduring style, these kicks combine breathable mesh panels with premium leather accents. A cushioned midsole and durable outsole ensure comfort and traction, making it the perfect blend of sport and sophistication.",
     "sizes": [35, 39, 40, 41, 44],
     "images": [
@@ -78,7 +78,7 @@
   {
     "id": "product5",
     "name": "Air Max",
-    "price": 107.9,
+    "price": 183.99,
     "description": "A revolution in sneaker design, the Air Max brings timeless style and cutting-edge comfort together. Crafted for the modern individual who demands both performance and flair, this sneaker stands out in any crowd. From its breathable mesh upper to the plush cushioning system, every detail is engineered to elevate your every step. With its sleek, bold silhouette, it's not just a shoe—it's a statement. Whether you're running, walking, or just owning the streets, the Air Max delivers exceptional comfort and iconic looks that never go out of style.",
     "sizes": [35, 36, 39, 41, 42],
     "images": [
@@ -133,7 +133,7 @@
   {
     "id": "product8",
     "name": "Air Max 270",
-    "price": 106.99,
+    "price": 145.99,
     "description": "Unleash your true potential with the Air Max 270. Designed with the latest Air Max technology, this sneaker provides unmatched comfort with its large visible Air unit, offering superior cushioning with every step. Ideal for active lifestyles, the lightweight mesh upper keeps your feet cool, while the bold colorways ensure you stand out in any crowd. Whether you're hitting the gym or out on the town, the Air Max 270 brings performance and style together for an unforgettable experience.",
     "sizes": [35, 36, 40, 42, 45],
     "images": [
@@ -147,7 +147,7 @@
   {
     "id": "product9",
     "name": "Air Jordan 2 Mid",
-    "price": 106.99,
+    "price": 206.09,
     "description": "Inspired by the game’s greatest, the Air Jordan 2 Mid delivers a premium blend of style and performance. With its sleek silhouette and luxurious leather upper, this sneaker pays tribute to Jordan’s legacy while pushing the boundaries of modern footwear design. The cushioned midsole provides long-lasting comfort, while the bold details—like the iconic Wings logo—make this pair stand out. Whether you're on the court or off, the Air Jordan 2 Mid will ensure you're always at the top of your game.",
     "sizes": [36, 39, 40, 41, 42, 43],
     "images": [
@@ -165,7 +165,7 @@
   {
     "id": "product10",
     "name": "Nike Air",
-    "price": 106.99,
+    "price": 128.99,
     "description": "The Nike Air is designed to bring ultimate comfort and style to your everyday hustle. With its iconic Air cushioning technology, it offers a light, responsive feel underfoot, ensuring that your steps are both soft and supported. The breathable mesh upper provides all-day ventilation, while the sleek silhouette adds a touch of modern elegance to any look. Whether you're running errands or making a statement, the Nike Air is the perfect blend of performance and fashion, giving you confidence with every step.",
     "sizes": [35, 36, 39, 40, 42, 43],
     "images": [

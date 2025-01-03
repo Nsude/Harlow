@@ -1,16 +1,29 @@
 import { useState } from "react";
 import { Product } from "../models";
 import useCustomEffect from "./useCustomEffect";
-import { sortFilters } from "../components/global/ViewProducts";
+import { filterItems, sortFilters } from "../components/global/ViewProducts";
 
 // "Best Selling",
 // "Price: High - Low",
 // "Price: Low - High",
 // "Alphabetically: A - Z",
 // "Alphabetically: Z - A"
+// "Price", "Gender", "Size"
 
-export const useSortProducts = (products: Product[], sortValue: string) => {
+export const useSortProducts = (
+  products: Product[], 
+  sortValue?: string, 
+  range?: {min: number, max: number},
+  size?: number | string
+) => {
   const [sorted, setSorted] = useState<Product[] | null>();
+
+  // if (sortValue?.trim() !== '') {
+  //   range = undefined;
+  //   size = undefined
+  // } else if (size || range?.min) {
+  //   sortValue = undefined
+  // }
 
   const fisherYatesShuffle = (array: any[]) => {
     const shuffledArray = [...array];
@@ -47,6 +60,16 @@ export const useSortProducts = (products: Product[], sortValue: string) => {
           // Z - A
           sortedProducts = products.sort((a, b) => b.name.localeCompare(a.name, "en", { sensitivity: "base" }));
           break;
+        case filterItems[0]: 
+          // price
+          if (!range) return;
+          sortedProducts = products.filter((product) => product.price >= range.min && product.price <= range.max);
+          break;
+        case filterItems[2]:
+          // size 
+          if (!size) return;
+          // sortedProducts = products.filter((product) =>)
+          break;
         default:
           // A - Z
           sortedProducts = products.sort((a, b) => a.name.localeCompare(b.name, "en", { sensitivity: "base" }));
@@ -56,7 +79,7 @@ export const useSortProducts = (products: Product[], sortValue: string) => {
     };
 
     sortProducts();
-  }, [sortValue]);
+  }, [sortValue, range]);
 
   return { sorted };
 };

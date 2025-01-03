@@ -14,6 +14,7 @@ import CloseIcon from "../../assets/icons/CloseIcon";
 import { useSortProducts } from "../../hooks/useSortProducts";
 import OptionsOverlay from "./OptionsOverlay";
 import GlobalAccordion from "./GlobalAccordion";
+import { useCartContext } from "../contexts/CartContext";
 
 export const sortFilters = [
   "Best Selling",
@@ -23,19 +24,23 @@ export const sortFilters = [
   "Alphabetically: Z - A",
 ];
 
+export const filterItems = [
+  "Price", "Gender", "Size"
+]
+
 const ViewProducts = () => {
   const { category, title, product } = useParams();
-  const [toget, setToGet] = useState("");
-  const { data: products } = useGetProducts(toget);
   const [grid, setGrid] = useState("double");
   const device = useDevice();
   const { hideMenuBar, navbarHeight } = useNavContext();
-  const [actions, setActions] = useState({
-    openSort: false,
-    openFilter: false,
-    sortValue: "",
-  });
-  const { sorted: sortedProducts } = useSortProducts(products, actions.sortValue);
+  const [actions, setActions] = useState({ openSort: false, openFilter: false, sortValue: ""});
+  const {filterDetails} = useCartContext();
+
+  const [toget, setToGet] = useState("");
+  const { data: selectedProducts } = useGetProducts(toget);
+  const { sorted: sortedProducts } = useSortProducts(selectedProducts, actions.sortValue, filterDetails?.priceRange, filterDetails?.size );
+
+  const [displayedProds, setDisplayedProds] = useState<Product[]>([]);
   const [filterItems, setFilterItems] = useState([
     {
       title: "Gender",
@@ -46,6 +51,17 @@ const ViewProducts = () => {
     }
   ])
 
+  /* ====== SET PRODUCTS TO DISPLAY ====== */ 
+  useCustomEffect(() => {
+    if (sortedProducts) {
+      setDisplayedProds(sortedProducts)
+    } else if (selectedProducts) {
+      setDisplayedProds(selectedProducts);
+    }
+
+  }, [selectedProducts, sortedProducts])
+
+  /* ====== SET PRODUCTS TO GET ====== */ 
   useCustomEffect(() => {
     if (!category || !product || !title) return;
 
@@ -56,6 +72,8 @@ const ViewProducts = () => {
     }
   }, [category, title, product]);
 
+
+  /* ===== SET ACTIVE GRID ===== */
   const changeGrid = (gridType: string, target: HTMLButtonElement) => {
     // set new active grid
     setGrid(gridType);
@@ -98,7 +116,7 @@ const ViewProducts = () => {
       ))
     }
 
-  }, [products])
+  }, [selectedProducts])
 
   // close menus when user clicks outside 
   useCustomEffect(() => {
@@ -112,6 +130,11 @@ const ViewProducts = () => {
       window.removeEventListener("click", handleClick);
     }
   })
+
+  const handleFilterClick = (sortValue: string) => {
+    if (!sortValue) return;
+    setActions({...actions, sortValue});
+  }
 
   return (
     // view-products-container
@@ -161,10 +184,21 @@ const ViewProducts = () => {
             </div>
 
             <div className="filter-body">
-              <GlobalAccordion title="Prices" children={[]} products={sortedProducts || products}/>
+              <GlobalAccordion 
+                title="Price" 
+                children={[]} 
+                products={displayedProds} 
+                productType={product || ''} 
+                handleClick={handleFilterClick}
+                />
               {
                 filterItems.map((item, i) => (
-                  <GlobalAccordion key={i} title={item.title} children={item.children} />
+                  <GlobalAccordion 
+                    key={i} 
+                    title={item.title} 
+                    children={item.children} 
+                    productType={product || ''}
+                    handleClick={handleFilterClick} />
                 ))
               }
             </div>
@@ -220,7 +254,7 @@ const ViewProducts = () => {
         )}
 
         <div className={`products ${grid.toLowerCase()}`}>
-          {(sortedProducts ?? products)?.map((item) => (
+          {displayedProds.map((item) => (
             <div className="product" key={item.id}>
               <ProductCard image={item} />
             </div>

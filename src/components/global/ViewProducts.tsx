@@ -161,7 +161,7 @@ const ViewProducts = () => {
             </div>
 
             <div className="filter-body">
-              <GlobalAccordion title="Prices" children={[]}/>
+              <GlobalAccordion title="Prices" children={[]} products={sortedProducts || products}/>
               {
                 filterItems.map((item, i) => (
                   <GlobalAccordion key={i} title={item.title} children={item.children} />

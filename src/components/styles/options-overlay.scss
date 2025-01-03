@@ -10,7 +10,6 @@
   z-index: 120;
   background-color: $off-white;
   transform: translateX(110%);
-  padding-bottom: 110px;
 }
 
 @include apply-from(tablet) {

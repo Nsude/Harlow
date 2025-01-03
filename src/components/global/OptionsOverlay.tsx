@@ -1,17 +1,19 @@
-import React, { ReactNode } from 'react'
+import React, { ReactNode, useRef } from 'react'
 import useCustomEffect from '../../hooks/useCustomEffect';
 import { useCartContext } from '../contexts/CartContext';
 import gsap from 'gsap';
 
 interface Props {
-  display?: boolean,
+  display?: boolean
   children: ReactNode
+  rmPadding?: boolean
 }
 
-const OptionsOverlay:React.FC<Props> = ({display, children}) => {
+const OptionsOverlay:React.FC<Props> = ({display, children, rmPadding}) => {
+  const containerRef = useRef(null);
   
   useCustomEffect(() => {
-    gsap.to(".options-overlay", {
+    gsap.to(containerRef.current, {
       x: display ? "0%" : "110%",
       duration: 0.4,
     });
@@ -21,7 +23,7 @@ const OptionsOverlay:React.FC<Props> = ({display, children}) => {
 
   return (
     // options-overlay
-    <div className="options-overlay" onClick={(e) => e.stopPropagation()}>
+    <div ref={containerRef} className='options-overlay' style={{paddingBottom: rmPadding ? 0 : 110}} onClick={(e) => e.stopPropagation()}>
       {children}
     </div>
   )

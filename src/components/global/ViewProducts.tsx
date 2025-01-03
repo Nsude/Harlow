@@ -13,6 +13,7 @@ import MobileOptionsOverlay from "./MobileOptionsOverlay";
 import CloseIcon from "../../assets/icons/CloseIcon";
 import { useSortProducts } from "../../hooks/useSortProducts";
 import OptionsOverlay from "./OptionsOverlay";
+import GlobalAccordion from "./GlobalAccordion";
 
 export const sortFilters = [
   "Best Selling",
@@ -35,6 +36,15 @@ const ViewProducts = () => {
     sortValue: "",
   });
   const { sorted: sortedProducts } = useSortProducts(products, actions.sortValue);
+  const [filterItems, setFilterItems] = useState([
+    {
+      title: "Gender",
+      children: ["Men", "Women", "Kids"]
+    }, {
+      title: "Size",
+      children: ["", 0]
+    }
+  ])
 
   useCustomEffect(() => {
     if (!category || !product || !title) return;
@@ -70,6 +80,26 @@ const ViewProducts = () => {
     });
   };
 
+  /* ===== SET FILTER SIZES FROM PRODUCTS ===== */
+  useCustomEffect(() => {
+    if (toget.toLowerCase() === "sneakers") {
+      setFilterItems((prev) => (
+        prev.map((item) => (
+          item.title.toLowerCase() === "size" ? 
+          {...item, children: [35, 36, 37, 38 ,39, 40, 42, 43, 44, 45] } : item
+        ))
+      ))
+    } else {
+      setFilterItems((prev) => (
+        prev.map((item) => (
+          item.title.toLowerCase() === "size" ?
+          {...item, children: ["M", "L", "XL", "2XL"]} : item
+        ))
+      ))
+    }
+
+  }, [products])
+
   // close menus when user clicks outside 
   useCustomEffect(() => {
     const handleClick = () => {
@@ -91,7 +121,7 @@ const ViewProducts = () => {
         <h2 className="desc">&nbsp; SHOP OUR {title} COLLECTION AND EXPLORE THE LATEST PRODUCTS AND STYLES.</h2>
 
         <div className="header" onClick={(e) => e.stopPropagation()}>
-          <button className="filter">Filter</button>
+          <button className="filter" onClick={() => setActions({ ...actions, openFilter: !actions.openFilter })}>Filter</button>
           <button className="sort" onClick={() => setActions({ ...actions, openSort: !actions.openSort })}>
             Sort by
           </button>
@@ -120,7 +150,32 @@ const ViewProducts = () => {
           </div>
         </div>
 
-        {/* Sort Options */}
+        {/* ===== FILTER OPTIONS ===== */}
+        <OptionsOverlay display={actions.openFilter} rmPadding={true}>
+          <div className="filter-options">
+            <div className="filter-header flex jc-sb">
+              <p>Filter By</p>
+              <button onClick={() => setActions({ ...actions, openFilter: false })}>
+                <CloseIcon />
+              </button>
+            </div>
+
+            <div className="filter-body">
+              <GlobalAccordion title="Prices" children={[]}/>
+              {
+                filterItems.map((item, i) => (
+                  <GlobalAccordion key={i} title={item.title} children={item.children} />
+                ))
+              }
+            </div>
+
+            <button className="filter-footer" onClick={() => setActions({ ...actions, openFilter: false })}>
+              <p>View All Results</p>
+            </button>
+          </div>
+        </OptionsOverlay>
+
+        {/* ===== SORT OPTIONS ===== */}
         {device.width < 768 ? (
           <MobileOptionsOverlay display={actions.openSort}>
             <div className="sort-options-mobile">
@@ -140,7 +195,7 @@ const ViewProducts = () => {
             </div>
           </MobileOptionsOverlay>
         ) : (
-          <OptionsOverlay display={actions.openSort}>
+          <OptionsOverlay display={actions.openSort} rmPadding={true}>
             <div className="sort-options">
               <div className="sort-header flex jc-sb">
                 <p>Sort By</p>

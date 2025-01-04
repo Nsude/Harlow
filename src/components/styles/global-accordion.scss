@@ -1,0 +1,48 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.global-accordion {
+  width: 100%;
+  display: grid;
+  grid-template-rows: 60px 0fr;
+
+  &:first-child {
+    border-block: 1.5px solid rgba($color: $black, $alpha: .4);
+  }
+
+  &:not(:first-child) {
+    border-bottom: 1.5px solid rgba($color: $black, $alpha: .4);
+  }
+
+  button:not(.child-item) {
+    padding: 20px 0;
+    width: 100%;
+    font-family: "HaasBold";
+    text-transform: uppercase;
+  }
+
+  .content {
+    align-items: flex-start;
+    width: 100%;
+    overflow: hidden;
+    opacity: 0;
+  }
+
+  .child-item {
+    font-size: 12px;
+    padding: $m-padding;
+  }
+
+  .price-range {
+    height: 50px;
+    margin-bottom: 20px;
+  }
+
+  .price-range div {
+    width: 100%;
+    height: 100%;
+    border: 1.5px solid rgba($color: $black, $alpha: .4);
+    padding: 5px;
+    text-align: right;
+  }
+}

@@ -7,7 +7,7 @@ export interface IconProps {
 export interface Product {
   id: string;
   name: string;
-  price: number | string;
+  price: number;
   description: string;
   sizes: string[] | number[];
   images: string[];

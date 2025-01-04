@@ -18,12 +18,22 @@ import LogoutIcon from "../../assets/icons/LogoutIcon";
 import { useCartContext } from "../contexts/CartContext";
 
 const Navbar = () => {
-  const { setMenuOpen, menuOpen, selectedOption, setSelectedOption, menuLists, searchOpen, setSearchOpen } =
-    useNavContext();
+  // prettier ignore
+  const {
+    setMenuOpen,
+    menuOpen,
+    selectedOption,
+    setSelectedOption,
+    menuLists,
+    searchOpen,
+    setSearchOpen,
+    navbarHeight,
+    setNavbarHeight,
+    hideMenuBar,
+    setHideMenuBar,
+  } = useNavContext();
   const { colors } = useGlobalContext();
-  const [hideMenuBar, setHideMenuBar] = useState(false);
   const navRef = useRef<HTMLElement | null>(null);
-  const [navbarHeight, setNavbarHeight] = useState(0);
   const device = useDevice();
   const navigate = useNavigate();
   const { currentUser, logout } = useAuth();
@@ -43,7 +53,7 @@ const Navbar = () => {
       let scrollPos = document.documentElement.scrollTop;
 
       // helps prevent scrollbar not being visible on mobile when scrolled to the top
-      if (scrollPos < 200 || searchOpen) {
+      if (scrollPos < 100 || searchOpen) {
         return setHideMenuBar(false);
       }
 
@@ -138,7 +148,7 @@ const Navbar = () => {
             menuLists.map((item, i) => (
               <Link
                 key={item.name}
-                to={`/${item.name.toLocaleLowerCase()}`}
+                to={`/${item.name.toLowerCase()}`}
                 className={`${selectedOption ? "menu-open" : ""}`}
                 onMouseEnter={(e) => {
                   menuOptionHover(item, e);

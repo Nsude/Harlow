@@ -3,10 +3,12 @@ import sneakers from "../../sneakers.json";
 import sweatpants from "../../sweatpants.json";
 import { Product } from "../models";
 import useCustomEffect from "./useCustomEffect";
+import { useDevice } from "./useDevice";
 
 export const useSearch = (query: string) => {
   const [data, setData] = useState<Product[]>([]);
   const [moreFound, setMoreFound] = useState(false);
+  const device = useDevice();
 
   useCustomEffect(() => {
     if (query.trim().length < 2) return setData([]);
@@ -25,10 +27,11 @@ export const useSearch = (query: string) => {
       const sneakerMatches = getMatch(sneakers as Product[]);
       const pantMatches = getMatch(sweatpants as Product[]);
       const combinedMatches = [...sneakerMatches, ...pantMatches];
-      const limitedMatches = combinedMatches.slice(0, 4);
+      const max = device.width > 768 ? 4 : 3;
+      const limitedMatches = combinedMatches.slice(0, max);
 
       setData(limitedMatches);
-      setMoreFound(combinedMatches.length > 4);
+      setMoreFound(combinedMatches.length > max);
     }
   }, [query]);
 

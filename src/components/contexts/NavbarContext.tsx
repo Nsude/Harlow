@@ -18,6 +18,10 @@ interface NavbarProps {
   setSelectedOption: React.Dispatch<React.SetStateAction<string>>;
   searchOpen: boolean;
   setSearchOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  navbarHeight: number;
+  setNavbarHeight: React.Dispatch<React.SetStateAction<number>>;
+  hideMenuBar: boolean;
+  setHideMenuBar: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const NavbarContext = createContext<NavbarProps | undefined>(undefined);
@@ -62,6 +66,8 @@ const NavbarContextProvider: React.FC<{ children: ReactNode }> = ({ children }) 
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
   const [selectedOption, setSelectedOption] = useState("");
   const [searchOpen, setSearchOpen] = useState(false);
+  const [navbarHeight, setNavbarHeight] = useState(0);
+  const [hideMenuBar, setHideMenuBar] = useState(false);
 
   const menuLists: MenuList[] = [
     { name: "Explore" },
@@ -81,6 +87,10 @@ const NavbarContextProvider: React.FC<{ children: ReactNode }> = ({ children }) 
         setSelectedOption,
         searchOpen,
         setSearchOpen,
+        navbarHeight,
+        setNavbarHeight,
+        hideMenuBar,
+        setHideMenuBar,
       }}>
       {children}
     </NavbarContext.Provider>

@@ -8,6 +8,11 @@ interface SelcectedProd {
   orderCount: number;
 }
 
+interface FilterProps {
+  priceRange?: {min: number, max: number}
+  size?: string | number
+}
+
 interface Props {
   selectedProducts: SelcectedProd[];
   setSelectedProducts: React.Dispatch<React.SetStateAction<SelcectedProd[]>>;
@@ -17,6 +22,8 @@ interface Props {
   setOpenCart: React.Dispatch<React.SetStateAction<boolean>>;
   toPreview: { product: Product; selectedSize: string | number } | null;
   setToPreview: React.Dispatch<React.SetStateAction<{ product: Product; selectedSize: string | number } | null>>;
+  filterDetails: FilterProps | null;
+  setFilterDetails: React.Dispatch<React.SetStateAction<FilterProps | null>>
 }
 
 const CartContext = createContext<Props | null>(null);
@@ -31,6 +38,7 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
   const [selectedProducts, setSelectedProducts] = useState<SelcectedProd[]>([]);
   const [openCart, setOpenCart] = useState(false);
   const [toPreview, setToPreview] = useState<{ product: Product; selectedSize: string | number } | null>(null);
+  const [filterDetails, setFilterDetails] = useState<FilterProps | null>(null);
 
   // update cart locally and in local storage
   const addToCart = (product: Product, selectedSize: string | number) => {
@@ -76,7 +84,9 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
   };
 
   useCustomEffect(() => {
-    const storedProducts = JSON.parse(localStorage.getItem("selectedProducts") || "");
+    const stored = localStorage.getItem("selectedProducts");
+    if (!stored) return;
+    const storedProducts = JSON.parse(stored);
     if (!storedProducts) return;
     setSelectedProducts(storedProducts);
   }, []);
@@ -92,6 +102,8 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
         setOpenCart,
         toPreview,
         setToPreview,
+        filterDetails,
+        setFilterDetails
       }}>
       {children}
     </CartContext.Provider>

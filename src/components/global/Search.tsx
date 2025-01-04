@@ -7,6 +7,7 @@ import gsap from "gsap";
 import { useNavContext } from "../contexts/NavbarContext";
 import { useSearch } from "../../hooks/useSearch";
 import ProductCard from "./ProductCard";
+import { useDevice } from "../../hooks/useDevice";
 
 interface Props {
   navbarHeight: number;
@@ -18,6 +19,7 @@ const Search: React.FC<Props> = ({ navbarHeight }) => {
   const [query, setQuery] = useState("");
   const searchContainer = useRef(null);
   const { data: matches, moreFound } = useSearch(query);
+  const device = useDevice();
 
   // expand search dialogue
   useCustomEffect(() => {
@@ -25,7 +27,7 @@ const Search: React.FC<Props> = ({ navbarHeight }) => {
 
     if (query) {
       gsap.to(searchContainer.current, {
-        height: matches.length === 0 && query.trim() !== "" ? "32%" : "70%",
+        height: matches.length === 0 && query.trim() !== "" ? "32%" : device.width < 768 ? "90dvh" : "70%",
         duration: 0,
       });
     } else {
@@ -104,7 +106,7 @@ const Search: React.FC<Props> = ({ navbarHeight }) => {
                   </div>
                 ))}
               </div>
-              {moreFound ? <button className="no-bg view-all-btn">View All</button> : ""}
+              {moreFound ? <button className="no-bg view-all-btn">View All Results</button> : ""}
             </div>
           </div>
         ) : matches.length === 0 && query.trim() !== "" ? (

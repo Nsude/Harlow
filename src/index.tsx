@@ -12,6 +12,7 @@ import { GlobalContextProvider } from "./components/contexts/GlobalContex";
 import ProductPage from "./components/global/ProductPage";
 import Layout from "./components/global/Layout";
 import { CartProvider } from "./components/contexts/CartContext";
+import ViewProducts from "./components/global/ViewProducts";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
       {
         path: "/product-page/:id",
         element: <ProductPage />,
+      },
+      {
+        path: "/view-products/:category/:title/:product",
+        element: <ViewProducts />,
       },
       {
         path: "/login",

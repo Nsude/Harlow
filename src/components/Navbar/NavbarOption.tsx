@@ -58,11 +58,11 @@ const NavbarOption: React.FC<Props> = ({ option, setOption }) => {
 
       <div className={"nav-options switch-prev " + menuOpenAnim}>
         {activeMenu?.items &&
-          activeMenu.items.map((item) =>
+          activeMenu.items.map((item, i) =>
             !item.title.includes("Sizes") ? (
-              <Accordion key={item.title} title={item.title} children={item.children} />
+              <Accordion key={i} title={item.title} children={item.children} activeOption={activeMenu.name} />
             ) : activeMenu.name.includes("Kids") ? (
-              <Accordion key={item.title} title={item.title} children={item.children} />
+              <Accordion key={i} title={item.title} children={item.children} activeOption={activeMenu.name} />
             ) : (
               ""
             )

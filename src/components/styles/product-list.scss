@@ -43,6 +43,7 @@
   }
 
   .product {
+    scroll-snap-align: start;
     min-width: 100%;
   }
 }

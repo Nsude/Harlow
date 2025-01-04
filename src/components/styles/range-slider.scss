@@ -1,0 +1,55 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.range-slider {
+  width: 100%;
+  position: relative;
+
+  .slider {
+    width: 100%;
+    display: grid;
+  }
+
+  input[type="range"]{
+    width: 100%;
+    pointer-events: none;
+    grid-row: 1;
+    grid-column: 1;
+    appearance: none;
+    position: relative;
+    background: none;
+    z-index: 5;
+
+
+    &::-webkit-slider-thumb {
+      pointer-events: all;
+      appearance: none;
+      width: 15px;
+      aspect-ratio: 1 / 1;
+      border: 2px solid $black;
+      background-color: $off-white;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+  }
+
+  .range-progress {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    background-color: rgba($color: $black, $alpha: .3);
+    height: 3px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    border-radius: 10px;
+  }
+
+  .progress-bar {
+    position: absolute;
+    height: 100%;
+    background-color: $black;
+    cursor: e-resize;
+  }
+  
+}

@@ -3,10 +3,21 @@ import LinkArrowIcon from "../../assets/icons/LinkArrowIcon";
 import { useGlobalContext } from "../contexts/GlobalContex";
 import { gsap } from "gsap";
 import useCustomEffect from "../../hooks/useCustomEffect";
+import { useNavigate } from "react-router-dom";
+import { useNavContext } from "../contexts/NavbarContext";
 
-const DesktopMenuITem: React.FC<{ name: string }> = ({ name }) => {
+interface Props {
+  name: string; // product-name
+  title: string;
+  currentMenu: string;
+  closeDesktopMenu: () => void;
+}
+
+const DesktopMenuITem: React.FC<Props> = ({ name, title, currentMenu, closeDesktopMenu }) => {
   const { colors } = useGlobalContext();
   const [animate, setAnimate] = useState(false);
+  const navigate = useNavigate();
+  const { setMenuOpen } = useNavContext();
 
   /* Element Refs */
   const firstCopy = createRef<HTMLSpanElement>();
@@ -52,10 +63,16 @@ const DesktopMenuITem: React.FC<{ name: string }> = ({ name }) => {
     }
   }, [animate]);
 
+  const handleClick = () => {
+    closeDesktopMenu();
+    navigate(`/view-products/${currentMenu}/${title}/${name}`);
+  };
+
   return (
     <button
       onMouseEnter={() => setAnimate(true)}
       onMouseLeave={() => setAnimate(false)}
+      onClick={handleClick}
       className="nav-listItem-container flex">
       <span ref={firstCopy}>{name}</span>
       <div ref={secondCopy} className="second-item-copy flex cg-5">

@@ -1,0 +1,45 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.mo-overlay {
+  .backdrop {
+    background-color: rgb(201, 201, 201);
+    bottom: 15px;
+    min-height: 330px;
+    max-height: 100%;
+    width: 90%;
+    left: 50%;
+    transform: translateX(-50%);
+    position: fixed;
+    z-index: 102;
+    border-radius: 25px 25px 0 0;
+  }
+
+  .overlay {
+    position: fixed;
+    z-index: 102;
+    left: 0;
+    bottom: 0;
+    height: 330px;
+    width: 100%;
+    border-radius: 25px 25px 0 0;
+    background: $off-white;
+    padding: 20px;
+  }
+}
+
+@include apply-from(tablet) {
+  .mo-overlay {
+    .overlay {
+      position: fixed;
+      top: 80px;
+      right: 35px;
+      width: 400px;
+      border-radius: 20px;
+    }
+
+    .backdrop {
+      display: none;
+    }
+  }
+}

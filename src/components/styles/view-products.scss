@@ -1,0 +1,230 @@
+@use "variables" as *;
+@use "mixins" as *;
+
+.vp-overlay {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  background-color: rgba($color: $black, $alpha: 0.5);
+  z-index: 100;
+}
+
+.vp-container {
+  margin-block: 100px;
+
+  .header {
+    height: 50px;
+    width: 100%;
+    position: sticky;
+    background-color: $off-white;
+    border-block: 1.5px solid rgba($color: $black, $alpha: 0.4);
+    top: 0;
+    z-index: 10;
+    margin-bottom: 60px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr) 100px;
+  }
+
+  .filter,
+  .sort {
+    border-right: 1.5px solid rgba($color: $black, $alpha: 0.4);
+    position: relative;
+  }
+
+  .filter,
+  .sort {
+    font-family: "HaasBold";
+    text-transform: uppercase;
+    font-size: 12px;
+    opacity: 0.6;
+    transition: opacity 200ms ease-out;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  .display button {
+    opacity: 0.6;
+    transition: opacity 200ms ease-out;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  .display button.active-grid {
+    opacity: 1;
+  }
+
+  .desc {
+    text-transform: uppercase;
+    text-align: justify;
+    font-family: "HaasBold";
+    margin-bottom: 20px;
+    padding-inline: 20px;
+  }
+
+  /* ====== SORT OPTIONS ====== */
+  .sort-options-mobile {
+    .top p {
+      text-transform: uppercase;
+      font-family: "HaasBold", Helvetica, sans-serif;
+    }
+
+    button {
+      font-size: 12px;
+      font-family: "HaasRegular";
+      transition: opacity 200ms ease-out;
+    }
+
+    button:hover,
+    button:active {
+      opacity: 1;
+    }
+
+    .sort-body {
+      margin-top: 50px;
+      row-gap: 25px;
+    }
+  }
+
+  /* ===== FILTER OPTIONS ===== */
+  .filter-options {
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    position: relative;
+
+    .filter-header p {
+      font-family: "HaasBold", Helvetica, sans-serif;
+      text-transform: uppercase;
+    }
+
+    .filter-body {
+      margin-top: 100px;
+    }
+
+    .filter-footer {
+      position: absolute;
+      left: 0;
+      width: 100%;
+      padding: 20px;
+      bottom: 0;
+      transition: opacity 200ms ease-out;
+      border-top: 1.5px solid rgba($color: $black, $alpha: 0.4);
+
+      &:hover {
+        opacity: .4;
+      }
+    }
+  }
+
+  .products {
+    display: grid;
+    overflow: hidden;
+    gap: 10px;
+    padding-inline: 20px;
+  }
+
+  .products.single {
+    grid-template-columns: 100%;
+  }
+
+  .products.double,
+  .products.multi {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@include apply-from(tablet) {
+  .vp-container {
+    .header {
+      height: 55px;
+    }
+
+    /* ===== SORT OPTION TABLET & DESKTOP ===== */
+    .sort-options {
+      width: 100%;
+      height: 100%;
+      padding: 20px;
+      position: relative;
+
+      .sort-header p {
+        font-family: "HaasBold", Helvetica, sans-serif;
+        text-transform: uppercase;
+      }
+
+      .sort-body {
+        align-items: start;
+        margin-top: 100px;
+      }
+
+      .sort-body button {
+        text-align: left;
+        font-size: 12px;
+        width: 100%;
+        padding-block: 20px;
+        border-top: 1.5px solid rgba($color: $black, $alpha: 0.4);
+        transition: opacity 200ms ease-out;
+
+        &:last-child {
+          border-bottom: 1.5px solid rgba($color: $black, $alpha: 0.4);
+        }
+
+        &:hover {
+          opacity: .4;
+        }
+      }
+
+      .sort-footer {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        bottom: 0;
+        padding: 20px;
+        border-top: 1.5px solid rgba($color: $black, $alpha: 0.4);
+
+        &:hover p {
+          opacity: .4;
+        }
+      }
+
+      .sort-footer p {
+        font-size: 12px;
+        transition: opacity 200ms ease-out;
+      }
+    }
+
+    .desc {
+      width: 60%;
+      position: relative;
+      left: 40%;
+      font-size: $header;
+    }
+
+    .products.multi {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
+
+@include apply-from(desktop) {
+  .vp-container {
+    .desc {
+      width: 40%;
+      left: 60%;
+      font-size: 45px;
+    }
+
+    .products.double {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .products.multi {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+}

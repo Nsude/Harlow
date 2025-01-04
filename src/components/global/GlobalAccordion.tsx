@@ -36,6 +36,11 @@ const GlobalAccordion: React.FC<AccordionProps> = ({ title, children, products, 
     setFilterDetails({...filterDetails, priceRange});
   }, [priceRange])
 
+  useCustomEffect(() => {
+    if (!priceRange) return;
+    setFilterDetails({...filterDetails, priceRange});
+  }, [priceRange])
+
   /* OPEN AND CLOSE ACCORDION */
   useCustomEffect(() => {
     const tl = gsap.timeline();
@@ -88,8 +93,7 @@ const GlobalAccordion: React.FC<AccordionProps> = ({ title, children, products, 
             {children.map((child, i) => (
               <button key={i} 
                 className="child-item flex fd-c" 
-                onClick={() => handleClick(title)} 
-                onTouchStart={() => handleClick(title)}>
+                onClick={() => {handleClick(title); setFilterDetails({...filterDetails, size: child})}} >
                 {child}
               </button>
               ))}

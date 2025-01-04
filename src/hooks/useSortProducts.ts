@@ -61,7 +61,7 @@ export const useSortProducts = (
         case filterItems[2]:
           // size 
           if (!size) return;
-          // sortedProducts = products.filter((product) =>)
+          sortedProducts = products.filter((prod) => prod.sizes.some(s => String(s) === String(size)));
           break;
         default:
           // A - Z
@@ -72,7 +72,7 @@ export const useSortProducts = (
     };
 
     sortProducts();
-  }, [sortValue, range]);
+  }, [sortValue, range, size]);
 
   return { sorted };
 };

@@ -10,6 +10,8 @@ import placeholder from "../../assets/media/images/placeholderImage.png";
 import { useCartContext } from "../contexts/CartContext";
 import ProductCard from "./ProductCard";
 
+const buttonStyles = {width: "100%", display: "flex", justifyContent: "center", paddingBlock: "22px"};
+
 const ProductPage = () => {
   const { id } = useParams();
   const { selectedProd: product } = useSelectedProduct(id || "");
@@ -40,7 +42,7 @@ const ProductPage = () => {
               <h4>Available Sizes</h4>
               <ProductSizes selectedSize={selectedSize} sizes={product.sizes} setSelctedSize={setSelectedSize} />
             </div>
-            <div className="cta flex cg-10">
+            <div className="cta flex fd-c rg-10">
               <ButtonSolidOverlay
                 text="Buy Now"
                 disable={!selectedSize ? true : false}
@@ -49,6 +51,7 @@ const ProductPage = () => {
                 defaultColor={colors.offWhite}
                 arrowIcon={true}
                 bg={colors.black}
+                otherStyles={buttonStyles}
               />
 
               <ButtonSolidOverlay
@@ -57,6 +60,7 @@ const ProductPage = () => {
                 disable={!selectedSize ? true : false}
                 bg={colors.gray}
                 fg={colors.offWhite}
+                otherStyles={buttonStyles}
                 handleClick={() => updateCart(product)}
               />
             </div>

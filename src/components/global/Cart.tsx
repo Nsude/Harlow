@@ -33,7 +33,7 @@ const Cart = () => {
   useCustomEffect(() => {
     gsap.to(".cart-overlay", {
       display: openCart ? "block" : "none",
-      duration: 0
+      duration: .1
     });
   }, [openCart]);
 

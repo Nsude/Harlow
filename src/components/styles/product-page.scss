@@ -39,12 +39,6 @@
     font-size: $body-copy;
     font-weight: 300;
   }
-
-  .cta {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-  }
 }
 
 @include apply-from(tablet) {
@@ -67,7 +61,8 @@
 @include apply-from(desktop) {
   .product-page-container {
     padding-top: 150px;
-    width: 65%;
+    width: 53%;
+    min-width: 1000px;
     margin-inline: auto;
     grid-template-columns: 60% 40%;
     grid-template-rows: 100%;

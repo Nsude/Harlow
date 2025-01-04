@@ -41,20 +41,19 @@
   }
 
   .body {
+    position: absolute;
     justify-content: flex-start;
     padding-inline: 20px;
     overflow-x: hidden;
     overflow-y: scroll;
+    padding-bottom: 30px;
+    height: 80%;
   }
 
   h2 {
     font-size: $body-copy;
     text-transform: uppercase;
     font-family: "HaasBold";
-  }
-
-  .body {
-    height: 90%;
   }
 
   .products {
@@ -66,7 +65,7 @@
   }
 
   .item {
-    padding-block: 20px;
+    padding: 20px 0 10px 0;
   }
 
   .count {

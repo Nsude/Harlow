@@ -40,6 +40,14 @@
     text-wrap: nowrap;
   }
 
+}
+
+@include apply-from(desktop) {
+  .button-solid-overlay {
+    padding: 12px 25px;
+    padding-left: 23px;
+  }
+  
   .btn-overlay {
     position: absolute;
     left: 0px;
@@ -50,12 +58,5 @@
     z-index: 1;
     border-radius: 30px;
     clip-path: circle(0% at 50% 50%);
-  }
-}
-
-@include apply-from(desktop) {
-  .button-solid-overlay {
-    padding: 12px 25px;
-    padding-left: 23px;
   }
 }

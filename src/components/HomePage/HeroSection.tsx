@@ -22,7 +22,7 @@ const HeroSection = () => {
     const hero = document.querySelector(".hero-section-container");
     const handleLoad = () => {
       if (!hero) return;
-      // hero.scrollIntoView({ behavior: "smooth" });
+      hero.scrollIntoView({ behavior: "smooth" });
     };
 
     window.addEventListener("load", handleLoad);

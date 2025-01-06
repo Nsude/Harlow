@@ -33,6 +33,17 @@
     padding: $m-padding;
   }
 
+  div.price-con {
+    position: relative;
+
+    span {
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+
   .price-range {
     height: 50px;
     margin-bottom: 20px;
@@ -42,7 +53,7 @@
     width: 100%;
     height: 100%;
     border: 1.5px solid rgba($color: $black, $alpha: .4);
-    padding: 5px;
+    padding: 10px;
     text-align: right;
   }
 }

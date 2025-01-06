@@ -77,9 +77,15 @@ const GlobalAccordion: React.FC<AccordionProps> = ({ title, children, products, 
           title.toLowerCase() === "price" ? (
             <div className="child-item">
               <div className="price-range flex jc-sb cg-15">
-                <div> $ {priceRange.min} </div>
+                <div className="price-con"> 
+                  <span>$</span>
+                  {priceRange.min} 
+                </div>
                 <span>to</span>
-                <div> $ {priceRange.max} </div>
+                <div className="price-con"> 
+                  <span>$</span>
+                  {priceRange.max} 
+                </div>
               </div>
               {
                 value && 

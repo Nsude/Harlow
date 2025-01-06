@@ -2,7 +2,7 @@
   {
     "id": "product001",
     "name": "Jordan Brooklyn Fleece",
-    "price": 63.99,
+    "price": 126.99,
     "description": "The Jordan Brooklyn Fleece is the perfect blend of warmth, comfort, and style. Made from premium materials, it offers a cozy feel that’s ideal for any casual occasion. The sleek, minimalist design makes it versatile for both lounging and outdoor activities, while the classic Jordan branding adds an authentic touch. Whether you're hitting the streets or relaxing at home, this fleece brings effortless style and comfort.",
     "sizes": ["M", "L", "2XL"],
     "images": [
@@ -18,7 +18,7 @@
   {
     "id": "product002",
     "name": "Nike Therma",
-    "price": 77.03,
+    "price": 140.03,
     "description": "Stay warm and comfortable with the Nike Therma sweatpants. Featuring Nike's signature Therma fabric, these sweatpants are designed to keep you cozy without compromising on style. Perfect for those colder days when you need a layer of warmth, they’re crafted with a modern cut that offers flexibility and freedom of movement. Whether for workouts or casual outings, the Nike Therma sweatpants combine function with sleek athletic design.",
     "sizes": ["M", "XL", "2XL"],
     "images": [
@@ -36,7 +36,7 @@
   {
     "id": "product003",
     "name": "Nike Solo Woosh",
-    "price": 83.99,
+    "price": 199.99,
     "description": "Step into comfort and style with the Nike Solo Woosh sweatpants. Crafted with a soft, lightweight material, these sweatpants are perfect for both athletic and everyday wear. The iconic Nike swoosh branding adds a sporty edge, while the elastic waistband ensures a secure and adjustable fit. Whether you’re gearing up for a workout or relaxing at home, the Nike Solo Woosh sweatpants offer comfort that moves with you.",
     "sizes": ["L", "XL", "2XL"],
     "images": [
@@ -55,7 +55,7 @@
   {
     "id": "product004",
     "name": "Nike Solo Woosh",
-    "price": 63.99,
+    "price": 102.55,
     "description": "The Nike Solo Woosh sweatpants are crafted for ultimate comfort and performance. With a clean design and soft, breathable fabric, these sweatpants are ideal for everyday wear or a workout session. Featuring the iconic Nike swoosh, these pants are perfect for anyone who values both style and functionality.",
     "sizes": ["M", "L", "2XL"],
     "images": [
@@ -73,7 +73,7 @@
   {
     "id": "product005",
     "name": "Jordan Essentials",
-    "price": 59.99,
+    "price": 155.99,
     "description": "Designed for comfort and style, the Jordan Essentials sweatpants provide the perfect balance between casual and athletic wear. Whether you’re relaxing or on the move, these sweatpants offer a soft, breathable fit that keeps you comfortable throughout the day. The signature Jordan logo adds a sporty touch to your look.",
     "sizes": ["M", "L", "XL"],
     "images": [
@@ -91,7 +91,7 @@
   {
     "id": "product006",
     "name": "Nike Sportswear Club Fleece",
-    "price": 59.99,
+    "price": 115.99,
     "description": "The Nike Sportswear Club Fleece sweatpants are designed for relaxed comfort. Crafted with a soft fleece fabric, they’re perfect for casual days or lounging. The athletic cut and ribbed cuffs ensure a secure fit, while the Nike logo brings a stylish, sporty vibe. Keep cozy and look great wherever you go.",
     "sizes": ["M", "XL", "2XL"],
     "images": [
